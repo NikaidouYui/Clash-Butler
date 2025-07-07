@@ -162,14 +162,18 @@ async fn run(config: Settings) {
         info!("当前总可用节点个数：{}", &useful_proxies.len());
     }
 
-    if config.fast_mode {
-        SubManager::save_proxies_into_clash_file(
-            &useful_proxies,
-            release_clash_template_path.to_string(),
-            release_yaml_path.to_string_lossy().to_string(),
-        );
-        info!("release 文件地址：{}", release_yaml_path.to_string_lossy());
-    } else {
+    // 先生成快速模式的配置文件（只测试连通性，保留更多节点）
+    let fast_yaml_path = env::current_dir().unwrap().join("clash-fast.yaml");
+    SubManager::save_proxies_into_clash_file(
+        &useful_proxies,
+        release_clash_template_path.to_string(),
+        fast_yaml_path.to_string_lossy().to_string(),
+    );
+    info!("快速模式配置文件地址：{}", fast_yaml_path.to_string_lossy());
+    info!("快速模式节点数量：{}", useful_proxies.len());
+
+    // 如果启用了快速模式，同时也生成完整处理的配置文件
+    if !config.fast_mode {
         let mut clash_meta = ClashMeta::new(external_port, mixed_port);
         SubManager::save_proxies_into_clash_file(
             &useful_proxies,
@@ -195,17 +199,25 @@ async fn run(config: Settings) {
                 clash_meta.stop().unwrap();
                 return;
             }
-            let mut i = 0;
-            while i < nodes.len() {
-                let node = &nodes[i];
+            
+            // 使用 retain 方法安全地过滤节点，避免索引问题
+            let mut nodes_to_process = nodes.clone();
+            let mut processed_nodes = Vec::new();
+            
+            for node in &nodes_to_process {
+                info!("正在处理节点: {}", node);
+                let mut should_keep_node = false;
+                
                 let ip_result = clash_meta
                     .set_group_proxy(TEST_PROXY_GROUP_NAME, node)
                     .await;
+                    
                 if ip_result.is_ok() {
                     let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url).await;
                     if ip_result.is_ok() {
                         let (proxy_ip, from) = ip_result.unwrap();
                         info!("「{}」ip: {} from: {}", node, proxy_ip, from);
+                        
                         let mut openai_is_ok = false;
                         match website::openai_is_ok(&clash_meta.proxy_url).await {
                             Ok(_) => {
@@ -228,32 +240,35 @@ async fn run(config: Settings) {
                             }
                         }
 
-                        let ip_detail_result =
-                            ip::get_ip_detail(&proxy_ip, &clash_meta.proxy_url).await;
-                        match ip_detail_result {
-                            Ok(ip_detail) => {
-                                info!("{:?}", ip_detail);
-                                if config.rename_node {
-                                    let mut new_name = config
-                                        .rename_pattern
-                                        .replace("${IP}", &proxy_ip.to_string())
-                                        .replace("${COUNTRYCODE}", &ip_detail.country_code)
-                                        .replace("${ISP}", &ip_detail.isp)
-                                        .replace("${CITY}", &ip_detail.city);
-                                    if openai_is_ok {
-                                        new_name += "_OpenAI";
+                        // 只要有一个服务可用就保留节点（放宽过滤条件）
+                        if openai_is_ok || claude_is_ok {
+                            should_keep_node = true;
+                            processed_nodes.push(node.clone());
+                            
+                            let ip_detail_result =
+                                ip::get_ip_detail(&proxy_ip, &clash_meta.proxy_url).await;
+                            match ip_detail_result {
+                                Ok(ip_detail) => {
+                                    info!("{:?}", ip_detail);
+                                    if config.rename_node {
+                                        let mut new_name = config
+                                            .rename_pattern
+                                            .replace("${IP}", &proxy_ip.to_string())
+                                            .replace("${COUNTRYCODE}", &ip_detail.country_code)
+                                            .replace("${ISP}", &ip_detail.isp)
+                                            .replace("${CITY}", &ip_detail.city);
+                                        if openai_is_ok {
+                                            new_name += "_OpenAI";
+                                        }
+                                        if claude_is_ok {
+                                            new_name += "_Claude";
+                                        }
+                                        node_rename_map.insert(node.clone(), new_name);
                                     }
-                                    if claude_is_ok {
-                                        new_name += "_Claude";
-                                    }
-                                    node_rename_map.insert(node.clone(), new_name);
                                 }
-                            }
-                            Err(e) => {
-                                error!("获取节点 {node} 的 IP 信息失败, {e}");
-                                if !openai_is_ok && !claude_is_ok {
-                                    nodes.remove(i);
-                                } else {
+                                Err(e) => {
+                                    error!("获取节点 {} 的 IP 信息失败, {}", node, e);
+                                    // 即使获取IP信息失败，只要有服务可用就保留节点
                                     let mut new_name = proxy_ip.to_string();
                                     if openai_is_ok {
                                         new_name += "_OpenAI";
@@ -264,18 +279,22 @@ async fn run(config: Settings) {
                                     node_rename_map.insert(node.clone(), new_name);
                                 }
                             }
+                        } else {
+                            error!("节点 {} OpenAI 和 Claude 都不可用，已过滤", node);
                         }
                     } else {
                         let err_msg = ip_result.err().unwrap();
-                        error!("获取节点 {} 的 IP 失败, {}", node, err_msg);
-                        nodes.remove(i);
+                        error!("获取节点 {} 的 IP 失败, 获取不到 IP 地址，可能节点已失效，已过滤", node);
                     }
                 } else {
                     let err_msg = ip_result.err().unwrap();
                     error!("设置节点 {} 失败, {}", node, err_msg);
                 }
-                i += 1;
             }
+            
+            // 更新节点列表为处理后的节点
+            *nodes = processed_nodes;
+            info!("节点处理完成，剩余可用节点数量: {}", nodes.len());
         }
 
         let mut release_proxies = useful_proxies
@@ -300,8 +319,11 @@ async fn run(config: Settings) {
             release_clash_template_path.to_string(),
             release_yaml_path.to_string_lossy().to_string(),
         );
-        info!("release 文件地址：{}", release_yaml_path.to_string_lossy());
+        info!("完整处理配置文件地址：{}", release_yaml_path.to_string_lossy());
+        info!("完整处理节点数量：{}", release_proxies.len());
         clash_meta.stop().unwrap();
+    } else {
+        info!("快速模式已启用，跳过完整处理流程");
     }
 }
 

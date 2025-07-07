@@ -5,8 +5,10 @@ fast_mode = false
 # 支持网络地址 https://xxx
 # 支持本地地址（绝对地址）/User/xxx/xx.yml
 # 支持单个订阅链接，ss://xxx
+
+#"https://clash.nikaidouyui.top"
 subs = [
-"https://clash.nikaidouyui.top"
+"https://clash.nikaidouyui.top/?name=%E9%A6%99%E6%B8%AF"
 ]
 
 # 是否重命名节点，打开后会使用 geoip 等方式进行代理真实 IP 和地理地址查询

@@ -134,24 +134,49 @@ jobs:
           echo "end_time=$END_TIME" >> $GITHUB_OUTPUT
           
           # 检查生成的文件
-          if [ -f "clash.yaml" ]; then
-            PROXY_COUNT=$(grep -c "^  - name:" clash.yaml 2>/dev/null || echo "0")
-            echo "proxy_count=$PROXY_COUNT" >> $GITHUB_OUTPUT
-            echo "生成的代理节点数量: $PROXY_COUNT"
+          TOTAL_PROXY_COUNT=0
+          
+          # 检查快速模式配置文件
+          if [ -f "clash-fast.yaml" ]; then
+            FAST_PROXY_COUNT=$(grep -c "^  - name:" clash-fast.yaml 2>/dev/null || echo "0")
+            echo "fast_proxy_count=$FAST_PROXY_COUNT" >> $GITHUB_OUTPUT
+            echo "快速模式代理节点数量: $FAST_PROXY_COUNT"
             
-            # 显示文件大小
-            FILE_SIZE=$(du -h clash.yaml 2>/dev/null | cut -f1 || echo "未知")
-            echo "配置文件大小: $FILE_SIZE"
-            echo "file_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+            FAST_FILE_SIZE=$(du -h clash-fast.yaml 2>/dev/null | cut -f1 || echo "未知")
+            echo "快速模式配置文件大小: $FAST_FILE_SIZE"
+            echo "fast_file_size=$FAST_FILE_SIZE" >> $GITHUB_OUTPUT
+            
+            TOTAL_PROXY_COUNT=$((TOTAL_PROXY_COUNT + FAST_PROXY_COUNT))
+          else
+            echo "fast_proxy_count=0" >> $GITHUB_OUTPUT
+            echo "fast_file_size=未生成" >> $GITHUB_OUTPUT
+            echo "未找到生成的 clash-fast.yaml 文件"
+          fi
+          
+          # 检查完整处理配置文件
+          if [ -f "clash.yaml" ]; then
+            FULL_PROXY_COUNT=$(grep -c "^  - name:" clash.yaml 2>/dev/null || echo "0")
+            echo "full_proxy_count=$FULL_PROXY_COUNT" >> $GITHUB_OUTPUT
+            echo "完整处理代理节点数量: $FULL_PROXY_COUNT"
+            
+            FULL_FILE_SIZE=$(du -h clash.yaml 2>/dev/null | cut -f1 || echo "未知")
+            echo "完整处理配置文件大小: $FULL_FILE_SIZE"
+            echo "full_file_size=$FULL_FILE_SIZE" >> $GITHUB_OUTPUT
             
             # 显示文件的前几行以验证格式
-            echo "配置文件前 5 行:"
+            echo "完整处理配置文件前 5 行:"
             head -n 5 clash.yaml || echo "无法读取文件内容"
+            
+            TOTAL_PROXY_COUNT=$((TOTAL_PROXY_COUNT + FULL_PROXY_COUNT))
           else
-            echo "proxy_count=0" >> $GITHUB_OUTPUT
-            echo "file_size=未生成" >> $GITHUB_OUTPUT
+            echo "full_proxy_count=0" >> $GITHUB_OUTPUT
+            echo "full_file_size=未生成" >> $GITHUB_OUTPUT
             echo "未找到生成的 clash.yaml 文件"
           fi
+          
+          # 设置总节点数量
+          echo "proxy_count=$TOTAL_PROXY_COUNT" >> $GITHUB_OUTPUT
+          echo "总代理节点数量: $TOTAL_PROXY_COUNT"
           
       - name: Upload run logs
         if: always()
@@ -167,8 +192,8 @@ jobs:
         if: steps.run_butler.outputs.status == 'success'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 自动更新 Clash 配置 - ${{ steps.run_butler.outputs.proxy_count }} 个可用节点"
-          file_pattern: "clash.yaml"
+          commit_message: "🤖 自动更新 Clash 配置 - 快速模式: ${{ steps.run_butler.outputs.fast_proxy_count }} 个节点, 完整处理: ${{ steps.run_butler.outputs.full_proxy_count }} 个节点"
+          file_pattern: "clash.yaml clash-fast.yaml"
           
       - name: Send success email notification
         if: steps.run_butler.outputs.status == 'success'
@@ -178,7 +203,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "✅ Clash Butler 每日更新成功 - ${{ steps.run_butler.outputs.proxy_count }} 个节点"
+          subject: "✅ Clash Butler 每日更新成功 - 快速模式: ${{ steps.run_butler.outputs.fast_proxy_count }} 个节点, 完整处理: ${{ steps.run_butler.outputs.full_proxy_count }} 个节点"
           to: ${{ secrets.EMAIL_TO }}
           from: ${{ secrets.EMAIL_FROM }}
           html_body: |
@@ -187,21 +212,30 @@ jobs:
             <h3>📊 更新统计</h3>
             <ul>
               <li><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</li>
-              <li><strong>可用节点数量:</strong> ${{ steps.run_butler.outputs.proxy_count }} 个</li>
-              <li><strong>配置文件大小:</strong> ${{ steps.run_butler.outputs.file_size }}</li>
+              <li><strong>快速模式节点数量:</strong> ${{ steps.run_butler.outputs.fast_proxy_count }} 个</li>
+              <li><strong>快速模式文件大小:</strong> ${{ steps.run_butler.outputs.fast_file_size }}</li>
+              <li><strong>完整处理节点数量:</strong> ${{ steps.run_butler.outputs.full_proxy_count }} 个</li>
+              <li><strong>完整处理文件大小:</strong> ${{ steps.run_butler.outputs.full_file_size }}</li>
+              <li><strong>总节点数量:</strong> ${{ steps.run_butler.outputs.proxy_count }} 个</li>
               <li><strong>执行状态:</strong> ✅ 成功</li>
             </ul>
             
             <h3>🔗 相关链接</h3>
             <ul>
               <li><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></li>
-              <li><strong>最新配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash.yaml">clash.yaml</a></li>
+              <li><strong>快速模式配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash-fast.yaml">clash-fast.yaml</a></li>
+              <li><strong>完整处理配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash.yaml">clash.yaml</a></li>
               <li><strong>执行日志:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">查看详细日志</a></li>
             </ul>
             
             <h3>📝 使用说明</h3>
-            <p>您可以直接使用以下链接作为 Clash 订阅地址：</p>
-            <code>${{ github.server_url }}/${{ github.repository }}/raw/master/clash.yaml</code>
+            <p>您可以根据需要选择以下任一链接作为 Clash 订阅地址：</p>
+            <ul>
+              <li><strong>快速模式（包含更多节点，如香港节点）:</strong><br>
+                  <code>${{ github.server_url }}/${{ github.repository }}/raw/master/clash-fast.yaml</code></li>
+              <li><strong>完整处理（经过 OpenAI/Claude 测试和重命名）:</strong><br>
+                  <code>${{ github.server_url }}/${{ github.repository }}/raw/master/clash.yaml</code></li>
+            </ul>
             
             <hr>
             <p><em>此邮件由 GitHub Actions 自动发送 | 执行ID: ${{ github.run_id }}</em></p>
