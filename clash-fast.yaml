@@ -86,7 +86,7 @@ proxies:
     headers:
       Host: 3DdDf.444652.xYZ
     path: /9dZlJLjHHrL0VwSolbqFpg
-- name: github.com/Ruk1ng001_47
+- name: github.com/Ruk1ng001_46
   network: ws
   port: 8880
   server: 172.66.3.20
@@ -97,7 +97,7 @@ proxies:
     headers:
       Host: us.laoyoutiao.link
     path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
-- name: github.com/Ruk1ng001_49
+- name: github.com/Ruk1ng001_47
   network: ws
   port: 8880
   server: 162.159.17.20
@@ -111,18 +111,18 @@ proxies:
     path: /?ed=2560
 - name: ❓_🇬🇧_💻_github.com/Ruk1ng001_6
   network: ws
-  port: 80
-  server: 45.12.30.136
-  servername: reedfree8mahsang2.redorg.ir
+  port: 8880
+  server: 25.25.25.177
+  servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
   type: vless
   udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
   ws-opts:
     headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
 - name: ❓_🇰🇿_💻_github.com/Ruk1ng001_1
   network: ws
   port: 8880
@@ -164,33 +164,7 @@ proxies:
 - name: ❓_🇳🇱_💻_github.com/Ruk1ng001_1
   network: ws
   port: 8880
-  server: 45.131.208.208
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_10
-  network: ws
-  port: 8880
-  server: 45.131.209.204
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_11
-  network: ws
-  port: 8880
-  server: 45.131.208.146
+  server: 45.131.6.68
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -201,10 +175,10 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_12
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_10
   network: ws
   port: 8880
-  server: 45.131.208.9
+  server: 45.131.211.224
   tls: false
   type: vless
   udp: true
@@ -212,8 +186,8 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_13
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_11
   network: ws
   port: 8880
   server: 188.42.89.100
@@ -227,61 +201,7 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_2
-  network: ws
-  port: 80
-  server: 45.131.7.64
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_3
-  network: ws
-  port: 8880
-  server: 45.131.211.224
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_4
-  network: ws
-  port: 8880
-  server: 45.131.6.68
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_5
-  network: ws
-  port: 8880
-  server: 45.131.208.108
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_6
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_12
   network: ws
   port: 8880
   server: 45.131.7.174
@@ -293,35 +213,7 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /Telegram@ShadowProxy66/?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_7
-  network: ws
-  port: 80
-  server: 45.131.7.138
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_8
-  network: ws
-  port: 8880
-  server: 185.176.24.177
-  servername: Telegram-channel-WangCai2
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
-  ws-opts:
-    headers:
-      Host: ip.langmanshanxi.top
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_9
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_13
   network: ws
   port: 8880
   server: 45.131.210.20
@@ -335,10 +227,12 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /?ed=2560
-- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_2
   network: ws
   port: 8880
-  server: 185.174.138.0
+  server: 45.131.208.208
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
   tls: false
   type: vless
   udp: true
@@ -347,6 +241,114 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_3
+  network: ws
+  port: 8880
+  server: 45.131.209.204
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_4
+  network: ws
+  port: 8880
+  server: 185.176.24.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_5
+  network: ws
+  port: 8880
+  server: 45.131.208.146
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_6
+  network: ws
+  port: 80
+  server: 45.131.7.64
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_7
+  network: ws
+  port: 8880
+  server: 45.131.208.108
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_8
+  network: ws
+  port: 8880
+  server: 45.131.208.9
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_9
+  network: ws
+  port: 80
+  server: 45.131.7.138
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
 - name: ❓_🇷🇺_💻_github.com/Ruk1ng001_2
   network: ws
   port: 8880
@@ -364,21 +366,19 @@ proxies:
 - name: ❓_🇷🇺_💻_github.com/Ruk1ng001_3
   network: ws
   port: 8880
-  server: 185.148.106.177
-  servername: Telegram-channel-WangCai2
-  skip-cert-verify: false
+  server: 185.174.138.0
   tls: false
   type: vless
   udp: true
-  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
   ws-opts:
     headers:
-      Host: ip.langmanshanxi.top
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
 - name: ❓_🇷🇺_💻_github.com/Ruk1ng001_4
   network: ws
   port: 8880
-  server: 185.174.138.177
+  server: 185.148.106.177
   servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
@@ -405,18 +405,18 @@ proxies:
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
 - name: ❓_🇷🇺_💻_github.com/Ruk1ng001_6
   network: ws
-  port: 80
-  server: 185.174.138.6
-  servername: reedfree8mahsang2.redorg.ir
+  port: 8880
+  server: 185.174.138.177
+  servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
   type: vless
   udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
   ws-opts:
     headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
 - name: ❓_🇸🇬_💻_github.com/Ruk1ng001_1
   network: ws
   port: 80
@@ -475,6 +475,20 @@ proxies:
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_10
   network: ws
+  port: 80
+  server: 147.185.161.131
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_11
+  network: ws
   port: 8880
   server: 167.68.42.177
   servername: Telegram-channel-WangCai2
@@ -487,18 +501,6 @@ proxies:
     headers:
       Host: ip.langmanshanxi.top
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- flow: xtls-rprx-vision
-  name: ❓_🇺🇸_💻_github.com/Ruk1ng001_11
-  network: tcp
-  port: 7885
-  reality-opts:
-    public-key: cauu7I7nFMqzwMDdULVRJam0T04U4knX8koK0OG5dC8
-    short-id: 40cb281a
-  server: 45.150.165.121
-  servername: www.yahoo.com
-  tls: true
-  type: vless
-  uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_12
   password: YidTdI17j06K1PFBUWdzWDVZXc
   port: 33562
@@ -509,7 +511,7 @@ proxies:
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_2
   network: ws
   port: 8880
-  server: 92.53.188.177
+  server: 141.193.213.177
   servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
@@ -523,7 +525,7 @@ proxies:
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_3
   network: ws
   port: 8880
-  server: 104.129.165.177
+  server: 92.53.188.177
   servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
@@ -537,7 +539,7 @@ proxies:
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_4
   network: ws
   port: 8880
-  server: 141.193.213.177
+  server: 159.112.235.177
   servername: Telegram-channel-WangCai2
   skip-cert-verify: false
   tls: false
@@ -562,34 +564,6 @@ proxies:
     path: /
 - name: ❓_🇺🇸_💻_github.com/Ruk1ng001_6
   network: ws
-  port: 80
-  server: 147.185.161.131
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_7
-  network: ws
-  port: 8880
-  server: 159.112.235.177
-  servername: Telegram-channel-WangCai2
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
-  ws-opts:
-    headers:
-      Host: ip.langmanshanxi.top
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_8
-  network: ws
   port: 8880
   server: 159.242.242.177
   servername: Telegram-channel-WangCai2
@@ -602,7 +576,7 @@ proxies:
     headers:
       Host: ip.langmanshanxi.top
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_9
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_7
   network: ws
   port: 8880
   server: 147.185.161.177
@@ -616,6 +590,32 @@ proxies:
     headers:
       Host: ip.langmanshanxi.top
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_8
+  network: ws
+  port: 8880
+  server: 104.129.165.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- flow: xtls-rprx-vision
+  name: ❓_🇺🇸_💻_github.com/Ruk1ng001_9
+  network: tcp
+  port: 7885
+  reality-opts:
+    public-key: cauu7I7nFMqzwMDdULVRJam0T04U4knX8koK0OG5dC8
+    short-id: 40cb281a
+  server: 45.150.165.121
+  servername: www.yahoo.com
+  tls: true
+  type: vless
+  uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
 - name: ❓_🇺🇸_💼_github.com/Ruk1ng001_
   network: ws
   port: 8880
@@ -644,12 +644,12 @@ proxies:
   udp: true
   uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
 - cipher: aes-256-cfb
-  name: 香港_26
+  name: 香港_30
   password: f8f7aCzcPKbsF8p3
   port: 989
   server: 154.223.21.221
   type: ss
-- name: 香港_70
+- name: 香港_75
   network: ws
   port: 443
   server: 104.17.71.31
@@ -685,8 +685,8 @@ proxy-groups:
   filter: .*
   proxies:
   - github.com/Ruk1ng001_33
+  - github.com/Ruk1ng001_46
   - github.com/Ruk1ng001_47
-  - github.com/Ruk1ng001_49
   - ❓_🇬🇧_💻_github.com/Ruk1ng001_6
   - ❓_🇰🇿_💻_github.com/Ruk1ng001_1
   - ❓_🇰🇿_💻_github.com/Ruk1ng001_2
@@ -727,8 +727,8 @@ proxy-groups:
   - ❓_🇺🇸_💻_github.com/Ruk1ng001_9
   - ❓_🇺🇸_💼_github.com/Ruk1ng001_
   - ❓_🇺🇸_📶_github.com/Ruk1ng001_
-  - 香港_26
-  - 香港_70
+  - 香港_30
+  - 香港_75
   - 🟡📶_github.com/Ruk1ng001_
 - name: Fallback
   type: fallback
@@ -746,8 +746,8 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - 香港_26
-  - 香港_70
+  - 香港_30
+  - 香港_75
   filter: (?i)港|HK|HongKong|hong kong
 - name: TW
   type: url-test
