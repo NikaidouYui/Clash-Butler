@@ -1,0 +1,43 @@
+name: Test Email Notification
+
+on:
+  workflow_dispatch: # 仅支持手动触发
+
+jobs:
+  test-email:
+    name: Test Email Configuration
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Send test email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "🧪 Clash Butler 邮件配置测试"
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          html_body: |
+            <h2>🎉 邮件配置测试成功！</h2>
+            <p>恭喜！您的 Clash Butler 邮件通知配置已正确设置。</p>
+            
+            <h3>📋 配置信息</h3>
+            <ul>
+              <li><strong>SMTP 服务器:</strong> ${{ secrets.SMTP_SERVER }}</li>
+              <li><strong>SMTP 端口:</strong> ${{ secrets.SMTP_PORT }}</li>
+              <li><strong>发送方:</strong> ${{ secrets.EMAIL_FROM }}</li>
+              <li><strong>接收方:</strong> ${{ secrets.EMAIL_TO }}</li>
+            </ul>
+            
+            <h3>🚀 下一步</h3>
+            <p>现在您可以：</p>
+            <ol>
+              <li>等待每日定时任务自动运行</li>
+              <li>或者手动触发 "Daily Clash Butler Update" 工作流进行测试</li>
+            </ol>
+            
+            <hr>
+            <p><em>测试时间: ${{ github.event.head_commit.timestamp }}</em></p>
+            <p><em>仓库地址: <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></em></p>

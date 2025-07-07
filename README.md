@@ -24,12 +24,29 @@
 
 ## 快速开始
 
-### 使用 GitHub Actions
+### 使用 GitHub Actions（推荐）
 
+#### 基础使用
 1. Fork 当前项目。
 2. 在自己项目中点击 Actions ，同意并打开 GitHub Actions 功能。
-3. 在自己项目中 conf/config.toml 中填写需要合并的链接，提交 commit 之后会自动触发构建。
-4. 等待 Actions 结束，项目中的 clash.yaml 就是最终筛选出来的节点信息。
+3. 在自己项目中 [`conf/config.toml`](conf/config.toml:1) 中填写需要合并的链接，提交 commit 之后会自动触发构建。
+4. 等待 Actions 结束，项目中的 [`clash.yaml`](clash.yaml:1) 就是最终筛选出来的节点信息。
+
+#### 🆕 定时自动更新 + 邮件通知
+项目现已支持每日定时自动更新节点配置，并通过邮件通知执行结果：
+
+- ⏰ **每天自动运行**：北京时间早上 8:00 自动执行节点测速和筛选
+- 📧 **邮件通知**：执行成功或失败都会发送详细的邮件报告
+- 🔧 **手动触发**：支持在 GitHub Actions 页面随时手动运行
+- 📊 **详细统计**：包含可用节点数量、执行时间等信息
+
+**配置步骤**：
+1. 按照 [GitHub Actions 配置指南](GITHUB_ACTIONS_SETUP.md) 设置邮件通知
+2. 在仓库 Settings → Secrets 中添加邮箱 SMTP 配置
+3. 完成后即可享受全自动的节点更新服务
+
+> [!TIP]
+> 详细配置说明请查看：[**GITHUB_ACTIONS_SETUP.md**](GITHUB_ACTIONS_SETUP.md)
 
 ### 本地构建
 

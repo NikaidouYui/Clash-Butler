@@ -1,0 +1,132 @@
+name: Daily Clash Butler Update
+
+on:
+  schedule: 
+    # 每天北京时间下午 23:00 (UTC 15:00)
+    - cron: '0 15 * * *'
+  workflow_dispatch: # 允许手动触发
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  update-clash-config:
+    name: Update Clash Configuration
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+        
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          
+      - name: Download Clash Meta
+        run: |
+          mkdir -p clash-meta
+          wget -O clash-meta.tar.gz "https://github.com/MetaCubeX/mihomo/releases/latest/download/mihomo-linux-amd64-compatible-v1.18.10.tar.gz"
+          tar -xzf clash-meta.tar.gz -C clash-meta --strip-components=1
+          chmod +x clash-meta/mihomo
+          
+      - name: Build project
+        run: cargo build --release
+        
+      - name: Run Clash Butler
+        id: run_butler
+        run: |
+          echo "开始运行 Clash Butler..."
+          
+          # 设置开始时间
+          START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+          echo "start_time=$START_TIME" >> $GITHUB_OUTPUT
+          
+          # 运行程序并捕获输出
+          if timeout 1800 cargo run --release > run_output.log 2>&1; then
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "Clash Butler 运行成功"
+          else
+            echo "status=failed" >> $GITHUB_OUTPUT
+            echo "Clash Butler 运行失败"
+          fi
+          
+          # 设置结束时间
+          END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+          echo "end_time=$END_TIME" >> $GITHUB_OUTPUT
+          
+          # 检查生成的文件
+          if [ -f "clash.yaml" ]; then
+            PROXY_COUNT=$(grep -c "^  - name:" clash.yaml || echo "0")
+            echo "proxy_count=$PROXY_COUNT" >> $GITHUB_OUTPUT
+            echo "生成的代理节点数量: $PROXY_COUNT"
+          else
+            echo "proxy_count=0" >> $GITHUB_OUTPUT
+            echo "未找到生成的 clash.yaml 文件"
+          fi
+          
+      - name: Upload run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clash-butler-logs
+          path: |
+            run_output.log
+            logs/
+          retention-days: 7
+          
+      - name: Commit and push changes
+        if: steps.run_butler.outputs.status == 'success'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 自动更新 Clash 配置 - ${{ steps.run_butler.outputs.proxy_count }} 个可用节点"
+          file_pattern: "clash.yaml"
+          
+      - name: Send success email notification
+        if: steps.run_butler.outputs.status == 'success'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "✅ Clash Butler 每日更新成功"
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          html_body: |
+            <h2>🎉 Clash Butler 每日更新成功</h2>
+            <p><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</p>
+            <p><strong>可用节点数量:</strong> ${{ steps.run_butler.outputs.proxy_count }} 个</p>
+            <p><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></p>
+            <p><strong>最新配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash.yaml">clash.yaml</a></p>
+            <hr>
+            <p><em>此邮件由 GitHub Actions 自动发送</em></p>
+            
+      - name: Send failure email notification
+        if: steps.run_butler.outputs.status == 'failed'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "❌ Clash Butler 每日更新失败"
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          html_body: |
+            <h2>⚠️ Clash Butler 每日更新失败</h2>
+            <p><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</p>
+            <p><strong>失败原因:</strong> 程序执行超时或出现错误</p>
+            <p><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></p>
+            <p><strong>查看日志:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions">GitHub Actions</a></p>
+            <hr>
+            <p><em>请检查配置文件和订阅链接是否正常</em></p>
+            <p><em>此邮件由 GitHub Actions 自动发送</em></p>
