@@ -201,12 +201,11 @@ async fn run(config: Settings) {
             }
             
             // 使用 retain 方法安全地过滤节点，避免索引问题
-            let mut nodes_to_process = nodes.clone();
+            let nodes_to_process = nodes.clone();
             let mut processed_nodes = Vec::new();
             
             for node in &nodes_to_process {
                 info!("正在处理节点: {}", node);
-                let mut should_keep_node = false;
                 
                 let ip_result = clash_meta
                     .set_group_proxy(TEST_PROXY_GROUP_NAME, node)
@@ -242,7 +241,6 @@ async fn run(config: Settings) {
 
                         // 只要有一个服务可用就保留节点（放宽过滤条件）
                         if openai_is_ok || claude_is_ok {
-                            should_keep_node = true;
                             processed_nodes.push(node.clone());
                             
                             let ip_detail_result =
@@ -283,11 +281,10 @@ async fn run(config: Settings) {
                             error!("节点 {} OpenAI 和 Claude 都不可用，已过滤", node);
                         }
                     } else {
-                        let err_msg = ip_result.err().unwrap();
                         error!("获取节点 {} 的 IP 失败, 获取不到 IP 地址，可能节点已失效，已过滤", node);
                     }
                 } else {
-                    let err_msg = ip_result.err().unwrap();
+                    let _err_msg = ip_result.err().unwrap();
                     error!("设置节点 {} 失败, {}", node, err_msg);
                 }
             }

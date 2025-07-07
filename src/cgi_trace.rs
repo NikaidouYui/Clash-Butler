@@ -9,7 +9,7 @@ use futures_util::FutureExt;
 use reqwest::Client;
 use serde_json::Value;
 use tokio::time::sleep;
-use tracing::log::error;
+use tracing::error;
 
 const OPENAI_TRACE_URL: &str = "https://chat.openai.com/cdn-cgi/trace";
 const CF_TRACE_URL: &str = "https://1.0.0.1/cdn-cgi/trace";
