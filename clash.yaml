@@ -79,7 +79,7 @@ proxies:
   type: ss
 - alterId: 0
   cipher: auto
-  name: 13.105.117.192_OpenAI_Claude1
+  name: 13.105.117.135_OpenAI_Claude1
   network: ws
   port: 8080
   server: 507dabb3-swtr40-sxzp1j-1irfn.hgc1.tcpbbr.net
@@ -91,10 +91,10 @@ proxies:
     headers:
       Host: broadcastlv.chat.bilibili.com
     path: /
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude2
+- name: 13.105.117.135_OpenAI_Claude2
   network: ws
-  port: 26010
-  server: 103.133.178.229
+  port: 443
+  server: 194.156.99.186
   servername: steep.skyfigure.top
   skip-cert-verify: true
   tls: true
@@ -104,7 +104,20 @@ proxies:
     headers:
       Host: steep.skyfigure.top
     path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude3
+- name: 13.105.117.134_OpenAI_Claude
+  network: ws
+  port: 8080
+  server: 141.11.91.67
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude2
   network: ws
   port: 443
   server: 104.17.71.31
@@ -117,33 +130,7 @@ proxies:
     headers:
       Host: sub.divib.dynv6.net
     path: /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude4
-  network: ws
-  port: 34518
-  server: 191.96.242.70
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: 13.105.117.192_OpenAI_Claude2
-  network: ws
-  port: 443
-  server: 156.230.12.71
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude5
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude3
   network: ws
   port: 443
   server: 62.192.175.250
@@ -156,9 +143,48 @@ proxies:
     headers:
       Host: steep.skyfigure.top
     path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 13.105.117.135_OpenAI_Claude3
+  network: ws
+  port: 30011
+  server: 156.254.114.120
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude4
+  network: ws
+  port: 43891
+  server: 8.210.7.36
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude5
+  network: ws
+  port: 26010
+  server: 103.133.178.229
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
 - name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude6
   network: ws
-  port: 42805
+  port: 49701
   server: 8.218.245.116
   servername: steep.skyfigure.top
   skip-cert-verify: true
@@ -182,33 +208,7 @@ proxies:
     headers:
       Host: steep.skyfigure.top
     path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: 13.105.117.192_OpenAI_Claude3
-  network: ws
-  port: 443
-  server: 74.119.193.128
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
-  network: ws
-  port: 49701
-  server: 8.218.245.116
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
+- name: 13.105.117.135_OpenAI_Claude4
   network: ws
   port: 443
   server: 47.76.218.163
@@ -221,7 +221,59 @@ proxies:
     headers:
       Host: steep.skyfigure.top
     path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: 13.105.117.192_OpenAI_Claude4
+- name: 13.105.117.135_OpenAI_Claude5
+  network: ws
+  port: 443
+  server: 156.230.12.71
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
+  network: ws
+  port: 42805
+  server: 8.218.245.116
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 13.105.117.135_OpenAI_Claude6
+  network: ws
+  port: 443
+  server: 74.119.193.128
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
+  network: ws
+  port: 34518
+  server: 191.96.242.70
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 13.105.117.135_OpenAI_Claude7
   network: ws
   port: 46639
   server: 192.131.142.161
@@ -234,79 +286,40 @@ proxies:
     headers:
       Host: steep.skyfigure.top
     path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: 13.105.117.192_OpenAI_Claude5
-  network: ws
-  port: 443
-  server: 194.156.99.186
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude10
-  network: ws
-  port: 30011
-  server: 156.254.114.120
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: US_Los Angeles_Microsoft Corporation_OpenAI_Claude11
-  network: ws
-  port: 43891
-  server: 8.210.7.36
-  servername: steep.skyfigure.top
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
-  ws-opts:
-    headers:
-      Host: steep.skyfigure.top
-    path: Telegram🇨🇳 @pgkj666 /?ed=2560
-- name: 13.105.117.192_OpenAI_Claude6
-  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
-  port: 29444
-  server: lm-hk-18573.strongpipe.cloud
-  skip-cert-verify: true
-  sni: 106-110-192-225.d.cjjd20.com
-  type: trojan
-- name: 13.105.117.192_OpenAI_Claude7
-  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
-  port: 29444
-  server: home-hkt-1.strongpipe.cloud
-  skip-cert-verify: true
-  sni: 106-110-192-225.d.cjjd20.com
-  type: trojan
-- name: 13.105.117.192_OpenAI_Claude8
-  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
-  port: 29444
-  server: wis-hk-58273.strongpipe.cloud
-  skip-cert-verify: true
-  sni: 106-110-192-225.d.cjjd20.com
-  type: trojan
-- name: 13.105.117.192_OpenAI_Claude9
+- name: 13.105.117.135_OpenAI_Claude8
   password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
   port: 29444
   server: nat-hk-13856.strongpipe.cloud
   skip-cert-verify: true
   sni: 106-110-192-225.d.cjjd20.com
   type: trojan
-- name: 13.105.117.192_OpenAI_Claude10
+- name: 13.105.117.135_OpenAI_Claude9
   password: 9a88a651-b336-4dcf-bd0f-1252495b1f7c
   port: 443
   server: waphk.mjt000.com
   skip-cert-verify: true
   sni: waphk.mjt000.com
+  type: trojan
+- name: 13.105.117.135_OpenAI_Claude10
+  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
+  port: 29444
+  server: lm-hk-18573.strongpipe.cloud
+  skip-cert-verify: true
+  sni: 106-110-192-225.d.cjjd20.com
+  type: trojan
+- name: 13.105.117.135_OpenAI_Claude11
+  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
+  port: 29444
+  server: wis-hk-58273.strongpipe.cloud
+  skip-cert-verify: true
+  sni: 106-110-192-225.d.cjjd20.com
+  type: trojan
+- name: 13.105.117.135_OpenAI_Claude12
+  password: 6d6d9220-fa3b-40d4-9bab-30c930c1ac03
+  port: 29444
+  server: home-hkt-1.strongpipe.cloud
+  skip-cert-verify: true
+  sni: 106-110-192-225.d.cjjd20.com
   type: trojan
 proxy-groups:
 - name: PROXY
@@ -324,26 +337,27 @@ proxy-groups:
   filter: .*
   proxies:
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude1
-  - 13.105.117.192_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude2
+  - 13.105.117.134_OpenAI_Claude
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude3
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude4
+  - 13.105.117.135_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude5
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude10
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude11
-  - 13.105.117.192_OpenAI_Claude6
-  - 13.105.117.192_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude8
-  - 13.105.117.192_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude7
+  - 13.105.117.135_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude9
+  - 13.105.117.135_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude11
+  - 13.105.117.135_OpenAI_Claude12
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -401,8 +415,6 @@ proxy-groups:
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude7
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude10
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude11
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -411,26 +423,27 @@ proxy-groups:
   tolerance: 500
   proxies:
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude1
-  - 13.105.117.192_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude2
+  - 13.105.117.134_OpenAI_Claude
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude3
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude4
+  - 13.105.117.135_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude5
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude10
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude11
-  - 13.105.117.192_OpenAI_Claude6
-  - 13.105.117.192_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude8
-  - 13.105.117.192_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude7
+  - 13.105.117.135_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude9
+  - 13.105.117.135_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude11
+  - 13.105.117.135_OpenAI_Claude12
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
@@ -439,26 +452,27 @@ proxy-groups:
   tolerance: 500
   proxies:
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude1
-  - 13.105.117.192_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude1
+  - 13.105.117.135_OpenAI_Claude2
+  - 13.105.117.134_OpenAI_Claude
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude3
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude2
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude3
+  - 13.105.117.135_OpenAI_Claude4
+  - 13.105.117.135_OpenAI_Claude5
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude6
   - US_Los Angeles_Microsoft Corporation_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude4
-  - 13.105.117.192_OpenAI_Claude5
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude10
-  - US_Los Angeles_Microsoft Corporation_OpenAI_Claude11
-  - 13.105.117.192_OpenAI_Claude6
-  - 13.105.117.192_OpenAI_Claude7
-  - 13.105.117.192_OpenAI_Claude8
-  - 13.105.117.192_OpenAI_Claude9
-  - 13.105.117.192_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude7
+  - 13.105.117.135_OpenAI_Claude8
+  - 13.105.117.135_OpenAI_Claude9
+  - 13.105.117.135_OpenAI_Claude10
+  - 13.105.117.135_OpenAI_Claude11
+  - 13.105.117.135_OpenAI_Claude12
   filter: (?i)Claude
 rules:
 - RULE-SET,ads,REJECT
