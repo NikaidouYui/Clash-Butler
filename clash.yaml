@@ -71,92 +71,2871 @@ dns:
   - https://doh.pub/dns-query
   - https://dns.alidns.com/dns-query
 proxies:
-- name: FR_Ivry-sur-Seine_Online S.A.S._OpenAI
-  password: dongtaiwang.com
-  port: 59967
-  server: 195.154.33.70
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: HK_Hong Kong_Alibaba (US) Technology Co., Ltd._OpenAI
+- flow: xtls-rprx-vision
+  name: 143.14.220.111_OpenAI
+  network: tcp
+  port: 25888
+  reality-opts:
+    public-key: eHaAkgZIfsYhrH_0HCj07-Vbd7nrMHnnAa663_969DA
+    short-id: be1be5fc
+  server: 143.14.220.111
+  servername: www.samsung.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
+- cipher: chacha20-ietf-poly1305
+  name: 164.92.156.41_OpenAI
+  password: zI7kiNZ0UfV9cXB73a4nRD
+  port: 24206
+  server: 164.92.156.41
+  type: ss
+- flow: xtls-rprx-vision
+  name: 45.61.161.193_OpenAI
+  network: tcp
+  port: 443
+  server: 204.10.194.78
+  servername: yfnl1.xn--4gq62f52gppi29k.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: b8bd42a9-551f-419d-b70d-4aefdd2cb074
+- alterId: 0
+  cipher: auto
+  name: CA_Montreal_OVH SAS_OpenAI
   network: ws
   port: 80
-  server: 45.131.5.206
-  servername: gozargah.validbv7996.ir
+  server: 51.79.102.253
+  skip-cert-verify: true
+  type: vmess
+  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
+  ws-opts:
+    path: /IOebhLMhl1CTbFHbL95myfRX2
+- name: CA_Toronto_Oracle Corporation1
+  network: ws
+  port: 443
+  server: whatismyipaddress.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2其他地区_华为云专线_茜特菈莉的白丝0
+- name: CA_Toronto_Oracle Corporation2
+  network: ws
+  port: 443
+  server: www.ddwhm.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: CA_Toronto_Oracle Corporation3
+  network: ws
+  port: 443
+  server: icook.tw
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: CA_Toronto_Oracle Corporation4
+  network: ws
+  port: 443
+  server: dylan.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- cipher: chacha20-ietf-poly1305
+  name: CH_Zurich_GTHost_OpenAI
+  password: oXGp1+ihlfKg826H
+  port: 1866
+  server: 204.136.10.115
+  type: ss
+- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI1
+  network: ws
+  port: 8880
+  server: 45.159.218.20
   tls: false
   type: vless
   udp: true
-  uuid: c5293efa-28f8-4a0f-8f34-541078970cee
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
   ws-opts:
     headers:
-      Host: gozargah.validbv7996.ir
-    path: /Telegram🇨🇳@WangCai2
-- cipher: aes-256-cfb
-  name: JP_Tokyo_Amazon Technologies Inc._OpenAI1
-  password: amazonskr05
-  port: 443
-  server: 52.197.57.24
-  type: ss
-- cipher: aes-256-cfb
-  name: JP_Tokyo_Amazon Technologies Inc._OpenAI2
-  password: amazonskr05
-  port: 443
-  server: 52.199.237.27
-  type: ss
-- cipher: aes-256-cfb
-  name: SG_Singapore_Amazon Technologies Inc._OpenAI
-  password: amazonskr05
-  port: 443
-  server: 13.229.210.217
-  type: ss
-- cipher: aes-256-cfb
-  name: SG_Singapore_Amazon.com, Inc._OpenAI
-  password: amazonskr05
-  port: 443
-  server: 13.250.5.171
-  type: ss
-- name: US_Portland_Amazon.com, Inc._OpenAI
+      Host: reedfree8mahsang2.redorg.ir
+    path: /
+- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI2
   network: ws
-  port: 80
-  server: 45.131.5.27
-  servername: gozargah.validbv7996.ir
+  port: 8880
+  server: 162.159.248.20
   tls: false
   type: vless
-  uuid: c5293efa-28f8-4a0f-8f34-541078970cee
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
   ws-opts:
     headers:
-      Host: gozargah.validbv7996.ir
-    path: /Telegram🇨🇳 @MxlShare@WangCai2
-- flow: xtls-rprx-vision
-  name: github.com/Ruk1ng001_1
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-    short-id: 1a
-  server: t9.qifei.app
-  servername: www.amazon.com
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: DE_Jena_ISPpro Internet KG_OpenAI
+  network: ws
+  port: 2087
+  server: 104.24.135.129
+  servername: fandouhuayuan.pages.dev
+  skip-cert-verify: true
   tls: true
   type: vless
-  uuid: ef23ddd0-14c5-39c2-9880-af55ce892363
-- flow: xtls-rprx-vision
-  name: github.com/Ruk1ng001_2
-  network: tcp
-  port: 1443
-  reality-opts:
-    public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-    short-id: 1a
-  server: t14.qifei.app
-  servername: www.amazon.com
-  tls: true
+  uuid: 7b5ea382-cbc6-4169-9f88-8200ca80c31a
+  ws-opts:
+    headers:
+      Host: fandouhuayuan.pages.dev
+    path: /?ed=2560
+- name: FI_Helsinki_Hetzner Online GmbH_OpenAI1
+  network: ws
+  port: 8880
+  server: 45.131.208.146
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
   type: vless
-  uuid: ef23ddd0-14c5-39c2-9880-af55ce892363
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: FI_Helsinki_Hetzner Online GmbH_OpenAI2
+  network: ws
+  port: 8880
+  server: 45.131.6.68
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: FI_Helsinki_Hetzner Online_OpenAI
+  network: ws
+  port: 80
+  server: 45.131.7.64
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: HK_Hong Kong_Alibaba Cloud LLC_OpenAI
+  network: ws
+  port: 8880
+  server: 5.10.245.76
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /TelegramU0001F1E8U0001F1F3
 - cipher: aes-256-cfb
-  name: ❓_🇸🇬_💼_github.com/Ruk1ng001_
-  password: amazonskr05
-  port: 443
-  server: 13.229.48.116
+  name: HK_Hong Kong_Kaopu Cloud HK Limited
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 154.223.21.221
   type: ss
+- name: KR_Chuncheon_Oracle Corporation1
+  network: ws
+  port: 443
+  server: ipinfo.in
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation10
+  network: ws
+  port: 443
+  server: 131.186.33.175
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation11
+  network: ws
+  port: 57005
+  server: 152.69.192.40
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation12
+  network: ws
+  port: 443
+  server: 172.67.181.209
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation2
+  network: ws
+  port: 443
+  server: 104.17.142.12
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation3
+  network: ws
+  port: 443
+  server: iplocation.io
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation4
+  network: ws
+  port: 443
+  server: kyree.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation5
+  network: ws
+  port: 443
+  server: moura.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation6
+  network: ws
+  port: 443
+  server: 162.159.36.104
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation7
+  network: ws
+  port: 443
+  server: 172.67.110.232
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation8
+  network: ws
+  port: 443
+  server: huxley.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation9
+  network: ws
+  port: 443
+  server: 138.2.39.24
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: KR_Chuncheon_Oracle Corporation_OpenAI
+  network: ws
+  port: 443
+  server: trevor.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- cipher: aes-256-cfb
+  name: KR_Gwanak-gu_Korea Telecom_OpenAI
+  password: qwerREWQ@@
+  port: 15098
+  server: p222.panda001.net
+  type: ss
+- cipher: aes-256-cfb
+  name: KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI1
+  password: qwerREWQ@@
+  port: 4652
+  server: 218.237.185.230
+  type: ss
+- cipher: aes-256-cfb
+  name: KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI2
+  password: qwerREWQ@@
+  port: 4652
+  server: p141.panda001.net
+  type: ss
+- cipher: aes-256-cfb
+  name: KR_Seoul_Kaopu Cloud HK Limited_OpenAI
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 154.90.63.177
+  type: ss
+- name: NL_Amsterdam_Aeza International LTD_OpenAI1
+  network: ws
+  port: 80
+  server: 45.131.7.138
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: NL_Amsterdam_Aeza International LTD_OpenAI2
+  network: ws
+  port: 80
+  server: 45.8.211.139
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- cipher: chacha20-ietf-poly1305
+  name: NL_Amsterdam_Greenhost BV_OpenAI
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 45.87.175.28
+  type: ss
+- name: NL_Amsterdam_Servers Tech Fzco_OpenAI1
+  network: ws
+  port: 80
+  server: 45.80.111.134
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: NL_Amsterdam_Servers Tech Fzco_OpenAI2
+  network: ws
+  port: 8880
+  server: 45.131.208.108
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: NL_Amsterdam_Servers Tech Fzco_OpenAI3
+  network: ws
+  port: 8880
+  server: 5.10.214.180
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /TelegramU0001F1E8U0001F1F3
+- name: PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  network: ws
+  port: 8880
+  server: 45.12.30.145
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@vpnAndroid2/?ed=2560
+- name: SG_Singapore_Shenzhen Tencent Computer Systems Company Limited_OpenAI
+  network: tcp
+  port: 41283
+  server: 43.156.217.68
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 4839e0b9-b275-47ea-81ab-9bfd38bbe7af
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co1
+  network: ws
+  port: 8880
+  server: 91.193.58.220
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co10
+  network: ws
+  port: 8880
+  server: 91.193.58.223
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co11
+  network: ws
+  port: 8880
+  server: 91.193.58.90
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co12
+  network: ws
+  port: 8880
+  server: 91.193.58.194
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co13
+  network: ws
+  port: 8880
+  server: 91.193.58.18
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co14
+  network: ws
+  port: 8880
+  server: 91.193.58.124
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co15
+  network: ws
+  port: 8880
+  server: 91.193.58.122
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co2
+  network: ws
+  port: 8880
+  server: 91.193.58.184
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co3
+  network: ws
+  port: 8880
+  server: 91.193.58.249
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co4
+  network: ws
+  port: 8880
+  server: 91.193.58.251
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co5
+  network: ws
+  port: 8880
+  server: 91.193.58.111
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co6
+  network: ws
+  port: 8880
+  server: 91.193.58.196
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co7
+  network: ws
+  port: 8880
+  server: 91.193.58.107
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co8
+  network: ws
+  port: 8880
+  server: 91.193.58.229
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: SG_Singapore_Tencent Cloud Computing (Beijing) Co9
+  network: ws
+  port: 8880
+  server: 91.193.58.100
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- cipher: aes-256-cfb
+  name: SK_Bratislava_DataCamp Limited_OpenAI
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 156.146.40.194
+  type: ss
+- name: US_Buffalo_HostPapa_OpenAI1
+  network: ws
+  port: 443
+  server: 103.21.244.84
+  servername: jack.jack-cq.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 72982133-27fb-46fc-9061-61113e77e201
+  ws-opts:
+    headers:
+      Host: jack.jack-cq.click
+    path: /?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI2
+  network: ws
+  port: 443
+  server: 104.24.230.10
+  servername: jack.jack-cq.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 72982133-27fb-46fc-9061-61113e77e201
+  ws-opts:
+    headers:
+      Host: jack.jack-cq.click
+    path: /?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI3
+  network: ws
+  port: 443
+  server: 103.21.244.54
+  servername: yg.bantony199.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33
+  ws-opts:
+    headers:
+      Host: yg.bantony199.top
+    path: /?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI4
+  network: ws
+  port: 443
+  server: 104.21.90.226
+  servername: eEedFR5.7777155.Xyz
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: e4cbe8b8-37db-4aaa-8469-b84f34c51ebc
+  ws-opts:
+    headers:
+      Host: eEedFR5.7777155.Xyz
+    path: /6OWLjRc26b0nHYr5hYXD
+- name: US_Dallas_HostPapa_OpenAI1
+  network: ws
+  port: 443
+  server: 104.16.17.151
+  servername: jack.jack-cq.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 72982133-27fb-46fc-9061-61113e77e201
+  ws-opts:
+    headers:
+      Host: jack.jack-cq.click
+    path: /?ed=2560
+- name: US_Dallas_HostPapa_OpenAI2
+  network: ws
+  port: 443
+  server: 190.93.247.159
+  servername: jack.jack-cq.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 72982133-27fb-46fc-9061-61113e77e201
+  ws-opts:
+    headers:
+      Host: jack.jack-cq.click
+    path: /?ed=2560
+- name: US_Dallas_HostPapa_OpenAI3
+  network: ws
+  port: 8443
+  server: 190.93.245.234
+  servername: v3.ganglink.sbs
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: f5d86f1c-3f4f-4ac9-aa03-64bf34750055
+  ws-opts:
+    headers:
+      Host: v3.ganglink.sbs
+    path: /?ed=2560
+- name: US_Dallas_Total Uptime Technologies_OpenAI1
+  network: ws
+  port: 8880
+  server: 45.12.30.74
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Dallas_Total Uptime Technologies_OpenAI2
+  network: ws
+  port: 8880
+  server: 45.131.208.9
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_Dallas_Total Uptime Technologies_OpenAI3
+  network: ws
+  port: 8880
+  server: 185.176.26.159
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_Dallas_Total Uptime Technologies_OpenAI4
+  network: ws
+  port: 8880
+  server: 154.197.108.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_Dallas_Total Uptime Technologies_OpenAI5
+  network: ws
+  port: 443
+  server: 104.26.13.31
+  servername: FinLAnd-A3r.pAgES.dEv
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3130e111-a06c-4388-aeda-4b43f6e8e51f
+  ws-opts:
+    headers:
+      Host: finland-a3r.pages.dev
+      User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
+    path: /Tel-@V2ray_Alpha/?ed=2560
+- name: US_Elk Grove Village_HostPapa_OpenAI
+  network: ws
+  port: 443
+  server: 188.114.99.93
+  servername: jack.jack-cq.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 72982133-27fb-46fc-9061-61113e77e201
+  ws-opts:
+    headers:
+      Host: jack.jack-cq.click
+    path: /?ed=2560
+- name: US_Los Angeles_Sharktech1
+  password: 6d4abac0-86e6-11ef-83cc-f23c913c8d2b
+  port: 8443
+  server: 1b60af98-sxjog0-td1l1t-1s824.hy2.gotochinatown.net
+  sni: 1b60af98-sxjog0-td1l1t-1s824.hy2.gotochinatown.net
+  type: hysteria2
+- name: US_Los Angeles_Sharktech2
+  password: fceba144-0aa0-11ee-bf3c-f23c9164ca5d
+  port: 8443
+  server: 79c920a1-syvts0-sz6btt-1fee.hy2.gotochinatown.net
+  sni: 79c920a1-syvts0-sz6btt-1fee.hy2.gotochinatown.net
+  type: hysteria2
+- name: US_Los Angeles_Sharktech3
+  password: e668cd78-6892-11eb-a8bf-f23c91cfbbc9
+  port: 8443
+  server: e6b715d6-sxaf40-syqpvr-20qs.hy2.gotochinatown.net
+  sni: e6b715d6-sxaf40-syqpvr-20qs.hy2.gotochinatown.net
+  type: hysteria2
+- name: US_Los Angeles_Sharktech4
+  password: e3975a05-b89e-11ec-a50d-f23c91cfbbc9
+  port: 8443
+  server: d5d8af9a-svlb40-sxf56z-1f596.hy2.gotochinatown.net
+  sni: d5d8af9a-svlb40-sxf56z-1f596.hy2.gotochinatown.net
+  type: hysteria2
+- name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
+  network: ws
+  port: 8880
+  server: 45.131.210.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
+  network: ws
+  port: 8880
+  server: 212.183.88.20
+  tls: false
+  type: vless
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_Phoenix_Oracle Corporation_OpenAI1
+  password: e6d8d743-a9bc-48c9-be99-8f3cc94d16e1
+  port: 10086
+  server: aus.pagate.top
+  skip-cert-verify: false
+  sni: aus.pagate.top
+  type: hysteria2
+- name: US_Phoenix_Oracle Corporation_OpenAI2
+  network: ws
+  port: 8880
+  server: 156.238.18.76
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: yd.laoyoutiao.link
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_Phoenix_Oracle Corporation_OpenAI3
+  network: ws
+  port: 8880
+  server: 156.238.18.106
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: yd.laoyoutiao.link
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_Phoenix_Oracle Corporation_OpenAI4
+  network: ws
+  port: 8443
+  server: 104.18.13.229
+  servername: azadnet-3dr.pages.dev
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  ws-opts:
+    headers:
+      Host: azadnet-3dr.pages.dev
+    path: /?ed=2560
+- name: US_Portland_Amazon.com, Inc._OpenAI1
+  network: ws
+  port: 8880
+  server: 195.245.221.187
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Portland_Amazon.com, Inc._OpenAI2
+  network: ws
+  port: 8880
+  server: 45.131.208.208
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Portland_Amazon.com, Inc._OpenAI3
+  network: ws
+  port: 80
+  server: 66.81.247.82
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_San Jose_Amazon.com, Inc._OpenAI
+  network: ws
+  port: 8880
+  server: 45.131.7.174
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- cipher: aes-256-cfb
+  name: VN_Hải Dương_FASTLY_OpenAI1
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.19
+  type: ss
+- cipher: aes-256-cfb
+  name: VN_Hải Dương_FASTLY_OpenAI2
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.25
+  type: ss
+- cipher: aes-256-cfb
+  name: VN_Hải Dương_FASTLY_OpenAI3
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.154.37
+  type: ss
+- cipher: aes-256-cfb
+  name: VN_Hải Dương_FASTLY_OpenAI4
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.18
+  type: ss
+- name: ❓_🇦🇲_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 5.10.214.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇦🇺_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 103.169.142.80
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇨🇳_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 176.124.223.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇨🇿_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 195.85.23.200
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@vpnAndroid2/?ed=2560
+- name: ❓_🇬🇧_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 80
+  server: 45.12.30.136
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇬🇧_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 8880
+  server: 25.25.25.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 8880
+  server: 45.131.209.204
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 8880
+  server: 45.131.211.224
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 8880
+  server: 185.221.160.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇸🇬_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 80
+  server: 45.8.211.229
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 8880
+  server: 104.129.165.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_2
+  password: YidTdI17j06K1PFBUWdzWDVZXc
+  port: 33562
+  server: 52.14.165.55
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria2
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_3
+  network: ws
+  port: 8880
+  server: 92.53.188.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_4
+  network: ws
+  port: 80
+  server: 147.185.161.131
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_5
+  network: ws
+  port: 8880
+  server: 147.185.161.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 其他地区_1
+  network: ws
+  port: 443
+  server: damien.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_10
+  network: ws
+  port: 443
+  server: 172.67.243.218
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_11
+  network: ws
+  port: 443
+  server: 103.160.204.59
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_12
+  network: ws
+  port: 443
+  server: 104.16.125.228
+  servername: qwa-d40.pages.dev
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 96806a27-3e67-4927-ac62-0557249be651
+  ws-opts:
+    headers:
+      Host: qwa-d40.pages.dev
+    path: /?ed=2560
+- name: 其他地区_13
+  network: ws
+  port: 8443
+  server: 190.93.245.232
+  servername: bitget1.asdasd.click
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b5441b0d-2147-4898-8a6a-9b2c87f58382
+  ws-opts:
+    headers:
+      Host: bitget1.asdasd.click
+    path: /?ed=2560
+- name: 其他地区_14
+  network: ws
+  port: 443
+  server: 172.67.95.24
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_15
+  network: ws
+  port: 443
+  server: 172.67.120.0
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_16
+  network: ws
+  port: 443
+  server: lewis.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_17
+  network: ws
+  port: 443
+  server: 103.21.244.95
+  servername: yg.bantony199.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33
+  ws-opts:
+    headers:
+      Host: yg.bantony199.top
+    path: /?ed=2560
+- name: 其他地区_18
+  network: ws
+  port: 443
+  server: www.whatismyip.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_19
+  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+  port: 8443
+  server: official.taipeicitygovernment.kiev.ua
+  skip-cert-verify: true
+  sni: official.taipeicitygovernment.kiev.ua
+  type: trojan
+- name: 其他地区_2
+  network: ws
+  port: 443
+  server: 104.16.38.27
+  servername: yg.bantony199.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33
+  ws-opts:
+    headers:
+      Host: yg.bantony199.top
+    path: /?ed=2560
+- name: 其他地区_20
+  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+  port: 8443
+  server: official.taipeicitygovernment.chernovtsy.ua
+  skip-cert-verify: true
+  sni: official.taipeicitygovernment.chernovtsy.ua
+  type: trojan
+- cipher: aes-256-cfb
+  name: 其他地区_21
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 185.231.233.112
+  type: ss
+- name: 其他地区_22
+  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+  port: 8443
+  server: official.taipeicitygovernment.biz.ua
+  skip-cert-verify: true
+  sni: official.taipeicitygovernment.biz.ua
+  type: trojan
+- cipher: aes-256-cfb
+  name: 其他地区_23
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.154.31
+  type: ss
+- name: 其他地区_24
+  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+  port: 8443
+  server: official.taipeicitygovernment.org.ua
+  skip-cert-verify: true
+  sni: official.taipeicitygovernment.org.ua
+  type: trojan
+- name: 其他地区_25
+  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+  port: 8443
+  server: official.taipeicitygovernment.com.ua
+  skip-cert-verify: true
+  sni: official.taipeicitygovernment.com.ua
+  type: trojan
+- name: 其他地区_3
+  network: ws
+  port: 443
+  server: ipv4.ip.sb
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_4
+  network: ws
+  port: 443
+  server: bowen.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_5
+  network: ws
+  port: 443
+  server: benedict.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- cipher: aes-256-cfb
+  name: 其他地区_6
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.154.32
+  type: ss
+- name: 其他地区_7
+  network: ws
+  port: 443
+  server: 104.16.21.197
+  servername: yg.bantony199.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33
+  ws-opts:
+    headers:
+      Host: yg.bantony199.top
+    path: /?ed=2560
+- name: 其他地区_8
+  network: ws
+  port: 443
+  server: www.okcupid.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 其他地区_9
+  network: ws
+  port: 443
+  server: decker.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- cipher: aes-256-cfb
+  name: 加拿大_
+  obfs: plain
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  protocol: origin
+  server: 79.127.233.170
+  type: ssr
+- name: 台湾_1
+  password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
+  port: 3462
+  server: a01.taipeicitygovernment.biz.ua
+  skip-cert-verify: true
+  sni: 45.32.28.232
+  type: trojan
+- name: 台湾_2
+  password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
+  port: 3462
+  server: a02.taipeicitygovernment.chernovtsy.ua
+  skip-cert-verify: true
+  sni: 45.32.28.232
+  type: trojan
+- cipher: rc4-md5
+  name: 德国_1
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 193.108.119.230
+  type: ss
+- name: 德国_10
+  network: ws
+  port: 8880
+  server: 91.193.58.109
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_11
+  network: ws
+  port: 8880
+  server: 91.193.58.195
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_12
+  network: ws
+  port: 8880
+  server: 91.193.58.182
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_13
+  network: ws
+  port: 8880
+  server: 89.117.112.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_14
+  network: ws
+  port: 8880
+  server: 45.8.211.219
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: 德国_15
+  network: ws
+  port: 8880
+  server: 156.243.246.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_16
+  network: ws
+  port: 8880
+  server: 91.193.58.158
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_17
+  network: ws
+  port: 8880
+  server: 89.116.46.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_18
+  network: ws
+  port: 8880
+  server: 91.209.253.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_19
+  network: ws
+  port: 8880
+  server: 185.18.250.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_2
+  network: ws
+  port: 8880
+  server: 91.193.58.65
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_20
+  network: ws
+  port: 8880
+  server: 185.238.228.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_21
+  network: ws
+  port: 8880
+  server: 31.12.75.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_22
+  network: ws
+  port: 8880
+  server: 91.193.58.34
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_23
+  network: ws
+  port: 8880
+  server: 46.202.30.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_24
+  network: ws
+  port: 8880
+  server: 91.193.58.240
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- cipher: chacha20-ietf-poly1305
+  name: 德国_25
+  password: a58fa62b4944ddbf
+  port: 57456
+  server: 147.45.178.200
+  type: ss
+- name: 德国_26
+  network: ws
+  password: Aimer
+  port: 2083
+  server: 188.164.159.234
+  skip-cert-verify: false
+  sni: epml.ambercc.filegear-sg.me
+  type: trojan
+- name: 德国_27
+  network: ws
+  password: Aimer
+  port: 8443
+  server: 46.254.93.243
+  skip-cert-verify: false
+  sni: epmk.ambercc.filegear-sg.me
+  type: trojan
+- name: 德国_28
+  network: ws
+  port: 8880
+  server: 213.219.247.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_29
+  network: ws
+  port: 8880
+  server: 77.105.163.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_3
+  network: ws
+  port: 8880
+  server: 91.193.58.113
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_30
+  network: ws
+  port: 8880
+  server: 45.80.110.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_31
+  network: ws
+  password: trojan
+  port: 8443
+  server: 109.234.211.66
+  skip-cert-verify: false
+  sni: store.timimi.dpdns.org
+  type: trojan
+- name: 德国_32
+  network: ws
+  port: 8880
+  server: 91.193.58.69
+  servername: cs.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: cs.laoyoutiao.link
+    path: /
+- name: 德国_33
+  network: ws
+  port: 8880
+  server: 91.193.58.253
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_34
+  network: ws
+  port: 8880
+  server: 185.59.218.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_35
+  network: ws
+  port: 8880
+  server: 185.174.138.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_36
+  network: ws
+  port: 8880
+  server: 91.193.58.108
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_37
+  network: ws
+  port: 8880
+  server: 88.216.67.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_38
+  network: ws
+  port: 8880
+  server: 188.42.89.100
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: 德国_39
+  network: ws
+  port: 8880
+  server: 45.80.111.168
+  servername: kjgx.laoyoutiao.link
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram@WangCai2/?ed=2560
+- cipher: chacha20-ietf-poly1305
+  name: 德国_4
+  password: 9RviNa4tscjcmCB408vLSg
+  port: 44354
+  server: 46.101.245.131
+  type: ss
+- name: 德国_40
+  network: ws
+  port: 8880
+  server: 45.80.111.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_41
+  network: ws
+  port: 8880
+  server: 185.174.138.0
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: 德国_42
+  network: ws
+  port: 8880
+  server: 91.193.58.231
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_43
+  network: ws
+  port: 8880
+  server: 160.153.1.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_44
+  network: ws
+  port: 8880
+  server: 77.37.33.177
+  servername: ip.langmanshanxi.top
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- cipher: chacha20-ietf-poly1305
+  name: 德国_45
+  password: oXGp1+ihlfKg826H
+  port: 1866
+  server: 185.177.229.245
+  type: ss
+- name: 德国_46
+  network: ws
+  port: 8880
+  server: 194.36.55.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_47
+  network: ws
+  port: 8880
+  server: 91.193.58.105
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_48
+  network: ws
+  port: 8880
+  server: 5.182.34.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_49
+  network: ws
+  port: 8880
+  server: 188.42.88.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_5
+  network: ws
+  port: 8880
+  server: 91.193.58.238
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_50
+  network: ws
+  port: 8880
+  server: 91.193.58.198
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_51
+  network: ws
+  port: 8880
+  server: 91.193.58.38
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_52
+  network: ws
+  port: 8880
+  server: 91.193.58.183
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_53
+  network: ws
+  port: 8880
+  server: 62.72.166.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_54
+  network: ws
+  port: 8880
+  server: 91.193.58.79
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_55
+  network: ws
+  port: 8880
+  server: 91.193.58.127
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_56
+  network: ws
+  port: 8880
+  server: 91.193.58.148
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_57
+  network: ws
+  port: 8880
+  server: 91.193.58.234
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_58
+  network: ws
+  port: 8880
+  server: 5.182.84.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_59
+  network: ws
+  port: 8880
+  server: 91.193.58.46
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_6
+  network: ws
+  port: 8880
+  server: 5.182.84.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_7
+  network: ws
+  port: 8880
+  server: 91.193.58.2
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_8
+  network: ws
+  port: 8880
+  server: 185.176.24.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 德国_9
+  network: ws
+  port: 8880
+  server: 154.197.75.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 新加坡_1
+  network: ws
+  port: 443
+  server: www.csgo.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 新加坡_2
+  network: ws
+  port: 8880
+  server: 27.50.48.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 日本_1
+  network: ws
+  port: 443
+  server: 64.176.52.132
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_10
+  network: ws
+  port: 443
+  server: 141.147.185.15
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_11
+  network: ws
+  port: 443
+  server: 154.31.113.72
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_12
+  network: ws
+  port: 8880
+  server: 103.116.7.177
+  servername: ip.langmanshanxi.top
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram@WangCai2/?ed=2560
+- name: 日本_13
+  network: ws
+  port: 12345
+  server: 168.138.197.147
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_14
+  network: ws
+  port: 443
+  server: 5.253.41.94
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_15
+  network: ws
+  port: 443
+  server: 138.3.222.33
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_2
+  network: ws
+  port: 14782
+  server: 140.238.37.103
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_3
+  network: ws
+  port: 8880
+  server: 103.116.7.168
+  servername: kjgx.laoyoutiao.link
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: kjgx.laoyoutiao.link
+    path: /Telegram@WangCai2/?ed=2560
+- name: 日本_4
+  network: ws
+  port: 443
+  server: 132.145.116.185
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_5
+  network: ws
+  port: 443
+  server: 141.147.185.63
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_6
+  network: ws
+  port: 22735
+  server: 140.83.57.183
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_7
+  network: ws
+  port: 56417
+  server: 140.83.56.110
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_8
+  network: ws
+  port: 443
+  server: 141.147.147.180
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- name: 日本_9
+  network: ws
+  port: 13118
+  server: 140.83.57.20
+  servername: steep.skyfigure.top
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: 63601f9f-7c67-4952-919a-1ef802b5a7ec
+  ws-opts:
+    headers:
+      Host: steep.skyfigure.top
+    path: Telegram🇨🇳 @pgkj666 /?ed=2560
+- cipher: chacha20-ietf-poly1305
+  name: 美国_1
+  password: 360e21d21977dc11
+  port: 57456
+  server: 104.167.197.25
+  type: ss
+- name: 美国_10
+  network: ws
+  port: 8880
+  server: 14.102.228.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_11
+  network: ws
+  port: 2087
+  server: 104.25.254.4
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 美国_12
+  network: ws
+  port: 8880
+  server: 156.225.72.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_13
+  network: ws
+  port: 8880
+  server: 192.200.160.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_14
+  network: ws
+  port: 8880
+  server: 185.148.106.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_15
+  network: ws
+  port: 8880
+  server: 159.112.235.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_16
+  network: ws
+  port: 443
+  server: rustam.ns.cloudflare.com
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 美国_17
+  network: ws
+  port: 8880
+  server: 66.45.118.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2
+- name: 美国_18
+  network: ws
+  port: 8880
+  server: 198.62.62.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- cipher: rc4-md5
+  name: 美国_19
+  obfs: plain
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  protocol: origin
+  server: 107.151.182.253
+  type: ssr
+- name: 美国_2
+  network: ws
+  port: 8880
+  server: 154.85.99.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_20
+  network: ws
+  password: Aimer
+  port: 2053
+  server: 199.34.228.50
+  skip-cert-verify: false
+  sni: epml.ambercc.filegear-sg.me
+  type: trojan
+- name: 美国_3
+  network: ws
+  port: 8880
+  server: 14.102.229.177
+  servername: ip.langmanshanxi.top
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_4
+  network: ws
+  port: 8880
+  server: 199.181.197.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_5
+  network: ws
+  port: 8880
+  server: 66.81.247.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_6
+  network: ws
+  port: 8880
+  server: 104.129.167.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_7
+  network: ws
+  port: 8880
+  server: 155.46.213.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_8
+  network: ws
+  port: 8880
+  server: 154.219.5.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 美国_9
+  network: ws
+  port: 8880
+  server: 130.250.137.77
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 40c708ca-42e4-4224-a12d-1dbd7ef1e0b7
+  ws-opts:
+    headers:
+      Host: free.cfdns.online
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- cipher: aes-256-cfb
+  name: 英国_
+  obfs: plain
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  protocol: origin
+  server: 62.100.205.48
+  type: ssr
+- name: 🇦🇪1_
+  network: ws
+  port: 8880
+  server: 192.0.63.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: 🟡_🇧🇬_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 45.142.120.145
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: 🟡_🇬🇧_💻_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 89.116.46.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: 🟡_🇺🇸_💻_github.com/Ruk1ng001_
+  network: ws
+  password: trojan
+  port: 8443
+  server: 104.26.12.31
+  skip-cert-verify: false
+  sni: fofang.pages.dev
+  type: trojan
 proxy-groups:
 - name: PROXY
   type: select
@@ -172,16 +2951,240 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - FR_Ivry-sur-Seine_Online S.A.S._OpenAI
-  - HK_Hong Kong_Alibaba (US) Technology Co., Ltd._OpenAI
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI1
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI2
-  - SG_Singapore_Amazon Technologies Inc._OpenAI
-  - SG_Singapore_Amazon.com, Inc._OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI
-  - github.com/Ruk1ng001_1
-  - github.com/Ruk1ng001_2
-  - ❓_🇸🇬_💼_github.com/Ruk1ng001_
+  - 143.14.220.111_OpenAI
+  - 164.92.156.41_OpenAI
+  - 45.61.161.193_OpenAI
+  - CA_Montreal_OVH SAS_OpenAI
+  - CA_Toronto_Oracle Corporation1
+  - CA_Toronto_Oracle Corporation2
+  - CA_Toronto_Oracle Corporation3
+  - CA_Toronto_Oracle Corporation4
+  - CH_Zurich_GTHost_OpenAI
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI1
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI2
+  - DE_Jena_ISPpro Internet KG_OpenAI
+  - FI_Helsinki_Hetzner Online GmbH_OpenAI1
+  - FI_Helsinki_Hetzner Online GmbH_OpenAI2
+  - FI_Helsinki_Hetzner Online_OpenAI
+  - HK_Hong Kong_Alibaba Cloud LLC_OpenAI
+  - HK_Hong Kong_Kaopu Cloud HK Limited
+  - KR_Chuncheon_Oracle Corporation1
+  - KR_Chuncheon_Oracle Corporation10
+  - KR_Chuncheon_Oracle Corporation11
+  - KR_Chuncheon_Oracle Corporation12
+  - KR_Chuncheon_Oracle Corporation2
+  - KR_Chuncheon_Oracle Corporation3
+  - KR_Chuncheon_Oracle Corporation4
+  - KR_Chuncheon_Oracle Corporation5
+  - KR_Chuncheon_Oracle Corporation6
+  - KR_Chuncheon_Oracle Corporation7
+  - KR_Chuncheon_Oracle Corporation8
+  - KR_Chuncheon_Oracle Corporation9
+  - KR_Chuncheon_Oracle Corporation_OpenAI
+  - KR_Gwanak-gu_Korea Telecom_OpenAI
+  - KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI1
+  - KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI2
+  - KR_Seoul_Kaopu Cloud HK Limited_OpenAI
+  - NL_Amsterdam_Aeza International LTD_OpenAI1
+  - NL_Amsterdam_Aeza International LTD_OpenAI2
+  - NL_Amsterdam_Greenhost BV_OpenAI
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI1
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI2
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI3
+  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  - SG_Singapore_Shenzhen Tencent Computer Systems Company Limited_OpenAI
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co1
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co10
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co11
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co12
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co13
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co14
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co15
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co2
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co3
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co4
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co5
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co6
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co7
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co8
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co9
+  - SK_Bratislava_DataCamp Limited_OpenAI
+  - US_Buffalo_HostPapa_OpenAI1
+  - US_Buffalo_HostPapa_OpenAI2
+  - US_Buffalo_HostPapa_OpenAI3
+  - US_Buffalo_HostPapa_OpenAI4
+  - US_Dallas_HostPapa_OpenAI1
+  - US_Dallas_HostPapa_OpenAI2
+  - US_Dallas_HostPapa_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI1
+  - US_Dallas_Total Uptime Technologies_OpenAI2
+  - US_Dallas_Total Uptime Technologies_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI4
+  - US_Dallas_Total Uptime Technologies_OpenAI5
+  - US_Elk Grove Village_HostPapa_OpenAI
+  - US_Los Angeles_Sharktech1
+  - US_Los Angeles_Sharktech2
+  - US_Los Angeles_Sharktech3
+  - US_Los Angeles_Sharktech4
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI1
+  - US_Phoenix_Oracle Corporation_OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI3
+  - US_Phoenix_Oracle Corporation_OpenAI4
+  - US_Portland_Amazon.com, Inc._OpenAI1
+  - US_Portland_Amazon.com, Inc._OpenAI2
+  - US_Portland_Amazon.com, Inc._OpenAI3
+  - US_San Jose_Amazon.com, Inc._OpenAI
+  - VN_Hải Dương_FASTLY_OpenAI1
+  - VN_Hải Dương_FASTLY_OpenAI2
+  - VN_Hải Dương_FASTLY_OpenAI3
+  - VN_Hải Dương_FASTLY_OpenAI4
+  - ❓_🇦🇲_💻_github.com/Ruk1ng001_
+  - ❓_🇦🇺_💻_github.com/Ruk1ng001_
+  - ❓_🇨🇳_💻_github.com/Ruk1ng001_
+  - ❓_🇨🇿_💻_github.com/Ruk1ng001_
+  - ❓_🇬🇧_💻_github.com/Ruk1ng001_1
+  - ❓_🇬🇧_💻_github.com/Ruk1ng001_2
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_1
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_2
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_2
+  - ❓_🇸🇬_💻_github.com/Ruk1ng001_
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_1
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_2
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_3
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_4
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_5
+  - 其他地区_1
+  - 其他地区_10
+  - 其他地区_11
+  - 其他地区_12
+  - 其他地区_13
+  - 其他地区_14
+  - 其他地区_15
+  - 其他地区_16
+  - 其他地区_17
+  - 其他地区_18
+  - 其他地区_19
+  - 其他地区_2
+  - 其他地区_20
+  - 其他地区_21
+  - 其他地区_22
+  - 其他地区_23
+  - 其他地区_24
+  - 其他地区_25
+  - 其他地区_3
+  - 其他地区_4
+  - 其他地区_5
+  - 其他地区_6
+  - 其他地区_7
+  - 其他地区_8
+  - 其他地区_9
+  - 加拿大_
+  - 台湾_1
+  - 台湾_2
+  - 德国_1
+  - 德国_10
+  - 德国_11
+  - 德国_12
+  - 德国_13
+  - 德国_14
+  - 德国_15
+  - 德国_16
+  - 德国_17
+  - 德国_18
+  - 德国_19
+  - 德国_2
+  - 德国_20
+  - 德国_21
+  - 德国_22
+  - 德国_23
+  - 德国_24
+  - 德国_25
+  - 德国_26
+  - 德国_27
+  - 德国_28
+  - 德国_29
+  - 德国_3
+  - 德国_30
+  - 德国_31
+  - 德国_32
+  - 德国_33
+  - 德国_34
+  - 德国_35
+  - 德国_36
+  - 德国_37
+  - 德国_38
+  - 德国_39
+  - 德国_4
+  - 德国_40
+  - 德国_41
+  - 德国_42
+  - 德国_43
+  - 德国_44
+  - 德国_45
+  - 德国_46
+  - 德国_47
+  - 德国_48
+  - 德国_49
+  - 德国_5
+  - 德国_50
+  - 德国_51
+  - 德国_52
+  - 德国_53
+  - 德国_54
+  - 德国_55
+  - 德国_56
+  - 德国_57
+  - 德国_58
+  - 德国_59
+  - 德国_6
+  - 德国_7
+  - 德国_8
+  - 德国_9
+  - 新加坡_1
+  - 新加坡_2
+  - 日本_1
+  - 日本_10
+  - 日本_11
+  - 日本_12
+  - 日本_13
+  - 日本_14
+  - 日本_15
+  - 日本_2
+  - 日本_3
+  - 日本_4
+  - 日本_5
+  - 日本_6
+  - 日本_7
+  - 日本_8
+  - 日本_9
+  - 美国_1
+  - 美国_10
+  - 美国_11
+  - 美国_12
+  - 美国_13
+  - 美国_14
+  - 美国_15
+  - 美国_16
+  - 美国_17
+  - 美国_18
+  - 美国_19
+  - 美国_2
+  - 美国_20
+  - 美国_3
+  - 美国_4
+  - 美国_5
+  - 美国_6
+  - 美国_7
+  - 美国_8
+  - 美国_9
+  - 英国_
+  - 🇦🇪1_
+  - 🟡_🇧🇬_💻_github.com/Ruk1ng001_
+  - 🟡_🇬🇧_💻_github.com/Ruk1ng001_
+  - 🟡_🇺🇸_💻_github.com/Ruk1ng001_
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -198,7 +3201,9 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - HK_Hong Kong_Alibaba (US) Technology Co., Ltd._OpenAI
+  - HK_Hong Kong_Alibaba Cloud LLC_OpenAI
+  - HK_Hong Kong_Kaopu Cloud HK Limited
+  - KR_Seoul_Kaopu Cloud HK Limited_OpenAI
   filter: (?i)港|HK|HongKong|hong kong
 - name: TW
   type: url-test
@@ -206,7 +3211,8 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - DIRECT
+  - 台湾_1
+  - 台湾_2
   filter: 台湾|TW|Tw|Taiwan|新北|彰化|CHT|HINET
 - name: JP
   type: url-test
@@ -214,8 +3220,21 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI1
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI2
+  - 日本_1
+  - 日本_10
+  - 日本_11
+  - 日本_12
+  - 日本_13
+  - 日本_14
+  - 日本_15
+  - 日本_2
+  - 日本_3
+  - 日本_4
+  - 日本_5
+  - 日本_6
+  - 日本_7
+  - 日本_8
+  - 日本_9
   filter: (?i)日|东京|大阪|JP|Japan|Tokyo|Osaka|Saitama
 - name: SG
   type: url-test
@@ -223,8 +3242,24 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - SG_Singapore_Amazon Technologies Inc._OpenAI
-  - SG_Singapore_Amazon.com, Inc._OpenAI
+  - SG_Singapore_Shenzhen Tencent Computer Systems Company Limited_OpenAI
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co1
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co10
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co11
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co12
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co13
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co14
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co15
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co2
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co3
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co4
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co5
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co6
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co7
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co8
+  - SG_Singapore_Tencent Cloud Computing (Beijing) Co9
+  - 新加坡_1
+  - 新加坡_2
   filter: (?i)新|狮城|SG|Singapore
 - name: US
   type: url-test
@@ -232,8 +3267,54 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - HK_Hong Kong_Alibaba (US) Technology Co., Ltd._OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI
+  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  - US_Buffalo_HostPapa_OpenAI1
+  - US_Buffalo_HostPapa_OpenAI2
+  - US_Buffalo_HostPapa_OpenAI3
+  - US_Buffalo_HostPapa_OpenAI4
+  - US_Dallas_HostPapa_OpenAI1
+  - US_Dallas_HostPapa_OpenAI2
+  - US_Dallas_HostPapa_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI1
+  - US_Dallas_Total Uptime Technologies_OpenAI2
+  - US_Dallas_Total Uptime Technologies_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI4
+  - US_Dallas_Total Uptime Technologies_OpenAI5
+  - US_Elk Grove Village_HostPapa_OpenAI
+  - US_Los Angeles_Sharktech1
+  - US_Los Angeles_Sharktech2
+  - US_Los Angeles_Sharktech3
+  - US_Los Angeles_Sharktech4
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI1
+  - US_Phoenix_Oracle Corporation_OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI3
+  - US_Phoenix_Oracle Corporation_OpenAI4
+  - US_Portland_Amazon.com, Inc._OpenAI1
+  - US_Portland_Amazon.com, Inc._OpenAI2
+  - US_Portland_Amazon.com, Inc._OpenAI3
+  - US_San Jose_Amazon.com, Inc._OpenAI
+  - 美国_1
+  - 美国_10
+  - 美国_11
+  - 美国_12
+  - 美国_13
+  - 美国_14
+  - 美国_15
+  - 美国_16
+  - 美国_17
+  - 美国_18
+  - 美国_19
+  - 美国_2
+  - 美国_20
+  - 美国_3
+  - 美国_4
+  - 美国_5
+  - 美国_6
+  - 美国_7
+  - 美国_8
+  - 美国_9
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -241,13 +3322,59 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - FR_Ivry-sur-Seine_Online S.A.S._OpenAI
-  - HK_Hong Kong_Alibaba (US) Technology Co., Ltd._OpenAI
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI1
-  - JP_Tokyo_Amazon Technologies Inc._OpenAI2
-  - SG_Singapore_Amazon Technologies Inc._OpenAI
-  - SG_Singapore_Amazon.com, Inc._OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI
+  - 143.14.220.111_OpenAI
+  - 164.92.156.41_OpenAI
+  - 45.61.161.193_OpenAI
+  - CA_Montreal_OVH SAS_OpenAI
+  - CH_Zurich_GTHost_OpenAI
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI1
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI2
+  - DE_Jena_ISPpro Internet KG_OpenAI
+  - FI_Helsinki_Hetzner Online GmbH_OpenAI1
+  - FI_Helsinki_Hetzner Online GmbH_OpenAI2
+  - FI_Helsinki_Hetzner Online_OpenAI
+  - HK_Hong Kong_Alibaba Cloud LLC_OpenAI
+  - KR_Chuncheon_Oracle Corporation_OpenAI
+  - KR_Gwanak-gu_Korea Telecom_OpenAI
+  - KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI1
+  - KR_Gwanak-gu_SK Broadband Co Ltd_OpenAI2
+  - KR_Seoul_Kaopu Cloud HK Limited_OpenAI
+  - NL_Amsterdam_Aeza International LTD_OpenAI1
+  - NL_Amsterdam_Aeza International LTD_OpenAI2
+  - NL_Amsterdam_Greenhost BV_OpenAI
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI1
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI2
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI3
+  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  - SG_Singapore_Shenzhen Tencent Computer Systems Company Limited_OpenAI
+  - SK_Bratislava_DataCamp Limited_OpenAI
+  - US_Buffalo_HostPapa_OpenAI1
+  - US_Buffalo_HostPapa_OpenAI2
+  - US_Buffalo_HostPapa_OpenAI3
+  - US_Buffalo_HostPapa_OpenAI4
+  - US_Dallas_HostPapa_OpenAI1
+  - US_Dallas_HostPapa_OpenAI2
+  - US_Dallas_HostPapa_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI1
+  - US_Dallas_Total Uptime Technologies_OpenAI2
+  - US_Dallas_Total Uptime Technologies_OpenAI3
+  - US_Dallas_Total Uptime Technologies_OpenAI4
+  - US_Dallas_Total Uptime Technologies_OpenAI5
+  - US_Elk Grove Village_HostPapa_OpenAI
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
+  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI1
+  - US_Phoenix_Oracle Corporation_OpenAI2
+  - US_Phoenix_Oracle Corporation_OpenAI3
+  - US_Phoenix_Oracle Corporation_OpenAI4
+  - US_Portland_Amazon.com, Inc._OpenAI1
+  - US_Portland_Amazon.com, Inc._OpenAI2
+  - US_Portland_Amazon.com, Inc._OpenAI3
+  - US_San Jose_Amazon.com, Inc._OpenAI
+  - VN_Hải Dương_FASTLY_OpenAI1
+  - VN_Hải Dương_FASTLY_OpenAI2
+  - VN_Hải Dương_FASTLY_OpenAI3
+  - VN_Hải Dương_FASTLY_OpenAI4
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
