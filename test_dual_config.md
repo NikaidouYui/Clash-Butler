@@ -6,6 +6,12 @@
 - 无论 `fast_mode` 设置如何，都会生成快速模式配置文件 `clash-fast.yaml`
 - 当 `fast_mode = false` 时，还会额外生成完整处理的 `clash.yaml`
 - 当 `fast_mode = true` 时，只生成快速模式配置文件
+- 修复了索引循环缺陷，避免节点被错误过滤
+
+### 1.5. Claude 检测逻辑优化 (src/website.rs)
+- **重要改进**：将 HTTP 403 Forbidden 状态码视为可访问
+- 403 表示网络连通但权限限制，从连通性角度应该算作可用
+- 这将显著增加通过 Claude 测试的节点数量，特别是香港等地区节点
 
 ### 2. GitHub Actions 修改 (.github/workflows/daily-update.yml)
 - 统计两个配置文件的节点数量

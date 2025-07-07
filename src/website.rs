@@ -30,7 +30,8 @@ pub async fn claude_is_ok(proxy_url: &str) -> Result<()> {
     if text.contains("unavailable") {
         return Err(anyhow!("app unavailable"));
     }
-    if status.is_success() {
+    // 将 403 Forbidden 视为可访问（网络连通但权限限制）
+    if status.is_success() || status == StatusCode::FORBIDDEN {
         return Ok(());
     }
     Err(anyhow!("http status code: {}", status))
