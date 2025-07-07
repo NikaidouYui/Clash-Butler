@@ -34,9 +34,41 @@ jobs:
       - name: Download Clash Meta
         run: |
           mkdir -p clash-meta
-          wget -O clash-meta.tar.gz "https://github.com/MetaCubeX/mihomo/releases/latest/download/mihomo-linux-amd64-compatible-v1.18.10.tar.gz"
+          
+          # 获取最新版本号
+          echo "正在获取最新版本信息..."
+          LATEST_VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+          
+          if [ -z "$LATEST_VERSION" ]; then
+            echo "无法获取最新版本，使用备用版本 v1.19.11"
+            LATEST_VERSION="v1.19.11"
+          fi
+          
+          echo "使用版本: $LATEST_VERSION"
+          
+          # 尝试下载最新版本的 mihomo
+          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64-compatible-${LATEST_VERSION}.tar.gz"
+          echo "下载地址: $DOWNLOAD_URL"
+          
+          if wget -O clash-meta.tar.gz "$DOWNLOAD_URL"; then
+            echo "下载成功"
+          else
+            echo "下载失败，尝试备用下载方式..."
+            # 备用下载方式：不带版本号的文件名
+            BACKUP_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64-compatible.tar.gz"
+            echo "备用下载地址: $BACKUP_URL"
+            wget -O clash-meta.tar.gz "$BACKUP_URL"
+          fi
+          
+          # 解压并设置权限
           tar -xzf clash-meta.tar.gz -C clash-meta --strip-components=1
           chmod +x clash-meta/mihomo
+          
+          # 验证下载的文件
+          echo "验证下载的文件:"
+          ls -la clash-meta/
+          echo "Clash Meta 版本信息:"
+          ./clash-meta/mihomo -v || echo "无法获取版本信息，但文件存在"
           
       - name: Build project
         run: cargo build --release
@@ -51,12 +83,30 @@ jobs:
           echo "start_time=$START_TIME" >> $GITHUB_OUTPUT
           
           # 运行程序并捕获输出
+          echo "正在执行 Clash Butler，最大等待时间 30 分钟..."
           if timeout 1800 cargo run --release > run_output.log 2>&1; then
             echo "status=success" >> $GITHUB_OUTPUT
             echo "Clash Butler 运行成功"
+            
+            # 显示最后几行输出
+            echo "程序输出的最后 10 行:"
+            tail -n 10 run_output.log || echo "无法读取输出日志"
           else
+            EXIT_CODE=$?
             echo "status=failed" >> $GITHUB_OUTPUT
-            echo "Clash Butler 运行失败"
+            echo "Clash Butler 运行失败，退出码: $EXIT_CODE"
+            
+            # 捕获错误信息
+            if [ $EXIT_CODE -eq 124 ]; then
+              ERROR_MSG="程序执行超时（超过30分钟）"
+            else
+              ERROR_MSG="程序异常退出，退出码: $EXIT_CODE"
+            fi
+            echo "error_message=$ERROR_MSG" >> $GITHUB_OUTPUT
+            
+            # 显示错误日志
+            echo "错误日志的最后 20 行:"
+            tail -n 20 run_output.log || echo "无法读取错误日志"
           fi
           
           # 设置结束时间
@@ -68,8 +118,14 @@ jobs:
             PROXY_COUNT=$(grep -c "^  - name:" clash.yaml || echo "0")
             echo "proxy_count=$PROXY_COUNT" >> $GITHUB_OUTPUT
             echo "生成的代理节点数量: $PROXY_COUNT"
+            
+            # 显示文件大小
+            FILE_SIZE=$(du -h clash.yaml | cut -f1)
+            echo "配置文件大小: $FILE_SIZE"
+            echo "file_size=$FILE_SIZE" >> $GITHUB_OUTPUT
           else
             echo "proxy_count=0" >> $GITHUB_OUTPUT
+            echo "file_size=0" >> $GITHUB_OUTPUT
             echo "未找到生成的 clash.yaml 文件"
           fi
           
@@ -98,17 +154,33 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "✅ Clash Butler 每日更新成功"
+          subject: "✅ Clash Butler 每日更新成功 - ${{ steps.run_butler.outputs.proxy_count }} 个节点"
           to: ${{ secrets.EMAIL_TO }}
           from: ${{ secrets.EMAIL_FROM }}
           html_body: |
             <h2>🎉 Clash Butler 每日更新成功</h2>
-            <p><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</p>
-            <p><strong>可用节点数量:</strong> ${{ steps.run_butler.outputs.proxy_count }} 个</p>
-            <p><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></p>
-            <p><strong>最新配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash.yaml">clash.yaml</a></p>
+            
+            <h3>📊 更新统计</h3>
+            <ul>
+              <li><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</li>
+              <li><strong>可用节点数量:</strong> ${{ steps.run_butler.outputs.proxy_count }} 个</li>
+              <li><strong>配置文件大小:</strong> ${{ steps.run_butler.outputs.file_size }}</li>
+              <li><strong>执行状态:</strong> ✅ 成功</li>
+            </ul>
+            
+            <h3>🔗 相关链接</h3>
+            <ul>
+              <li><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></li>
+              <li><strong>最新配置文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/blob/master/clash.yaml">clash.yaml</a></li>
+              <li><strong>执行日志:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">查看详细日志</a></li>
+            </ul>
+            
+            <h3>📝 使用说明</h3>
+            <p>您可以直接使用以下链接作为 Clash 订阅地址：</p>
+            <code>${{ github.server_url }}/${{ github.repository }}/raw/master/clash.yaml</code>
+            
             <hr>
-            <p><em>此邮件由 GitHub Actions 自动发送</em></p>
+            <p><em>此邮件由 GitHub Actions 自动发送 | 执行ID: ${{ github.run_id }}</em></p>
             
       - name: Send failure email notification
         if: steps.run_butler.outputs.status == 'failed'
@@ -123,10 +195,29 @@ jobs:
           from: ${{ secrets.EMAIL_FROM }}
           html_body: |
             <h2>⚠️ Clash Butler 每日更新失败</h2>
-            <p><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</p>
-            <p><strong>失败原因:</strong> 程序执行超时或出现错误</p>
-            <p><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></p>
-            <p><strong>查看日志:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions">GitHub Actions</a></p>
+            
+            <h3>📊 执行信息</h3>
+            <ul>
+              <li><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</li>
+              <li><strong>失败原因:</strong> ${{ steps.run_butler.outputs.error_message || '程序执行异常' }}</li>
+              <li><strong>执行状态:</strong> ❌ 失败</li>
+            </ul>
+            
+            <h3>🔗 排查链接</h3>
+            <ul>
+              <li><strong>仓库地址:</strong> <a href="${{ github.server_url }}/${{ github.repository }}">${{ github.repository }}</a></li>
+              <li><strong>查看详细日志:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">GitHub Actions 日志</a></li>
+              <li><strong>下载日志文件:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">clash-butler-logs</a></li>
+            </ul>
+            
+            <h3>🛠️ 常见问题排查</h3>
+            <ol>
+              <li>检查 <code>conf/config.toml</code> 中的订阅链接是否有效</li>
+              <li>确认订阅源是否正常响应</li>
+              <li>查看是否有网络连接问题</li>
+              <li>检查 Clash Meta 下载是否成功</li>
+            </ol>
+            
             <hr>
-            <p><em>请检查配置文件和订阅链接是否正常</em></p>
-            <p><em>此邮件由 GitHub Actions 自动发送</em></p>
+            <p><em>建议检查配置文件和订阅链接，然后手动重新运行任务</em></p>
+            <p><em>此邮件由 GitHub Actions 自动发送 | 执行ID: ${{ github.run_id }}</em></p>
