@@ -2,7 +2,7 @@
 fast_mode = false
 
 # 是否开启调试模式，输出详细的日志信息
-debug_mode = true
+debug_mode = false
 
 # 待测速的订阅节点
 # 支持网络地址 https://xxx
@@ -36,6 +36,6 @@ timeout = 2000
 
 # 带宽测速配置
 [speed_test]
-enabled = false
+enabled = true
 url = "https://speed.cloudflare.com/__down?bytes=104857600"
 timeout = 3000
