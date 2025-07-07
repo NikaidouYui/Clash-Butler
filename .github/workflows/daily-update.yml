@@ -26,49 +26,28 @@ jobs:
       - name: Cache Rust dependencies
         uses: Swatinem/rust-cache@v2
         
-      - name: Install system dependencies
+      - name: Setup Clash Meta
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
+          echo "检查 Clash Meta 文件..."
           
-      - name: Download Clash Meta
-        run: |
-          mkdir -p clash-meta
-          
-          # 获取最新版本号
-          echo "正在获取最新版本信息..."
-          LATEST_VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-          
-          if [ -z "$LATEST_VERSION" ]; then
-            echo "无法获取最新版本，使用备用版本 v1.19.11"
-            LATEST_VERSION="v1.19.11"
-          fi
-          
-          echo "使用版本: $LATEST_VERSION"
-          
-          # 尝试下载最新版本的 mihomo
-          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64-compatible-${LATEST_VERSION}.tar.gz"
-          echo "下载地址: $DOWNLOAD_URL"
-          
-          if wget -O clash-meta.tar.gz "$DOWNLOAD_URL"; then
-            echo "下载成功"
+          # 检查是否存在 mihomo 文件
+          if [ -f "clash-meta/mihomo" ]; then
+            echo "发现现有的 Clash Meta 文件"
+            chmod +x clash-meta/mihomo
+            
+            # 显示文件信息
+            echo "文件大小: $(du -h clash-meta/mihomo | cut -f1)"
+            echo "文件权限: $(ls -l clash-meta/mihomo)"
+            
+            # 尝试获取版本信息
+            echo "Clash Meta 版本信息:"
+            ./clash-meta/mihomo -v || echo "无法获取版本信息，但文件存在且可执行"
+            
+            echo "✅ Clash Meta 准备就绪"
           else
-            echo "下载失败，尝试备用下载方式..."
-            # 备用下载方式：不带版本号的文件名
-            BACKUP_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64-compatible.tar.gz"
-            echo "备用下载地址: $BACKUP_URL"
-            wget -O clash-meta.tar.gz "$BACKUP_URL"
+            echo "❌ 未找到 Clash Meta 文件，请检查项目结构"
+            exit 1
           fi
-          
-          # 解压并设置权限
-          tar -xzf clash-meta.tar.gz -C clash-meta --strip-components=1
-          chmod +x clash-meta/mihomo
-          
-          # 验证下载的文件
-          echo "验证下载的文件:"
-          ls -la clash-meta/
-          echo "Clash Meta 版本信息:"
-          ./clash-meta/mihomo -v || echo "无法获取版本信息，但文件存在"
           
       - name: Build project
         run: cargo build --release
