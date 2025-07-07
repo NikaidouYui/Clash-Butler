@@ -26,28 +26,70 @@ jobs:
       - name: Cache Rust dependencies
         uses: Swatinem/rust-cache@v2
         
-      - name: Setup Clash Meta
+      - name: Setup Clash Meta for Linux
         run: |
-          echo "检查 Clash Meta 文件..."
+          echo "为 Linux 环境准备 Clash Meta..."
           
-          # 检查是否存在 mihomo 文件
+          # 检查现有文件是否为 Linux 版本
           if [ -f "clash-meta/mihomo" ]; then
-            echo "发现现有的 Clash Meta 文件"
+            echo "发现现有的 mihomo 文件，检查是否适用于 Linux..."
             chmod +x clash-meta/mihomo
             
-            # 显示文件信息
-            echo "文件大小: $(du -h clash-meta/mihomo | cut -f1)"
-            echo "文件权限: $(ls -l clash-meta/mihomo)"
-            
-            # 尝试获取版本信息
-            echo "Clash Meta 版本信息:"
-            ./clash-meta/mihomo -v || echo "无法获取版本信息，但文件存在且可执行"
-            
-            echo "✅ Clash Meta 准备就绪"
+            # 尝试运行，如果失败则下载 Linux 版本
+            if ./clash-meta/mihomo -v >/dev/null 2>&1; then
+              echo "✅ 现有文件可在 Linux 上运行"
+            else
+              echo "⚠️ 现有文件不适用于 Linux，下载 Linux 版本..."
+              
+              # 获取最新版本号
+              LATEST_VERSION=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+              
+              if [ -z "$LATEST_VERSION" ]; then
+                echo "无法获取最新版本，使用备用版本 v1.19.11"
+                LATEST_VERSION="v1.19.11"
+              fi
+              
+              echo "下载版本: $LATEST_VERSION"
+              
+              # 下载 Linux 版本
+              DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64-${LATEST_VERSION}.gz"
+              echo "下载地址: $DOWNLOAD_URL"
+              
+              if wget -O mihomo-linux.gz "$DOWNLOAD_URL"; then
+                echo "下载成功，解压中..."
+                gunzip mihomo-linux.gz
+                mv mihomo-linux clash-meta/mihomo
+                chmod +x clash-meta/mihomo
+              else
+                echo "下载失败，尝试备用下载方式..."
+                BACKUP_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_VERSION}/mihomo-linux-amd64.gz"
+                echo "备用下载地址: $BACKUP_URL"
+                
+                if wget -O mihomo-linux.gz "$BACKUP_URL"; then
+                  gunzip mihomo-linux.gz
+                  mv mihomo-linux clash-meta/mihomo
+                  chmod +x clash-meta/mihomo
+                else
+                  echo "❌ 无法下载 Linux 版本的 mihomo"
+                  exit 1
+                fi
+              fi
+            fi
           else
-            echo "❌ 未找到 Clash Meta 文件，请检查项目结构"
+            echo "❌ 未找到 mihomo 文件"
             exit 1
           fi
+          
+          # 验证最终文件
+          echo "验证 Clash Meta:"
+          echo "文件大小: $(du -h clash-meta/mihomo | cut -f1)"
+          echo "文件权限: $(ls -l clash-meta/mihomo)"
+          
+          # 获取版本信息
+          echo "Clash Meta 版本信息:"
+          ./clash-meta/mihomo -v || echo "无法获取版本信息，但文件存在"
+          
+          echo "✅ Clash Meta 准备就绪"
           
       - name: Build project
         run: cargo build --release
@@ -94,17 +136,21 @@ jobs:
           
           # 检查生成的文件
           if [ -f "clash.yaml" ]; then
-            PROXY_COUNT=$(grep -c "^  - name:" clash.yaml || echo "0")
+            PROXY_COUNT=$(grep -c "^  - name:" clash.yaml 2>/dev/null || echo "0")
             echo "proxy_count=$PROXY_COUNT" >> $GITHUB_OUTPUT
             echo "生成的代理节点数量: $PROXY_COUNT"
             
             # 显示文件大小
-            FILE_SIZE=$(du -h clash.yaml | cut -f1)
+            FILE_SIZE=$(du -h clash.yaml 2>/dev/null | cut -f1 || echo "未知")
             echo "配置文件大小: $FILE_SIZE"
             echo "file_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+            
+            # 显示文件的前几行以验证格式
+            echo "配置文件前 5 行:"
+            head -n 5 clash.yaml || echo "无法读取文件内容"
           else
             echo "proxy_count=0" >> $GITHUB_OUTPUT
-            echo "file_size=0" >> $GITHUB_OUTPUT
+            echo "file_size=未生成" >> $GITHUB_OUTPUT
             echo "未找到生成的 clash.yaml 文件"
           fi
           
