@@ -245,7 +245,7 @@ async fn run(config: Settings) {
                     .await;
                     
                 if ip_result.is_ok() {
-                    let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url).await;
+                    let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url, config.debug_mode).await;
                     if ip_result.is_ok() {
                         let (proxy_ip, from) = ip_result.unwrap();
                         info!("「{}」ip: {} from: {}", node, proxy_ip, from);

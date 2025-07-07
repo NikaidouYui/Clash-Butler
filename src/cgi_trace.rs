@@ -9,7 +9,7 @@ use futures_util::FutureExt;
 use reqwest::Client;
 use serde_json::Value;
 use tokio::time::sleep;
-use tracing::error;
+use tracing::{error, info};
 
 const OPENAI_TRACE_URL: &str = "https://chat.openai.com/cdn-cgi/trace";
 const CF_TRACE_URL: &str = "https://1.0.0.1/cdn-cgi/trace";
@@ -18,13 +18,17 @@ const CF_TRACE_URL: &str = "https://1.0.0.1/cdn-cgi/trace";
 const CF_CN_TRACE_URL: &str = "https://cf-ns.com/cdn-cgi/trace";
 
 // IP 查询超时时间
-const TIMEOUT: Duration = Duration::from_secs(5);
+const TIMEOUT: Duration = Duration::from_secs(15);
 
 type IpBoxFuture<'a> = BoxFuture<'a, Result<(IpAddr, &'a str), Box<dyn std::error::Error>>>;
 
-pub async fn get_ip(proxy_url: &str) -> Result<(IpAddr, &str), Box<dyn std::error::Error>> {
-    let cf_future: IpBoxFuture = async {
-        match get_trace_info_with_proxy(proxy_url, CF_TRACE_URL).await {
+pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str), Box<dyn std::error::Error>> {
+    if debug_mode {
+        info!("开始获取 IP，代理地址: {}", proxy_url);
+    }
+
+    let cf_future: IpBoxFuture = async move {
+        match get_trace_info_with_proxy(proxy_url, CF_TRACE_URL, debug_mode).await {
             Ok(trace) => Ok((trace.ip, "cf")),
             Err(e) => {
                 error!("从 Cloudflare 获取 IP 失败, {e}");
@@ -34,8 +38,8 @@ pub async fn get_ip(proxy_url: &str) -> Result<(IpAddr, &str), Box<dyn std::erro
     }
     .boxed();
 
-    let ipify_future: IpBoxFuture = async {
-        match get_ip_by_ipify(proxy_url).await {
+    let ipify_future: IpBoxFuture = async move {
+        match get_ip_by_ipify(proxy_url, debug_mode).await {
             Ok(ip) => Ok((ip, "ipify")),
             Err(e) => {
                 error!("从 ipify 获取 IP 失败, {e}");
@@ -45,8 +49,8 @@ pub async fn get_ip(proxy_url: &str) -> Result<(IpAddr, &str), Box<dyn std::erro
     }
     .boxed();
 
-    let openai_future: IpBoxFuture = async {
-        match get_trace_info_with_proxy(proxy_url, OPENAI_TRACE_URL).await {
+    let openai_future: IpBoxFuture = async move {
+        match get_trace_info_with_proxy(proxy_url, OPENAI_TRACE_URL, debug_mode).await {
             Ok(trace) => Ok((trace.ip, "openai")),
             Err(e) => {
                 error!("从 OpenAI 获取 IP 失败, {e}");
@@ -65,45 +69,73 @@ pub async fn get_ip(proxy_url: &str) -> Result<(IpAddr, &str), Box<dyn std::erro
 
 // clash 规则走的是国内，没走代理所以寄
 #[allow(dead_code)]
-async fn get_ip_by_ipip(proxy_url: &str) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let client = Client::builder()
-        .timeout(TIMEOUT)
-        .proxy(reqwest::Proxy::all(proxy_url)?)
-        .build()?;
-
-    let response = client.get("https://myip.ipip.net/ip").send().await?;
-    let body = response.text().await?;
-
-    let value: Value = serde_json::from_str(&body)?;
-
-    if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
-        if let Ok(ip) = IpAddr::from_str(ip_str) {
-            return Ok(ip);
+async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("ipip 尝试使用 {} 代理", proxy_type);
+        }
+        
+        match client.get("https://myip.ipip.net/ip").send().await {
+            Ok(response) => {
+                let body = response.text().await?;
+                let value: Value = serde_json::from_str(&body)?;
+                
+                if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
+                    if let Ok(ip) = IpAddr::from_str(ip_str) {
+                        info!("ipip 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
+                        return Ok(ip);
+                    }
+                }
+            }
+            Err(e) => {
+                if debug_mode {
+                    error!("ipip {} 代理失败: {}", proxy_type, e);
+                }
+                continue;
+            }
         }
     }
-    Err("Failed to parse IP address".into())
+    
+    Err("所有代理类型都失败".into())
 }
 
-async fn get_ip_by_ipify(proxy_url: &str) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let client = Client::builder()
-        .timeout(TIMEOUT)
-        .proxy(reqwest::Proxy::all(proxy_url)?)
-        .build()?;
-
-    let response = client
-        .get("https://api4.ipify.org/?format=json")
-        .send()
-        .await?;
-    let body = response.text().await?;
-
-    let value: Value = serde_json::from_str(&body)?;
-
-    if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
-        if let Ok(ip) = IpAddr::from_str(ip_str) {
-            return Ok(ip);
+async fn get_ip_by_ipify(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    // 尝试多种代理配置
+    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("ipify 尝试使用 {} 代理", proxy_type);
+        }
+        
+        match client
+            .get("https://api4.ipify.org/?format=json")
+            .send()
+            .await
+        {
+            Ok(response) => {
+                let body = response.text().await?;
+                let value: Value = serde_json::from_str(&body)?;
+                
+                if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
+                    if let Ok(ip) = IpAddr::from_str(ip_str) {
+                        info!("ipify 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
+                        return Ok(ip);
+                    }
+                }
+            }
+            Err(e) => {
+                if debug_mode {
+                    error!("ipify {} 代理失败: {}", proxy_type, e);
+                }
+                continue;
+            }
         }
     }
-    Err("Failed to parse IP address".into())
+    
+    Err("所有代理类型都失败".into())
 }
 
 fn parse_trace_info(text: String) -> TraceInfo {
@@ -135,34 +167,124 @@ fn parse_trace_info(text: String) -> TraceInfo {
     }
 }
 
-async fn get_trace_info_with_proxy(
-    proxy_url: &str,
-    trace_url: &str,
-) -> Result<TraceInfo, Box<dyn std::error::Error>> {
-    let client = Client::builder()
-        .timeout(TIMEOUT)
-        .proxy(reqwest::Proxy::all(proxy_url)?)
-        .build()?;
-
-    let mut attempts = 0;
-    let max_attempts = 3;
-
-    while attempts < max_attempts {
-        match client.get(trace_url).send().await {
-            Ok(res) => {
-                let body = res.text().await?;
-                return Ok(parse_trace_info(body));
-            }
-            Err(e) => {
-                if attempts + 1 == max_attempts {
-                    return Err(e.into());
-                }
-                attempts += 1;
-                sleep(Duration::from_secs(1)).await; // 等待一秒再重试
+// 创建多种代理客户端配置
+fn create_proxy_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client, &'static str)>, Box<dyn std::error::Error>> {
+    let mut clients = Vec::new();
+    
+    if debug_mode {
+        info!("创建代理客户端，代理地址: {}", proxy_url);
+    }
+    
+    // 尝试 HTTP 代理
+    if let Ok(http_proxy) = reqwest::Proxy::http(proxy_url) {
+        if let Ok(client) = Client::builder()
+            .timeout(TIMEOUT)
+            .proxy(http_proxy)
+            .build()
+        {
+            clients.push((client, "HTTP"));
+            if debug_mode {
+                info!("成功创建 HTTP 代理客户端");
             }
         }
     }
-    unreachable!()
+    
+    // 尝试 HTTPS 代理
+    if let Ok(https_proxy) = reqwest::Proxy::https(proxy_url) {
+        if let Ok(client) = Client::builder()
+            .timeout(TIMEOUT)
+            .proxy(https_proxy)
+            .build()
+        {
+            clients.push((client, "HTTPS"));
+            if debug_mode {
+                info!("成功创建 HTTPS 代理客户端");
+            }
+        }
+    }
+    
+    // 尝试所有协议代理
+    if let Ok(all_proxy) = reqwest::Proxy::all(proxy_url) {
+        if let Ok(client) = Client::builder()
+            .timeout(TIMEOUT)
+            .proxy(all_proxy)
+            .build()
+        {
+            clients.push((client, "ALL"));
+            if debug_mode {
+                info!("成功创建 ALL 协议代理客户端");
+            }
+        }
+    }
+    
+    // 如果是 HTTP URL，尝试转换为 SOCKS5
+    if proxy_url.starts_with("http://") {
+        let socks_url = proxy_url.replace("http://", "socks5://");
+        if let Ok(socks_proxy) = reqwest::Proxy::all(&socks_url) {
+            if let Ok(client) = Client::builder()
+                .timeout(TIMEOUT)
+                .proxy(socks_proxy)
+                .build()
+            {
+                clients.push((client, "SOCKS5"));
+                if debug_mode {
+                    info!("成功创建 SOCKS5 代理客户端: {}", socks_url);
+                }
+            }
+        }
+    }
+    
+    if clients.is_empty() {
+        return Err("无法创建任何代理客户端".into());
+    }
+    
+    if debug_mode {
+        info!("总共创建了 {} 个代理客户端", clients.len());
+    }
+    
+    Ok(clients)
+}
+
+async fn get_trace_info_with_proxy(
+    proxy_url: &str,
+    trace_url: &str,
+    debug_mode: bool,
+) -> Result<TraceInfo, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("trace 尝试使用 {} 代理访问 {}", proxy_type, trace_url);
+        }
+        
+        let mut attempts = 0;
+        let max_attempts = 2; // 减少每个代理类型的重试次数
+        
+        while attempts < max_attempts {
+            match client.get(trace_url).send().await {
+                Ok(res) => {
+                    let body = res.text().await?;
+                    info!("trace 成功使用 {} 代理获取信息", proxy_type);
+                    return Ok(parse_trace_info(body));
+                }
+                Err(e) => {
+                    if attempts + 1 == max_attempts {
+                        if debug_mode {
+                            error!("trace {} 代理失败: {}", proxy_type, e);
+                        }
+                        break;
+                    }
+                    attempts += 1;
+                    if debug_mode {
+                        info!("trace {} 代理第 {} 次尝试失败，重试中...", proxy_type, attempts);
+                    }
+                    sleep(Duration::from_millis(500)).await; // 减少等待时间
+                }
+            }
+        }
+    }
+    
+    Err("所有代理类型都失败".into())
 }
 
 #[derive(Debug)]

@@ -1,6 +1,9 @@
 # 是否开启快速模式，快速模式下仅测试连通性
 fast_mode = false
 
+# 是否开启调试模式，输出详细的日志信息
+debug_mode = true
+
 # 待测速的订阅节点
 # 支持网络地址 https://xxx
 # 支持本地地址（绝对地址）/User/xxx/xx.yml

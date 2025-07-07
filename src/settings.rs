@@ -10,6 +10,7 @@ use crate::speedtest::SpeedTestConfig;
 #[allow(unused)]
 pub struct Settings {
     pub fast_mode: bool,
+    pub debug_mode: bool,
     pub subs: Vec<String>,
     pub rename_node: bool,
     pub rename_pattern: String,

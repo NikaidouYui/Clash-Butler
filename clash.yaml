@@ -71,20 +71,19 @@ dns:
   - https://doh.pub/dns-query
   - https://dns.alidns.com/dns-query
 proxies:
-- flow: xtls-rprx-vision
-  name: 143.14.220.111_OpenAI_Claude
-  network: tcp
-  port: 25888
-  reality-opts:
-    public-key: eHaAkgZIfsYhrH_0HCj07-Vbd7nrMHnnAa663_969DA
-    short-id: be1be5fc
-  server: 143.14.220.111
-  servername: www.samsung.com
-  tls: true
+- name: 185.71.228.0_OpenAI_Claude
+  network: ws
+  port: 8880
+  server: 185.174.138.0
+  tls: false
   type: vless
   udp: true
-  uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
-- name: 54.200.244.93_OpenAI_Claude
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: 54.200.244.93_OpenAI_Claude1
   network: ws
   port: 8880
   server: 45.131.208.9
@@ -96,22 +95,10 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /Telegram@ShadowProxy66/?ed=2560
-- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude1
+- name: 54.200.244.93_OpenAI_Claude2
   network: ws
   port: 8880
-  server: 195.245.221.187
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude2
-  network: ws
-  port: 80
-  server: 45.131.7.138
+  server: 45.131.210.20
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -121,25 +108,11 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: FI_Helsinki_Hetzner Online GmbH_Claude
-  network: ws
-  port: 8880
-  server: 45.131.6.68
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: FI_Helsinki_Hetzner Online GmbH_OpenAI_Claude
+    path: /?ed=2560
+- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude
   network: ws
   port: 80
-  server: 185.174.138.6
+  server: 45.12.30.136
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -159,6 +132,46 @@ proxies:
   type: hysteria2
 - name: NL_Amsterdam_Aeza International LTD_OpenAI_Claude1
   network: ws
+  port: 80
+  server: 45.131.7.64
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: NL_Amsterdam_Aeza International LTD_OpenAI_Claude2
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: NL_Amsterdam_Clodo Cloud Service Co._OpenAI_Claude
+  network: ws
+  port: 8880
+  server: 45.131.211.224
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: NL_Amsterdam_NIXI_OpenAI_Claude
+  network: ws
   port: 8880
   server: 162.159.17.20
   tls: false
@@ -169,10 +182,10 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /?ed=2560
-- name: NL_Amsterdam_Aeza International LTD_OpenAI_Claude2
+- name: NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude
   network: ws
-  port: 8880
-  server: 188.42.89.100
+  port: 80
+  server: 45.8.211.229
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -182,57 +195,7 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: NL_Amsterdam_Aeza International LTD_OpenAI_Claude3
-  network: ws
-  port: 8880
-  server: 45.159.218.20
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /
-- name: NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude1
-  network: ws
-  port: 8880
-  server: 185.176.26.159
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude2
-  network: ws
-  port: 8880
-  server: 45.131.209.204
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
-  network: ws
-  port: 8880
-  server: 45.131.208.146
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
 - alterId: 0
   cipher: auto
   name: US_Buffalo_HostPapa_OpenAI_Claude
@@ -251,7 +214,9 @@ proxies:
 - name: US_Dallas_Total Uptime Technologies_OpenAI_Claude1
   network: ws
   port: 8880
-  server: 45.131.211.224
+  server: 45.131.208.208
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
   tls: false
   type: vless
   udp: true
@@ -277,9 +242,7 @@ proxies:
 - name: US_Dallas_Total Uptime Technologies_OpenAI_Claude3
   network: ws
   port: 8880
-  server: 45.8.211.219
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
+  server: 45.159.218.20
   tls: false
   type: vless
   udp: true
@@ -287,21 +250,7 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Dallas_Total Uptime Technologies_OpenAI_Claude4
-  network: ws
-  port: 80
-  server: 45.8.211.229
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
+    path: /
 - name: US_Dublin_Amazon.com, Inc._OpenAI_Claude
   password: YidTdI17j06K1PFBUWdzWDVZXc
   port: 33562
@@ -312,7 +261,7 @@ proxies:
 - name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude1
   network: ws
   port: 8880
-  server: 45.131.208.108
+  server: 188.42.89.100
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -322,11 +271,13 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
+    path: '/Channel id: @ShadowProxy66?ed=2560'
 - name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude2
   network: ws
-  port: 8880
-  server: 185.174.138.0
+  port: 80
+  server: 147.185.161.131
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
   tls: false
   type: vless
   udp: true
@@ -334,7 +285,20 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- flow: xtls-rprx-vision
+  name: US_New York_Coaxial Cable LLC_OpenAI_Claude
+  network: tcp
+  port: 25888
+  reality-opts:
+    public-key: eHaAkgZIfsYhrH_0HCj07-Vbd7nrMHnnAa663_969DA
+    short-id: be1be5fc
+  server: 143.14.220.111
+  servername: www.samsung.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
 - name: US_Phoenix_Oracle Corporation_OpenAI_Claude
   network: ws
   port: 8880
@@ -349,7 +313,7 @@ proxies:
 - name: US_Portland_Amazon.com, Inc._OpenAI_Claude1
   network: ws
   port: 8880
-  server: 45.131.7.174
+  server: 185.176.26.159
   tls: false
   type: vless
   udp: true
@@ -360,8 +324,20 @@ proxies:
     path: /Telegram@ShadowProxy66/?ed=2560
 - name: US_Portland_Amazon.com, Inc._OpenAI_Claude2
   network: ws
-  port: 80
-  server: 45.131.7.64
+  port: 8880
+  server: 45.131.209.204
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Portland_Amazon.com, Inc._OpenAI_Claude3
+  network: ws
+  port: 8880
+  server: 45.131.6.68
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -371,11 +347,25 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Portland_Amazon.com, Inc._OpenAI_Claude3
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: US_Portland_Amazon.com, Inc._OpenAI_Claude4
+  network: ws
+  port: 8880
+  server: 45.131.208.108
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_Portland_Amazon.com, Inc._OpenAI_Claude5
   network: ws
   port: 80
-  server: 147.185.161.131
+  server: 45.131.7.138
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -389,23 +379,7 @@ proxies:
 - name: US_San Jose_Amazon.com, Inc._OpenAI_Claude1
   network: ws
   port: 8880
-  server: 45.131.210.20
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /?ed=2560
-- name: US_San Jose_Amazon.com, Inc._OpenAI_Claude2
-  network: ws
-  port: 8880
-  server: 45.131.208.208
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
+  server: 195.245.221.187
   tls: false
   type: vless
   udp: true
@@ -414,6 +388,46 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
+- name: US_San Jose_Amazon.com, Inc._OpenAI_Claude2
+  network: ws
+  port: 8880
+  server: 45.131.208.146
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: US_San Jose_Amazon.com, Inc._OpenAI_Claude3
+  network: ws
+  port: 8880
+  server: 45.131.7.174
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_San Jose_Amazon.com, Inc._OpenAI_Claude4
+  network: ws
+  port: 8880
+  server: 45.8.211.219
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
 - flow: xtls-rprx-vision
   name: US_Seattle_Spartan Host Ltd_OpenAI_Claude
   network: tcp
@@ -441,33 +455,34 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - 143.14.220.111_OpenAI_Claude
-  - 54.200.244.93_OpenAI_Claude
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude1
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude2
-  - FI_Helsinki_Hetzner Online GmbH_Claude
-  - FI_Helsinki_Hetzner Online GmbH_OpenAI_Claude
+  - 185.71.228.0_OpenAI_Claude
+  - 54.200.244.93_OpenAI_Claude1
+  - 54.200.244.93_OpenAI_Claude2
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude
   - FR_Paris_SCALEWAY_OpenAI_Claude
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude1
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude2
-  - NL_Amsterdam_Aeza International LTD_OpenAI_Claude3
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude1
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude2
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  - NL_Amsterdam_Clodo Cloud Service Co._OpenAI_Claude
+  - NL_Amsterdam_NIXI_OpenAI_Claude
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude
   - US_Buffalo_HostPapa_OpenAI_Claude
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude1
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude2
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude3
-  - US_Dallas_Total Uptime Technologies_OpenAI_Claude4
   - US_Dublin_Amazon.com, Inc._OpenAI_Claude
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude1
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude2
+  - US_New York_Coaxial Cable LLC_OpenAI_Claude
   - US_Phoenix_Oracle Corporation_OpenAI_Claude
   - US_Portland_Amazon.com, Inc._OpenAI_Claude1
   - US_Portland_Amazon.com, Inc._OpenAI_Claude2
   - US_Portland_Amazon.com, Inc._OpenAI_Claude3
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude4
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude5
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude1
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude2
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude3
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude4
   - US_Seattle_Spartan Host Ltd_OpenAI_Claude
 - name: Fallback
   type: fallback
@@ -517,21 +532,24 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
   - US_Buffalo_HostPapa_OpenAI_Claude
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude1
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude2
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude3
-  - US_Dallas_Total Uptime Technologies_OpenAI_Claude4
   - US_Dublin_Amazon.com, Inc._OpenAI_Claude
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude1
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude2
+  - US_New York_Coaxial Cable LLC_OpenAI_Claude
   - US_Phoenix_Oracle Corporation_OpenAI_Claude
   - US_Portland_Amazon.com, Inc._OpenAI_Claude1
   - US_Portland_Amazon.com, Inc._OpenAI_Claude2
   - US_Portland_Amazon.com, Inc._OpenAI_Claude3
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude4
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude5
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude1
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude2
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude3
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude4
   - US_Seattle_Spartan Host Ltd_OpenAI_Claude
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
@@ -540,32 +558,34 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - 143.14.220.111_OpenAI_Claude
-  - 54.200.244.93_OpenAI_Claude
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude1
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude2
-  - FI_Helsinki_Hetzner Online GmbH_OpenAI_Claude
+  - 185.71.228.0_OpenAI_Claude
+  - 54.200.244.93_OpenAI_Claude1
+  - 54.200.244.93_OpenAI_Claude2
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude
   - FR_Paris_SCALEWAY_OpenAI_Claude
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude1
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude2
-  - NL_Amsterdam_Aeza International LTD_OpenAI_Claude3
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude1
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude2
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI
+  - NL_Amsterdam_Clodo Cloud Service Co._OpenAI_Claude
+  - NL_Amsterdam_NIXI_OpenAI_Claude
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude
   - US_Buffalo_HostPapa_OpenAI_Claude
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude1
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude2
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude3
-  - US_Dallas_Total Uptime Technologies_OpenAI_Claude4
   - US_Dublin_Amazon.com, Inc._OpenAI_Claude
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude1
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude2
+  - US_New York_Coaxial Cable LLC_OpenAI_Claude
   - US_Phoenix_Oracle Corporation_OpenAI_Claude
   - US_Portland_Amazon.com, Inc._OpenAI_Claude1
   - US_Portland_Amazon.com, Inc._OpenAI_Claude2
   - US_Portland_Amazon.com, Inc._OpenAI_Claude3
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude4
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude5
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude1
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude2
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude3
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude4
   - US_Seattle_Spartan Host Ltd_OpenAI_Claude
   filter: (?i)OpenAI
 - name: Claude
@@ -574,32 +594,34 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - 143.14.220.111_OpenAI_Claude
-  - 54.200.244.93_OpenAI_Claude
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude1
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude2
-  - FI_Helsinki_Hetzner Online GmbH_Claude
-  - FI_Helsinki_Hetzner Online GmbH_OpenAI_Claude
+  - 185.71.228.0_OpenAI_Claude
+  - 54.200.244.93_OpenAI_Claude1
+  - 54.200.244.93_OpenAI_Claude2
+  - DE_Falkenstein_Hetzner Online GmbH_OpenAI_Claude
   - FR_Paris_SCALEWAY_OpenAI_Claude
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude1
   - NL_Amsterdam_Aeza International LTD_OpenAI_Claude2
-  - NL_Amsterdam_Aeza International LTD_OpenAI_Claude3
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude1
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude2
+  - NL_Amsterdam_Clodo Cloud Service Co._OpenAI_Claude
+  - NL_Amsterdam_NIXI_OpenAI_Claude
+  - NL_Amsterdam_Servers Tech Fzco_OpenAI_Claude
   - US_Buffalo_HostPapa_OpenAI_Claude
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude1
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude2
   - US_Dallas_Total Uptime Technologies_OpenAI_Claude3
-  - US_Dallas_Total Uptime Technologies_OpenAI_Claude4
   - US_Dublin_Amazon.com, Inc._OpenAI_Claude
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude1
   - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI_Claude2
+  - US_New York_Coaxial Cable LLC_OpenAI_Claude
   - US_Phoenix_Oracle Corporation_OpenAI_Claude
   - US_Portland_Amazon.com, Inc._OpenAI_Claude1
   - US_Portland_Amazon.com, Inc._OpenAI_Claude2
   - US_Portland_Amazon.com, Inc._OpenAI_Claude3
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude4
+  - US_Portland_Amazon.com, Inc._OpenAI_Claude5
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude1
   - US_San Jose_Amazon.com, Inc._OpenAI_Claude2
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude3
+  - US_San Jose_Amazon.com, Inc._OpenAI_Claude4
   - US_Seattle_Spartan Host Ltd_OpenAI_Claude
   filter: (?i)Claude
 rules:
