@@ -284,7 +284,7 @@ async fn run(config: Settings) {
                         error!("获取节点 {} 的 IP 失败, 获取不到 IP 地址，可能节点已失效，已过滤", node);
                     }
                 } else {
-                    let _err_msg = ip_result.err().unwrap();
+                    let err_msg = ip_result.err().unwrap();
                     error!("设置节点 {} 失败, {}", node, err_msg);
                 }
             }
