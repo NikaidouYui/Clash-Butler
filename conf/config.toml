@@ -19,7 +19,7 @@ rename_pattern = "${COUNTRYCODE}_${CITY}_${ISP}"
 need_add_pool = true
 # 代理节点池
 pools = [
-    "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
+    #"https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
 ]
 
 # 测试分组大小
@@ -27,9 +27,9 @@ test_group_size = 50
 
 # 连通性测试
 [connect_test]
-url = "http://www.google.com/generate_204"
+url = "http://www.gstatic.com/generate_204"
 expected = 204
-timeout = 500
+timeout = 2000
 
 # 带宽测速配置
 [speed_test]

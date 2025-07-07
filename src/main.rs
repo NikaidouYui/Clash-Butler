@@ -142,13 +142,46 @@ async fn run(config: Settings) {
         let delay_results = test_node_with_delay_config(&clash_meta, &config.connect_test).await;
         let nodes = get_all_tested_nodes(&delay_results);
         info!("连通性测试结果：{} 个节点可用", nodes.len());
+        
+        // 添加详细的调试信息
         if !nodes.is_empty() {
+            info!("通过连通性测试的节点名称（前10个）:");
+            for (i, node) in nodes.iter().take(10).enumerate() {
+                info!("  {}. 「{}」", i + 1, node);
+            }
+            
+            info!("当前批次原始节点名称（前10个）:");
+            for (i, proxy) in proxies.iter().take(10).enumerate() {
+                info!("  {}. 「{}」", i + 1, proxy.get_name());
+            }
+            
             let cur_useful_proxies = proxies
                 .iter()
-                .filter(|&proxy| nodes.contains(&proxy.get_name().to_string()))
+                .filter(|&proxy| {
+                    let proxy_name = proxy.get_name().to_string();
+                    let found = nodes.contains(&proxy_name);
+                    if found {
+                        info!("✅ 节点匹配成功: 「{}」", proxy_name);
+                    }
+                    found
+                })
                 .cloned()
                 .collect::<Vec<Proxy>>();
             info!("cur_useful_proxies len: {}", &cur_useful_proxies.len());
+            
+            // 如果没有匹配的节点，显示更多调试信息
+            if cur_useful_proxies.is_empty() && !nodes.is_empty() {
+                error!("⚠️ 节点名称匹配失败！");
+                error!("测试通过的节点名称:");
+                for node in &nodes {
+                    error!("  测试节点: 「{}」", node);
+                }
+                error!("原始代理节点名称:");
+                for proxy in proxies {
+                    error!("  原始节点: 「{}」", proxy.get_name());
+                }
+            }
+            
             useful_proxies.extend(cur_useful_proxies);
             info!("useful_proxies len: {}", useful_proxies.len());
         }
@@ -360,7 +393,9 @@ async fn test_node_with_delay_config(
     let mut delay_results = vec![];
 
     // 预热 2 轮，DNS lookup
-    for _ in 0..2 {
+    info!("开始预热测试...");
+    for i in 0..2 {
+        info!("预热第 {} 轮", i + 1);
         let _ = clash_meta
             .test_group(TEST_PROXY_GROUP_NAME, delay_test_config)
             .await;
@@ -374,14 +409,21 @@ async fn test_node_with_delay_config(
 
         match result {
             Ok(delay) => {
+                info!("第 {} 轮测试成功，有速度节点个数为：{}", n + 1, delay.len());
+                if !delay.is_empty() {
+                    // 显示前几个通过测试的节点
+                    let sample_nodes: Vec<_> = delay.keys().take(5).collect();
+                    info!("第 {} 轮通过测试的节点示例: {:?}", n + 1, sample_nodes);
+                }
                 delay_results.push(delay.clone());
-                info!("有速度节点个数为：{}", delay.len())
             }
             Err(e) => {
-                info!("当前测试轮完全没有速度, {}", e)
+                error!("第 {} 轮测试失败: {}", n + 1, e);
             }
         }
     }
+    
+    info!("连通性测试完成，共 {} 轮有效结果", delay_results.len());
     delay_results
 }
 

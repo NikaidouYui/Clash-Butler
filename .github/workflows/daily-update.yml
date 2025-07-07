@@ -138,7 +138,8 @@ jobs:
           
           # 检查快速模式配置文件
           if [ -f "clash-fast.yaml" ]; then
-            FAST_PROXY_COUNT=$(grep -c "^  - name:" clash-fast.yaml 2>/dev/null || echo "0")
+            # 统计 proxies 部分的节点数量，排除 proxy-groups 部分
+            FAST_PROXY_COUNT=$(awk '/^proxies:/{flag=1; next} /^[a-zA-Z]/{flag=0} flag && /^  - name:/{count++} END{print count+0}' clash-fast.yaml 2>/dev/null || echo "0")
             echo "fast_proxy_count=$FAST_PROXY_COUNT" >> $GITHUB_OUTPUT
             echo "快速模式代理节点数量: $FAST_PROXY_COUNT"
             
@@ -155,7 +156,8 @@ jobs:
           
           # 检查完整处理配置文件
           if [ -f "clash.yaml" ]; then
-            FULL_PROXY_COUNT=$(grep -c "^  - name:" clash.yaml 2>/dev/null || echo "0")
+            # 统计 proxies 部分的节点数量，排除 proxy-groups 部分
+            FULL_PROXY_COUNT=$(awk '/^proxies:/{flag=1; next} /^[a-zA-Z]/{flag=0} flag && /^  - name:/{count++} END{print count+0}' clash.yaml 2>/dev/null || echo "0")
             echo "full_proxy_count=$FULL_PROXY_COUNT" >> $GITHUB_OUTPUT
             echo "完整处理代理节点数量: $FULL_PROXY_COUNT"
             
