@@ -104,30 +104,29 @@ jobs:
           echo "start_time=$START_TIME" >> $GITHUB_OUTPUT
           
           # 运行程序并捕获输出
-          echo "正在执行 Clash Butler，最大等待时间 30 分钟..."
-          if timeout 1800 cargo run --release > run_output.log 2>&1; then
+          echo "正在执行 Clash Butler，最大等待时间 180 分钟（3小时）..."
+          echo "注意：程序会实时显示输出，同时保存到日志文件"
+          
+          # 使用 tee 命令同时显示输出和保存到文件
+          if timeout 10800 cargo run --release 2>&1 | tee run_output.log; then
             echo "status=success" >> $GITHUB_OUTPUT
-            echo "Clash Butler 运行成功"
-            
-            # 显示最后几行输出
-            echo "程序输出的最后 10 行:"
-            tail -n 10 run_output.log || echo "无法读取输出日志"
+            echo "✅ Clash Butler 运行成功"
           else
-            EXIT_CODE=$?
+            EXIT_CODE=${PIPESTATUS[0]}  # 获取 timeout 命令的退出码
             echo "status=failed" >> $GITHUB_OUTPUT
-            echo "Clash Butler 运行失败，退出码: $EXIT_CODE"
+            echo "❌ Clash Butler 运行失败，退出码: $EXIT_CODE"
             
             # 捕获错误信息
             if [ $EXIT_CODE -eq 124 ]; then
-              ERROR_MSG="程序执行超时（超过30分钟）"
+              ERROR_MSG="程序执行超时（超过180分钟）"
             else
               ERROR_MSG="程序异常退出，退出码: $EXIT_CODE"
             fi
             echo "error_message=$ERROR_MSG" >> $GITHUB_OUTPUT
             
-            # 显示错误日志
-            echo "错误日志的最后 20 行:"
-            tail -n 20 run_output.log || echo "无法读取错误日志"
+            # 显示错误日志的最后部分
+            echo "程序输出的最后 30 行:"
+            tail -n 30 run_output.log || echo "无法读取输出日志"
           fi
           
           # 设置结束时间
@@ -226,6 +225,7 @@ jobs:
               <li><strong>执行时间:</strong> ${{ steps.run_butler.outputs.start_time }} - ${{ steps.run_butler.outputs.end_time }}</li>
               <li><strong>失败原因:</strong> ${{ steps.run_butler.outputs.error_message || '程序执行异常' }}</li>
               <li><strong>执行状态:</strong> ❌ 失败</li>
+              <li><strong>超时设置:</strong> 180 分钟（3小时）</li>
             </ul>
             
             <h3>🔗 排查链接</h3>
