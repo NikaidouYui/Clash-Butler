@@ -31,7 +31,7 @@ test_group_size = 50
 # 连通性测试
 [connect_test]
 url = "http://www.google-analytics.com/generate_204"
-expected = 500
+expected = 204
 timeout = 10000
 
 # 带宽测速配置
