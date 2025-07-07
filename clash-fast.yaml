@@ -71,149 +71,9 @@ dns:
   - https://doh.pub/dns-query
   - https://dns.alidns.com/dns-query
 proxies:
-- name: 129.146.46.164_OpenAI
-  network: ws
-  port: 8880
-  server: 172.66.3.20
-  tls: false
-  type: vless
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      Host: us.laoyoutiao.link
-    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
-- name: 185.71.228.0_OpenAI
-  network: ws
-  port: 80
-  server: 185.174.138.6
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: AE_Dubai_Oracle Corporation_OpenAI
-  network: ws
-  port: 8880
-  server: 185.176.26.159
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI1
-  network: ws
-  port: 8880
-  server: 162.159.17.20
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /?ed=2560
-- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI2
-  network: ws
-  port: 80
-  server: 45.8.211.229
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: DE_Falkenstein_Hetzner Online GmbH_OpenAI3
-  network: ws
-  port: 80
-  server: 147.185.161.131
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: FR_Paris_SCALEWAY_OpenAI
-  password: dongtaiwang.com
-  port: 31180
-  server: 51.159.111.32
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria2
-- name: NL_Amsterdam_Aeza International LTD_OpenAI
-  network: ws
-  port: 8880
-  server: 45.131.210.20
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /?ed=2560
-- name: NL_Amsterdam_Servers Tech Fzco_OpenAI
-  network: ws
-  port: 8880
-  server: 45.131.6.68
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI1
-  network: ws
-  port: 8880
-  server: 188.42.89.100
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI2
-  network: ws
-  port: 8880
-  server: 45.8.211.219
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
 - alterId: 0
   cipher: auto
-  name: US_Buffalo_HostPapa_OpenAI
+  name: github.com/Ruk1ng001_45
   network: ws
   port: 443
   server: 3DdDf.444652.xYZ
@@ -226,7 +86,42 @@ proxies:
     headers:
       Host: 3DdDf.444652.xYZ
     path: /9dZlJLjHHrL0VwSolbqFpg
-- name: US_Dallas_Total Uptime Technologies_OpenAI1
+- name: github.com/Ruk1ng001_46
+  network: ws
+  port: 8080
+  server: stock.hostmonit.com
+  tls: false
+  type: vless
+  udp: true
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  ws-opts:
+    headers:
+      Host: 0506tg.neeleomg.workers.dev
+    path: /?ed=2560
+- name: github.com/Ruk1ng001_47
+  network: ws
+  port: 8880
+  server: 172.66.3.20
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: github.com/Ruk1ng001_49
+  network: ws
+  port: 8880
+  server: 162.159.17.20
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: ❓_🇰🇿_💻_github.com/Ruk1ng001_1
   network: ws
   port: 8880
   server: 195.245.221.187
@@ -238,10 +133,24 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
-- name: US_Dallas_Total Uptime Technologies_OpenAI2
+- name: ❓_🇰🇿_💻_github.com/Ruk1ng001_2
   network: ws
   port: 8880
-  server: 185.174.138.0
+  server: 185.176.26.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇰🇿_💻_github.com/Ruk1ng001_3
+  network: ws
+  port: 8880
+  server: 185.176.26.159
   tls: false
   type: vless
   udp: true
@@ -249,27 +158,8 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Dallas_Total Uptime Technologies_OpenAI3
-  network: ws
-  port: 8880
-  server: 45.159.218.20
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /
-- name: US_Dublin_Amazon.com, Inc._OpenAI
-  password: YidTdI17j06K1PFBUWdzWDVZXc
-  port: 33562
-  server: 52.14.165.55
-  skip-cert-verify: true
-  sni: bing.com
-  type: hysteria2
-- name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_1
   network: ws
   port: 8880
   server: 45.131.208.108
@@ -283,46 +173,7 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /Telegram@ShadowProxy66/?ed=2560
-- name: US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
-  network: ws
-  port: 8880
-  server: 45.131.208.208
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- flow: xtls-rprx-vision
-  name: US_New York_Coaxial Cable LLC_OpenAI
-  network: tcp
-  port: 25888
-  reality-opts:
-    public-key: eHaAkgZIfsYhrH_0HCj07-Vbd7nrMHnnAa663_969DA
-    short-id: be1be5fc
-  server: 143.14.220.111
-  servername: www.samsung.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
-- name: US_Phoenix_Oracle Corporation_OpenAI
-  network: ws
-  port: 8080
-  server: stock.hostmonit.com
-  tls: false
-  type: vless
-  udp: true
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  ws-opts:
-    headers:
-      Host: 0506tg.neeleomg.workers.dev
-    path: /?ed=2560
-- name: US_Portland_Amazon.com, Inc._OpenAI1
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_10
   network: ws
   port: 80
   server: 45.131.7.138
@@ -336,7 +187,75 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Portland_Amazon.com, Inc._OpenAI2
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_11
+  network: ws
+  port: 8880
+  server: 45.131.208.208
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_12
+  network: ws
+  port: 8880
+  server: 45.131.210.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_13
+  network: ws
+  port: 8880
+  server: 188.42.89.100
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 8880
+  server: 45.131.208.146
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_3
+  network: ws
+  port: 8880
+  server: 45.131.7.174
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_4
   network: ws
   port: 8880
   server: 45.131.209.204
@@ -348,7 +267,7 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
-- name: US_Portland_Amazon.com, Inc._OpenAI3
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_5
   network: ws
   port: 80
   server: 45.131.7.64
@@ -362,7 +281,155 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Portland_Amazon.com, Inc._OpenAI4
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_6
+  network: ws
+  port: 8880
+  server: 45.131.211.224
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_7
+  network: ws
+  port: 8880
+  server: 45.131.6.68
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_8
+  network: ws
+  port: 8880
+  server: 45.131.208.9
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: ❓_🇳🇱_💻_github.com/Ruk1ng001_9
+  network: ws
+  port: 8880
+  server: 185.176.24.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 8880
+  server: 185.221.160.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 8880
+  server: 185.148.106.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_3
+  network: ws
+  port: 8880
+  server: 185.148.104.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_4
+  network: ws
+  port: 8880
+  server: 185.174.138.0
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_5
+  network: ws
+  port: 8880
+  server: 185.174.138.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇷🇺_💻_github.com/Ruk1ng001_6
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇸🇬_💻_github.com/Ruk1ng001_1
+  network: ws
+  port: 80
+  server: 45.8.211.229
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇸🇬_💻_github.com/Ruk1ng001_3
   network: ws
   port: 80
   server: 45.8.211.139
@@ -376,10 +443,12 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_San Jose_Amazon.com, Inc._OpenAI1
+- name: ❓_🇸🇬_💻_github.com/Ruk1ng001_4
   network: ws
   port: 8880
-  server: 45.131.7.174
+  server: 45.8.211.219
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
   tls: false
   type: vless
   udp: true
@@ -387,21 +456,72 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: US_San Jose_Amazon.com, Inc._OpenAI2
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_1
   network: ws
   port: 8880
-  server: 45.131.208.9
+  server: 104.129.165.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
   tls: false
   type: vless
   udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
   ws-opts:
     headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_10
+  network: ws
+  port: 8880
+  server: 167.68.42.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_11
+  network: ws
+  port: 8880
+  server: 159.112.235.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_12
+  password: YidTdI17j06K1PFBUWdzWDVZXc
+  port: 33562
+  server: 52.14.165.55
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria2
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_2
+  network: ws
+  port: 8880
+  server: 92.53.188.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
 - flow: xtls-rprx-vision
-  name: US_Seattle_Spartan Host Ltd_OpenAI
+  name: ❓_🇺🇸_💻_github.com/Ruk1ng001_3
   network: tcp
   port: 7885
   reality-opts:
@@ -412,6 +532,141 @@ proxies:
   tls: true
   type: vless
   uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_4
+  network: ws
+  port: 80
+  server: 147.185.161.131
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_5
+  network: ws
+  port: 8880
+  server: 159.242.242.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_6
+  network: ws
+  port: 8880
+  server: 92.53.189.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_7
+  network: ws
+  port: 8880
+  server: 141.193.213.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_8
+  network: ws
+  port: 8880
+  server: 147.185.161.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: ❓_🇺🇸_💻_github.com/Ruk1ng001_9
+  network: ws
+  port: 8880
+  server: 45.159.218.20
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /
+- name: ❓_🇺🇸_💼_github.com/Ruk1ng001_
+  network: ws
+  port: 8880
+  server: 161.145.150.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- flow: xtls-rprx-vision
+  name: ❓_🇺🇸_📶_github.com/Ruk1ng001_
+  network: tcp
+  port: 25888
+  reality-opts:
+    public-key: eHaAkgZIfsYhrH_0HCj07-Vbd7nrMHnnAa663_969DA
+    short-id: be1be5fc
+  server: 143.14.220.111
+  servername: www.samsung.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: c5cd9845-55c5-4c0d-8709-d62211d61536
+- cipher: aes-256-cfb
+  name: 香港_4
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 154.223.21.221
+  type: ss
+- name: 香港_95
+  network: ws
+  port: 443
+  server: 104.17.71.31
+  servername: sub.divib.dynv6.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: b1a8ceea-6601-45b5-a674-7e5b64ab6f6f
+  ws-opts:
+    headers:
+      Host: sub.divib.dynv6.net
+    path: /?ed=2560
+- name: 🟡📶_github.com/Ruk1ng001_
+  password: dongtaiwang.com
+  port: 31180
+  server: 51.159.111.32
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria2
 proxy-groups:
 - name: PROXY
   type: select
@@ -427,33 +682,52 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - 129.146.46.164_OpenAI
-  - 185.71.228.0_OpenAI
-  - AE_Dubai_Oracle Corporation_OpenAI
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI1
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI2
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI3
-  - FR_Paris_SCALEWAY_OpenAI
-  - NL_Amsterdam_Aeza International LTD_OpenAI
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_Buffalo_HostPapa_OpenAI
-  - US_Dallas_Total Uptime Technologies_OpenAI1
-  - US_Dallas_Total Uptime Technologies_OpenAI2
-  - US_Dallas_Total Uptime Technologies_OpenAI3
-  - US_Dublin_Amazon.com, Inc._OpenAI
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_New York_Coaxial Cable LLC_OpenAI
-  - US_Phoenix_Oracle Corporation_OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI1
-  - US_Portland_Amazon.com, Inc._OpenAI2
-  - US_Portland_Amazon.com, Inc._OpenAI3
-  - US_Portland_Amazon.com, Inc._OpenAI4
-  - US_San Jose_Amazon.com, Inc._OpenAI1
-  - US_San Jose_Amazon.com, Inc._OpenAI2
-  - US_Seattle_Spartan Host Ltd_OpenAI
+  - github.com/Ruk1ng001_45
+  - github.com/Ruk1ng001_46
+  - github.com/Ruk1ng001_47
+  - github.com/Ruk1ng001_49
+  - ❓_🇰🇿_💻_github.com/Ruk1ng001_1
+  - ❓_🇰🇿_💻_github.com/Ruk1ng001_2
+  - ❓_🇰🇿_💻_github.com/Ruk1ng001_3
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_1
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_10
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_11
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_12
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_13
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_2
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_3
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_4
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_5
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_6
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_7
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_8
+  - ❓_🇳🇱_💻_github.com/Ruk1ng001_9
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_1
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_2
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_3
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_4
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_5
+  - ❓_🇷🇺_💻_github.com/Ruk1ng001_6
+  - ❓_🇸🇬_💻_github.com/Ruk1ng001_1
+  - ❓_🇸🇬_💻_github.com/Ruk1ng001_3
+  - ❓_🇸🇬_💻_github.com/Ruk1ng001_4
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_1
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_10
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_11
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_12
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_2
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_3
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_4
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_5
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_6
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_7
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_8
+  - ❓_🇺🇸_💻_github.com/Ruk1ng001_9
+  - ❓_🇺🇸_💼_github.com/Ruk1ng001_
+  - ❓_🇺🇸_📶_github.com/Ruk1ng001_
+  - 香港_4
+  - 香港_95
+  - 🟡📶_github.com/Ruk1ng001_
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -470,7 +744,8 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - DIRECT
+  - 香港_4
+  - 香港_95
   filter: (?i)港|HK|HongKong|hong kong
 - name: TW
   type: url-test
@@ -502,24 +777,7 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_Buffalo_HostPapa_OpenAI
-  - US_Dallas_Total Uptime Technologies_OpenAI1
-  - US_Dallas_Total Uptime Technologies_OpenAI2
-  - US_Dallas_Total Uptime Technologies_OpenAI3
-  - US_Dublin_Amazon.com, Inc._OpenAI
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_New York_Coaxial Cable LLC_OpenAI
-  - US_Phoenix_Oracle Corporation_OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI1
-  - US_Portland_Amazon.com, Inc._OpenAI2
-  - US_Portland_Amazon.com, Inc._OpenAI3
-  - US_Portland_Amazon.com, Inc._OpenAI4
-  - US_San Jose_Amazon.com, Inc._OpenAI1
-  - US_San Jose_Amazon.com, Inc._OpenAI2
-  - US_Seattle_Spartan Host Ltd_OpenAI
+  - DIRECT
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -527,33 +785,7 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - 129.146.46.164_OpenAI
-  - 185.71.228.0_OpenAI
-  - AE_Dubai_Oracle Corporation_OpenAI
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI1
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI2
-  - DE_Falkenstein_Hetzner Online GmbH_OpenAI3
-  - FR_Paris_SCALEWAY_OpenAI
-  - NL_Amsterdam_Aeza International LTD_OpenAI
-  - NL_Amsterdam_Servers Tech Fzco_OpenAI
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - PH_Manila_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_Buffalo_HostPapa_OpenAI
-  - US_Dallas_Total Uptime Technologies_OpenAI1
-  - US_Dallas_Total Uptime Technologies_OpenAI2
-  - US_Dallas_Total Uptime Technologies_OpenAI3
-  - US_Dublin_Amazon.com, Inc._OpenAI
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI1
-  - US_Minkler_Alibaba (US) Technology Co., Ltd._OpenAI2
-  - US_New York_Coaxial Cable LLC_OpenAI
-  - US_Phoenix_Oracle Corporation_OpenAI
-  - US_Portland_Amazon.com, Inc._OpenAI1
-  - US_Portland_Amazon.com, Inc._OpenAI2
-  - US_Portland_Amazon.com, Inc._OpenAI3
-  - US_Portland_Amazon.com, Inc._OpenAI4
-  - US_San Jose_Amazon.com, Inc._OpenAI1
-  - US_San Jose_Amazon.com, Inc._OpenAI2
-  - US_Seattle_Spartan Host Ltd_OpenAI
+  - PROXY
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
