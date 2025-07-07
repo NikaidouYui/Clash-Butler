@@ -139,7 +139,14 @@ async fn run(config: Settings) {
         }
 
         info!("开始测试连通性");
-        let delay_results = test_node_with_delay_config(&clash_meta, &config.connect_test).await;
+        
+        // 获取当前批次所有节点名称，用于对比测试结果
+        let all_nodes_in_batch: Vec<String> = proxies.iter().map(|p| p.get_name().to_string()).collect();
+        info!("当前批次节点总数：{}，节点列表（前10个）：{:?}",
+              all_nodes_in_batch.len(),
+              all_nodes_in_batch.iter().take(10).collect::<Vec<_>>());
+        
+        let delay_results = test_node_with_delay_config(&clash_meta, &config.connect_test, &all_nodes_in_batch).await;
         let nodes = get_all_tested_nodes(&delay_results);
         info!("连通性测试结果：{} 个节点可用", nodes.len());
         
@@ -387,6 +394,7 @@ fn get_top_node(test_results: &Vec<HashMap<String, i64>>) -> (String, i64) {
 async fn test_node_with_delay_config(
     clash_meta: &ClashMeta,
     delay_test_config: &DelayTestConfig,
+    all_nodes_in_batch: &Vec<String>,
 ) -> Vec<HashMap<String, i64>> {
     const ROUND: i32 = 5;
     info!("测试配置：{:?}", delay_test_config);
@@ -415,6 +423,21 @@ async fn test_node_with_delay_config(
                     let sample_nodes: Vec<_> = delay.keys().take(5).collect();
                     info!("第 {} 轮通过测试的节点示例: {:?}", n + 1, sample_nodes);
                 }
+                
+                // 找出本轮失败的节点
+                let passed_nodes: std::collections::HashSet<String> = delay.keys().cloned().collect();
+                let failed_nodes: Vec<String> = all_nodes_in_batch
+                    .iter()
+                    .filter(|node| !passed_nodes.contains(*node))
+                    .cloned()
+                    .collect();
+                
+                if !failed_nodes.is_empty() {
+                    error!("第 {} 轮失败的节点数量：{}，失败节点（前10个）：{:?}",
+                           n + 1, failed_nodes.len(),
+                           failed_nodes.iter().take(10).collect::<Vec<_>>());
+                }
+                
                 delay_results.push(delay.clone());
             }
             Err(e) => {
