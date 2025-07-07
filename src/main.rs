@@ -429,15 +429,52 @@ async fn test_node_with_delay_config(
 
 /*
 获取所有已测速有过一次速度的节点
+修改逻辑：要求节点至少在60%的测试轮次中通过测试，提高稳定性
  */
 fn get_all_tested_nodes(test_results: &Vec<HashMap<String, i64>>) -> Vec<String> {
-    let mut keys_set = HashSet::new();
+    if test_results.is_empty() {
+        return Vec::new();
+    }
+    
+    let total_rounds = test_results.len();
+    let min_success_rounds = (total_rounds as f64 * 0.6).ceil() as usize; // 至少60%的轮次通过
+    
+    let mut node_success_count: HashMap<String, usize> = HashMap::new();
+    
+    // 统计每个节点在多少轮测试中通过
     for result in test_results {
         for key in result.keys() {
-            keys_set.insert(key.clone());
+            *node_success_count.entry(key.clone()).or_insert(0) += 1;
         }
     }
-    keys_set.into_iter().collect()
+    
+    // 分离通过和失败的节点
+    let mut stable_nodes = Vec::new();
+    let mut failed_nodes = Vec::new();
+    
+    for (node, count) in node_success_count {
+        if count >= min_success_rounds {
+            info!("✅ 节点 「{}」 在 {}/{} 轮测试中通过，符合稳定性要求", node, count, total_rounds);
+            stable_nodes.push(node);
+        } else {
+            error!("❌ 节点 「{}」 在 {}/{} 轮测试中通过，不符合稳定性要求（需要至少 {} 轮），已丢弃",
+                   node, count, total_rounds, min_success_rounds);
+            failed_nodes.push(node);
+        }
+    }
+    
+    info!("稳定性筛选结果：{} 轮测试中，要求至少 {} 轮通过", total_rounds, min_success_rounds);
+    info!("✅ 通过筛选的节点数量: {}", stable_nodes.len());
+    error!("❌ 被丢弃的节点数量: {}", failed_nodes.len());
+    
+    if !failed_nodes.is_empty() {
+        error!("被丢弃的节点列表:");
+        for (i, node) in failed_nodes.iter().enumerate() {
+            error!("  {}. 「{}」", i + 1, node);
+        }
+    }
+    
+    stable_nodes
 }
 
 /*

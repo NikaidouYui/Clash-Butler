@@ -267,8 +267,8 @@ impl SubManager {
             }
         }
 
-        // 以名称重新排序
-        proxies.sort_by(|a, b| a.get_name().cmp(b.get_name()));
+        // 注释掉重新排序，保持原始顺序
+        // proxies.sort_by(|a, b| a.get_name().cmp(b.get_name()));
     }
 
     // 通过配置格式，获取 clash 配置文件内容
