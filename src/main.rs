@@ -251,7 +251,7 @@ async fn run(config: Settings) {
                         info!("「{}」ip: {} from: {}", node, proxy_ip, from);
                         
                         let mut openai_is_ok = false;
-                        match website::openai_is_ok(&clash_meta.proxy_url).await {
+                        match website::openai_is_ok(&clash_meta.proxy_url, config.debug_mode).await {
                             Ok(_) => {
                                 info!("「{}」 openai is ok", node);
                                 openai_is_ok = true;
@@ -262,7 +262,7 @@ async fn run(config: Settings) {
                         }
 
                         let mut claude_is_ok = false;
-                        match website::claude_is_ok(&clash_meta.proxy_url).await {
+                        match website::claude_is_ok(&clash_meta.proxy_url, config.debug_mode).await {
                             Ok(_) => {
                                 info!("「{}」 claude is ok", node);
                                 claude_is_ok = true;

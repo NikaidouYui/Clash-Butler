@@ -3,7 +3,7 @@ use std::time::Duration;
 use anyhow::anyhow;
 use anyhow::Context;
 use anyhow::Result;
-use log::{error, info};
+use tracing::{error, info};
 use reqwest::Client;
 use reqwest::StatusCode;
 
