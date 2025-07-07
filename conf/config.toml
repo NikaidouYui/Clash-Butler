@@ -22,7 +22,7 @@ rename_pattern = "${COUNTRYCODE}_${CITY}_${ISP}"
 need_add_pool = true
 # 代理节点池
 pools = [
-    #"https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
+    "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
 ]
 
 # 测试分组大小
