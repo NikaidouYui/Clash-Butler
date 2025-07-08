@@ -27,9 +27,15 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
         info!("开始获取 IP，代理地址: {}", proxy_url);
     }
 
+    // 添加多个不同的IP检测服务以交叉验证
     let cf_future: IpBoxFuture = async move {
         match get_trace_info_with_proxy(proxy_url, CF_TRACE_URL, debug_mode).await {
-            Ok(trace) => Ok((trace.ip, "cf")),
+            Ok(trace) => {
+                if debug_mode {
+                    info!("Cloudflare 返回 IP: {}", trace.ip);
+                }
+                Ok((trace.ip, "cf"))
+            },
             Err(e) => {
                 error!("从 Cloudflare 获取 IP 失败, {e}");
                 Err(e)
@@ -40,7 +46,12 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
 
     let ipify_future: IpBoxFuture = async move {
         match get_ip_by_ipify(proxy_url, debug_mode).await {
-            Ok(ip) => Ok((ip, "ipify")),
+            Ok(ip) => {
+                if debug_mode {
+                    info!("ipify 返回 IP: {}", ip);
+                }
+                Ok((ip, "ipify"))
+            },
             Err(e) => {
                 error!("从 ipify 获取 IP 失败, {e}");
                 Err(e)
@@ -51,7 +62,12 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
 
     let openai_future: IpBoxFuture = async move {
         match get_trace_info_with_proxy(proxy_url, OPENAI_TRACE_URL, debug_mode).await {
-            Ok(trace) => Ok((trace.ip, "openai")),
+            Ok(trace) => {
+                if debug_mode {
+                    info!("OpenAI 返回 IP: {}", trace.ip);
+                }
+                Ok((trace.ip, "openai"))
+            },
             Err(e) => {
                 error!("从 OpenAI 获取 IP 失败, {e}");
                 Err(e)
@@ -60,9 +76,31 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     }
     .boxed();
 
-    let futures = vec![cf_future, ipify_future, openai_future];
+    // 添加新的IP检测服务
+    let httpbin_future: IpBoxFuture = async move {
+        match get_ip_by_httpbin(proxy_url, debug_mode).await {
+            Ok(ip) => {
+                if debug_mode {
+                    info!("httpbin 返回 IP: {}", ip);
+                }
+                Ok((ip, "httpbin"))
+            },
+            Err(e) => {
+                if debug_mode {
+                    error!("从 httpbin 获取 IP 失败, {e}");
+                }
+                Err(e)
+            }
+        }
+    }
+    .boxed();
+
+    let futures = vec![cf_future, ipify_future, openai_future, httpbin_future];
     match select_ok(futures).await {
-        Ok(((ip, from), _)) => Ok((ip, from)),
+        Ok(((ip, from), _)) => {
+            info!("成功获取 IP: {} (来源: {})", ip, from);
+            Ok((ip, from))
+        },
         Err(_) => Err("获取不到 IP 地址，可能节点已失效，已过滤".into()),
     }
 }
@@ -92,6 +130,44 @@ async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box
             Err(e) => {
                 if debug_mode {
                     error!("ipip {} 代理失败: {}", proxy_type, e);
+                }
+                continue;
+            }
+        }
+    }
+    
+    Err("所有代理类型都失败".into())
+}
+
+async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("httpbin 尝试使用 {} 代理", proxy_type);
+        }
+        
+        match client
+            .get("https://httpbin.org/ip")
+            .send()
+            .await
+        {
+            Ok(response) => {
+                let body = response.text().await?;
+                let value: Value = serde_json::from_str(&body)?;
+                
+                if let Some(ip_str) = value.get("origin").and_then(|v| v.as_str()) {
+                    // httpbin 可能返回多个IP，取第一个
+                    let ip_str = ip_str.split(',').next().unwrap_or(ip_str).trim();
+                    if let Ok(ip) = IpAddr::from_str(ip_str) {
+                        info!("httpbin 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
+                        return Ok(ip);
+                    }
+                }
+            }
+            Err(e) => {
+                if debug_mode {
+                    error!("httpbin {} 代理失败: {}", proxy_type, e);
                 }
                 continue;
             }

@@ -3,6 +3,7 @@ use std::collections::HashSet;
 use std::env;
 use std::fs;
 use std::path::Path;
+use std::time::Duration;
 
 use clap::Parser;
 use proxrs::protocol::Proxy;
@@ -247,17 +248,21 @@ async fn run(config: Settings) {
             for node in &nodes_to_process {
                 info!("正在处理节点: {}", node);
                 
-                let ip_result = clash_meta
-                    .set_group_proxy(TEST_PROXY_GROUP_NAME, node)
-                    .await;
-                    
-                if ip_result.is_ok() {
-                    let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url, config.debug_mode).await;
-                    if ip_result.is_ok() {
-                        let (proxy_ip, from) = ip_result.unwrap();
-                        info!("「{}」ip: {} from: {}", node, proxy_ip, from);
+                // 设置代理节点（已包含验证逻辑）
+                match clash_meta.set_group_proxy(TEST_PROXY_GROUP_NAME, node).await {
+                    Ok(true) => {
+                        info!("「{}」代理切换成功", node);
                         
-                        let mut openai_is_ok = false;
+                        // 额外等待确保代理完全生效
+                        tokio::time::sleep(Duration::from_millis(2000)).await;
+                        
+                        // 获取IP地址
+                        let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url, config.debug_mode).await;
+                        if ip_result.is_ok() {
+                            let (proxy_ip, from) = ip_result.unwrap();
+                            info!("「{}」ip: {} from: {}", node, proxy_ip, from);
+                            
+                            let mut openai_is_ok = false;
                         match website::openai_is_ok(&clash_meta.proxy_url, config.debug_mode).await {
                             Ok(_) => {
                                 info!("「{}」 openai is ok", node);
@@ -323,10 +328,14 @@ async fn run(config: Settings) {
                     } else {
                         error!("获取节点 {} 的 IP 失败, 获取不到 IP 地址，可能节点已失效，已过滤", node);
                     }
-                } else {
-                    let err_msg = ip_result.err().unwrap();
-                    error!("设置节点 {} 失败, {}", node, err_msg);
                 }
+                Ok(false) => {
+                    error!("「{}」代理切换失败，跳过该节点", node);
+                }
+                Err(e) => {
+                    error!("「{}」设置代理时发生错误: {}", node, e);
+                }
+            }
             }
             
             // 更新节点列表为处理后的节点

@@ -159,13 +159,42 @@ impl ClashMeta {
         proxy_name: &str,
     ) -> Result<bool, Box<dyn std::error::Error>> {
         let url = format!("{}/proxies/{}", &self.external_url, group_name);
-        let client = Client::builder().timeout(Duration::from_secs(5)).build()?;
+        let client = Client::builder().timeout(Duration::from_secs(10)).build()?;
+        
+        info!("尝试切换代理组 {} 到节点: {}", group_name, proxy_name);
+        
         let response = client
-            .put(url)
+            .put(&url)
             .json(&json!({"name": proxy_name}))
             .send()
             .await?;
-        Ok(response.status().is_success())
+            
+        if response.status().is_success() {
+            info!("代理切换请求成功: {} -> {}", group_name, proxy_name);
+            
+            // 等待一段时间让切换生效
+            sleep(Duration::from_millis(1000)).await;
+            
+            // 验证切换是否成功
+            match self.get_group(group_name).await {
+                Ok(group) => {
+                    if group.now == proxy_name {
+                        info!("代理切换验证成功: 当前使用 {}", group.now);
+                        Ok(true)
+                    } else {
+                        error!("代理切换验证失败: 期望 {}, 实际 {}", proxy_name, group.now);
+                        Ok(false)
+                    }
+                }
+                Err(e) => {
+                    error!("无法验证代理切换状态: {}", e);
+                    Ok(false)
+                }
+            }
+        } else {
+            error!("代理切换请求失败: HTTP {}", response.status());
+            Ok(false)
+        }
     }
 }
 

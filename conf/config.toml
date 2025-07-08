@@ -2,7 +2,7 @@
 fast_mode = false
 
 # 是否开启调试模式，输出详细的日志信息
-debug_mode = false
+debug_mode = true
 
 # 待测速的订阅节点
 # 支持网络地址 https://xxx
@@ -11,7 +11,7 @@ debug_mode = false
 
 #"https://clash.nikaidouyui.top/?name=%E9%A6%99%E6%B8%AF"
 subs = [
-"https://clash.nikaidouyui.top"
+"https://clash.nikaidouyui.top/?name=%E9%A6%99%E6%B8%AF"
 ]
 
 # 是否重命名节点，打开后会使用 geoip 等方式进行代理真实 IP 和地理地址查询
