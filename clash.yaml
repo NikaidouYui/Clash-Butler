@@ -71,85 +71,137 @@ dns:
   - https://doh.pub/dns-query
   - https://dns.alidns.com/dns-query
 proxies:
+- cipher: chacha20-ietf-poly1305
+  name: DE_Frankfurt am Main_DigitalOcean, LLC_OpenAI_Claude_4.4MB
+  password: 9RviNa4tscjcmCB408vLSg
+  port: 44354
+  server: 46.101.245.131
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: GB_London_Aeza International LTD_OpenAI_Claude_2.5MB
+  password: c40641c1f89e7acb
+  port: 57456
+  server: 46.226.163.225
+  type: ss
+- cipher: rc4-md5
+  name: DE_Frankfurt_GTHost_OpenAI_Claude_3.9MB
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 193.108.119.230
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: CH_Zurich_GTHost_OpenAI_Claude_2.2MB
+  password: oXGp1+ihlfKg826H
+  port: 1866
+  server: 204.136.10.115
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: US_Los Angeles_Akamai Technologies, Inc._OpenAI_Claude_39.4MB
+  password: oXGp1+ihlfKg826H
+  port: 1866
+  server: 172.233.128.126
+  type: ss
+- cipher: aes-256-cfb
+  name: SK_Bratislava_DataCamp Limited_OpenAI_Claude_3.9MB
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 156.146.40.194
+  type: ss
+- cipher: aes-256-cfb
+  name: KR_Gwanak-gu_Korea Telecom_OpenAI_Claude_4.4MB
+  password: qwerREWQ@@
+  port: 15098
+  server: p222.panda001.net
+  type: ss
+- cipher: rc4-md5
+  name: US_Los Angeles_Zenlayer Inc_OpenAI_Claude_28.7MB
+  obfs: plain
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  protocol: origin
+  server: 107.151.182.253
+  type: ssr
+- cipher: aes-256-cfb
+  name: CA_Vancouver_Datacamp Limited_OpenAI_Claude_21.1MB
+  obfs: plain
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  protocol: origin
+  server: 79.127.233.170
+  type: ssr
+- cipher: aes-256-cfb
+  name: GB_London_Krystal Hosting Ltd_OpenAI_Claude_4.7MB
+  obfs: plain
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  protocol: origin
+  server: 62.100.205.48
+  type: ssr
+- alterId: 64
+  cipher: auto
+  name: US_San Jose_PEG TECH INC_OpenAI_Claude_14.5MB
+  port: 30002
+  server: 38.12.83.217
+  skip-cert-verify: true
+  tls: false
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
 - alterId: 0
   cipher: auto
-  name: US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
+  name: RU_Moscow_LLC BAXET_OpenAI_Claude_2.9MB
   network: ws
-  port: 443
-  server: 3DdDf.444652.xYZ
-  servername: 3dddf.444652.xyz
-  skip-cert-verify: false
+  port: 8880
+  server: yx2.niaoba.top
+  tls: false
+  type: vmess
+  uuid: 763b29f0-ffba-42e8-a054-d595092135e6
+  ws-opts:
+    headers:
+      Host: 1176552658409.vmru.taobao.yyds.niaoba.top
+    path: /
+- alterId: 0
+  cipher: auto
+  name: US_San Jose_Cloudflare Warp_OpenAI_Claude_3.7MB
+  network: ws
+  port: 8443
+  server: orvps2.horsenma.net
+  skip-cert-verify: true
   tls: true
   type: vmess
-  uuid: cdec9d57-661d-456a-bbf2-b4c38e9c6711
+  uuid: 57e595e6-ef54-4e0d-b8df-e96db9612b99
   ws-opts:
     headers:
-      Host: 3DdDf.444652.xYZ
-    path: /9dZlJLjHHrL0VwSolbqFpg
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB
-  network: ws
-  port: 8880
-  server: 5.10.244.65
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_16.9MB
+      Host: orvps2.horsenma.net
+    path: /horsen
+- alterId: 0
+  cipher: auto
+  name: US_Los Angeles_HostPapa_OpenAI_Claude_8.1MB
   network: ws
   port: 80
-  server: 45.80.111.134
-  servername: reedfree8mahsang2.redorg.ir
+  server: xxcccvbnmko0.4444926.xyz
   skip-cert-verify: false
   tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  type: vmess
+  uuid: f898ffcb-6417-4373-9640-0b66091e8206
   ws-opts:
     headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.7MB
+      Host: xxcccvbnmko0.4444926.xyz
+    path: /GnJ3bBxV91uFkYtuzXyJ5XNeH1R1
+- alterId: 0
+  cipher: auto
+  name: 46.235.230.124_OpenAI_Claude_3.7MB
   network: ws
-  port: 8880
-  server: 172.66.3.20
-  tls: false
-  type: vless
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      Host: us.laoyoutiao.link
-    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  network: ws
-  port: 8880
-  server: 45.131.7.174
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- flow: xtls-rprx-vision
-  name: US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  network: tcp
-  port: 7885
-  reality-opts:
-    public-key: cauu7I7nFMqzwMDdULVRJam0T04U4knX8koK0OG5dC8
-    short-id: 40cb281a
-  server: 45.150.165.121
-  servername: www.yahoo.com
+  port: 443
+  server: b62a948c-faa2-4e8a-bf8a-3ff3121c875a.asoul-ava.top
+  skip-cert-verify: true
   tls: true
-  type: vless
-  uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
-- name: 103.81.86.172_OpenAI_Claude_2.6MB
+  type: vmess
+  uuid: 5f726fe3-d82e-4da5-a711-8af0cbb2b682
+  ws-opts:
+    headers:
+      Host: b62a948c-faa2-4e8a-bf8a-3ff3121c875a.asoul-ava.top
+    path: /azumase.ren
+- name: 103.81.86.172_OpenAI_Claude_2.9MB
   network: tcp
   port: 34045
   reality-opts:
@@ -160,47 +212,7 @@ proxies:
   tls: true
   type: vless
   uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB1
-  network: ws
-  port: 8880
-  server: 45.131.208.9
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: US_Reston_Cloudflare, Inc._Claude_5.5MB
-  network: ws
-  port: 80
-  server: 45.8.211.139
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_17.7MB
-  network: ws
-  port: 8880
-  server: 45.131.6.68
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.1MB
   network: ws
   port: 8880
   server: 45.131.208.208
@@ -214,10 +226,21 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_20.1MB
   network: ws
-  port: 80
-  server: 66.81.247.82
+  port: 8880
+  server: 212.183.88.20
+  tls: false
+  type: vless
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.6MB
+  network: ws
+  port: 2095
+  server: 45.80.111.119
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -227,65 +250,13 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /Channel
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.8MB
+    path: /Telegram:TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB1
   network: ws
   port: 8880
-  server: 5.10.215.208
+  server: 154.197.108.20
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Buffalo_HostPapa_OpenAI_Claude_5.6MB
-  network: ws
-  port: 443
-  server: 104.21.66.157
-  servername: eeEEEeR.666470.xYZ
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
-  ws-opts:
-    headers:
-      Host: eeEEEeR.666470.xYZ
-    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
-- name: US_Buffalo_HostPapa_OpenAI_Claude_2.8MB
-  network: ws
-  port: 443
-  server: 172.67.161.129
-  servername: eeEEEeR.666470.xYZ
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
-  ws-opts:
-    headers:
-      Host: eeEEEeR.666470.xYZ
-    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB
-  network: ws
-  port: 8880
-  server: 45.131.211.224
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  network: ws
-  port: 8880
-  server: 162.159.17.20
   tls: false
   type: vless
   udp: true
@@ -294,19 +265,21 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /?ed=2560
-- name: 103.12.77.48_OpenAI_Claude_2.7MB
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 103.12.77.48
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_17.6MB
+  network: ws
+  port: 80
+  server: 45.131.7.64
+  servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
-  tls: true
+  tls: false
   type: vless
   udp: true
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: 59.153.217.133_OpenAI_Claude_2.6MB
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: VN_Hai BàTrưng_GLTEC_OpenAI_Claude_3.2MB
   port: 34045
   reality-opts:
     public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
@@ -318,73 +291,7 @@ proxies:
   type: vless
   udp: true
   uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_12.1MB
-  network: ws
-  port: 8880
-  server: 45.12.30.145
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@vpnAndroid2/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_11.2MB
-  network: ws
-  port: 80
-  server: 147.185.161.131
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.3MB
-  network: ws
-  port: 8880
-  server: 45.131.210.20
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /?ed=2560
-- name: 59.153.217.57_OpenAI_Claude_2.7MB
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 59.153.217.57
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  network: ws
-  port: 8880
-  server: 185.174.138.0
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB1
   network: ws
   port: 8880
   server: 45.131.208.146
@@ -398,10 +305,10 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.1MB
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB1
   network: ws
   port: 8880
-  server: 188.42.89.100
+  server: 45.142.120.145
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -411,19 +318,72 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: 59.153.218.14_OpenAI_Claude_2.7MB
-  network: tcp
+    path: /@ShadowProxy66?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_12.8MB
+  network: ws
+  port: 8880
+  server: 108.162.198.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_18.8MB
+  network: ws
+  port: 8880
+  server: 195.85.23.200
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@vpnAndroid2/?ed=2560
+- name: 59.153.217.57_OpenAI_Claude_3.0MB
   port: 34045
   reality-opts:
     public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
     short-id: e8ab71d0
-  server: 59.153.218.14
+  server: 59.153.217.57
   servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
   tls: true
   type: vless
+  udp: true
   uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: 59.153.216.133_OpenAI_Claude_2.8MB
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.0MB
+  network: ws
+  port: 443
+  server: bestcf.030101.xyz
+  servername: xv6.jpmj.dpdns.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 897a4bec-26b8-11e8-94be-00505695472c
+  ws-opts:
+    headers:
+      Host: xv6.jpmj.dpdns.org
+    path: /bbs?ed=2048
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.9MB
+  network: ws
+  port: 8880
+  server: 45.131.7.174
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: 59.153.216.133_OpenAI_Claude_3.2MB
   port: 34045
   reality-opts:
     public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
@@ -435,24 +395,10 @@ proxies:
   type: vless
   udp: true
   uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  network: ws
-  port: 80
-  server: 185.174.138.6
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.4MB
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.8MB
   network: ws
   port: 8880
-  server: 5.10.214.81
+  server: 192.0.63.20
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -462,36 +408,8 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB
-  network: ws
-  port: 8880
-  server: 5.10.245.118
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB
-  network: ws
-  port: 80
-  server: 45.131.7.138
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB
+    path: /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.3MB
   network: ws
   port: 80
   server: 45.12.30.136
@@ -505,7 +423,60 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
+- flow: xtls-rprx-vision
+  name: IE_Dublin_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  port: 36678
+  reality-opts:
+    public-key: rrGm0NemTtGQ8Vrd2AzB7pSoW_kYtqYvhRxsx_MtwG0
+    short-id: 5d20
+  server: 192.210.183.136
+  servername: swdist.apple.com
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: bf9b316d-31ac-42ee-b8a5-8dc795118917
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB1
+  network: ws
+  port: 8880
+  server: 5.10.244.65
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /TelegramU0001F1E8U0001F1F3
+- name: 103.81.84.57_OpenAI_Claude_2.2MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.81.84.57
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_9.6MB
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB2
   network: ws
   port: 8880
   server: 45.159.218.20
@@ -519,10 +490,22 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.9MB
+- name: 59.153.218.14_OpenAI_Claude_3.1MB1
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 59.153.218.14
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB1
   network: ws
   port: 8880
-  server: 5.10.245.76
+  server: 45.8.211.219
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -532,7 +515,387 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  network: ws
+  port: 8880
+  server: 156.238.18.239
+  servername: yd.laoyoutiao.link
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: yd.laoyoutiao.link
+    path: /TelegramU0001F1E8U0001F1F3 @MxlShare @WangCai2 /?ed=2560
+- name: 59.153.218.14_OpenAI_Claude_3.1MB2
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 59.153.218.14
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Buffalo_ColoCrossing_OpenAI_Claude_5.5MB
+  network: ws
+  port: 443
+  server: 104.21.66.157
+  servername: eeEEEeR.666470.xYZ
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
+  ws-opts:
+    headers:
+      Host: eeEEEeR.666470.xYZ
+    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB3
+  network: ws
+  port: 80
+  server: 45.8.211.139
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+  network: ws
+  port: 8880
+  server: 156.238.18.106
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: yd.laoyoutiao.link
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: 103.12.77.48_OpenAI_Claude_3.2MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.12.77.48
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- flow: xtls-rprx-vision
+  name: US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.2MB
+  network: tcp
+  port: 7885
+  reality-opts:
+    public-key: cauu7I7nFMqzwMDdULVRJam0T04U4knX8koK0OG5dC8
+    short-id: 40cb281a
+  server: 45.150.165.121
+  servername: www.yahoo.com
+  tls: true
+  type: vless
+  uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.3MB
+  network: ws
+  port: 8880
+  server: 45.131.208.9
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  network: ws
+  port: 8880
+  server: 45.12.30.145
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@vpnAndroid2/?ed=2560
+- name: VN_Hanoi_Thien Quang Digital technology joint stock company_OpenAI_Claude_3.2MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.81.86.172
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: 160.250.65.148_OpenAI_Claude_3.2MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.148
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB4
+  network: ws
+  port: 8880
+  server: 45.131.211.224
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_3.8MB
+  network: ws
+  port: 8880
+  server: 167.68.5.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: VN_Trâu Quỳ_MOCLAMESOUL_OpenAI_Claude_2.9MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.12.77.78
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: 217.142.184.5_OpenAI_Claude_3.1MB
+  network: ws
+  port: 19816
+  server: 45.144.167.46
+  servername: mixing-proper-sharon-literary.trycloudflare.com
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: e46d518d-4a20-4f9a-873d-a86e9455321c
+  ws-opts:
+    headers:
+      Host: mixing-proper-sharon-literary.trycloudflare.com
+    path: /e46d518d-4a20-4f9a-873d-a86e9455321c-vless?ed=2048
+- name: 103.12.77.191_OpenAI_Claude_3.0MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.12.77.191
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.2MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.148
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_6.1MB
+  network: ws
+  port: 80
+  server: 66.81.247.217
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram:@ShadowProxy66/?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_16.3MB
+  network: ws
+  port: 8880
+  server: 5.10.214.180
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
     path: /TelegramU0001F1E8U0001F1F3
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB2
+  network: ws
+  port: 8880
+  server: 162.159.3.20
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_10.0MB
+  network: ws
+  port: 80
+  server: 45.159.218.154
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Telegram:'
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  network: ws
+  port: 8880
+  server: 156.238.18.76
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: yd.laoyoutiao.link
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB1
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.124
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_13.4MB
+  network: ws
+  port: 8880
+  server: 45.131.210.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  network: ws
+  port: 80
+  server: 66.81.247.82
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Channel
+- name: US_San Jose_Cloudflare Warp_OpenAI_Claude_2.5MB
+  network: ws
+  port: 8880
+  server: 45.131.6.68
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB2
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.124
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.3MB
+  network: ws
+  port: 443
+  server: 104.26.13.31
+  servername: FinLAnd-A3r.pAgES.dEv
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3130e111-a06c-4388-aeda-4b43f6e8e51f
+  ws-opts:
+    headers:
+      Host: finland-a3r.pages.dev
+      User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
+    path: /Tel-@V2ray_Alpha/?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  network: ws
+  port: 8880
+  server: 190.93.247.177
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+  ws-opts:
+    headers:
+      Host: ip.langmanshanxi.top
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB3
+  network: ws
+  port: 8880
+  server: 162.159.248.20
+  tls: false
+  type: vless
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /?ed=2560
 proxy-groups:
 - name: PROXY
   type: select
@@ -548,41 +911,75 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_16.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - 103.81.86.172_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB1
-  - US_Reston_Cloudflare, Inc._Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_5.6MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - 103.12.77.48_OpenAI_Claude_2.7MB
-  - 59.153.217.133_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_12.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_11.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.3MB
-  - 59.153.217.57_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.1MB
-  - 59.153.218.14_OpenAI_Claude_2.7MB
-  - 59.153.216.133_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.9MB
+  - DE_Frankfurt am Main_DigitalOcean, LLC_OpenAI_Claude_4.4MB
+  - GB_London_Aeza International LTD_OpenAI_Claude_2.5MB
+  - DE_Frankfurt_GTHost_OpenAI_Claude_3.9MB
+  - CH_Zurich_GTHost_OpenAI_Claude_2.2MB
+  - US_Los Angeles_Akamai Technologies, Inc._OpenAI_Claude_39.4MB
+  - SK_Bratislava_DataCamp Limited_OpenAI_Claude_3.9MB
+  - KR_Gwanak-gu_Korea Telecom_OpenAI_Claude_4.4MB
+  - US_Los Angeles_Zenlayer Inc_OpenAI_Claude_28.7MB
+  - CA_Vancouver_Datacamp Limited_OpenAI_Claude_21.1MB
+  - GB_London_Krystal Hosting Ltd_OpenAI_Claude_4.7MB
+  - US_San Jose_PEG TECH INC_OpenAI_Claude_14.5MB
+  - RU_Moscow_LLC BAXET_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_3.7MB
+  - US_Los Angeles_HostPapa_OpenAI_Claude_8.1MB
+  - 46.235.230.124_OpenAI_Claude_3.7MB
+  - 103.81.86.172_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_20.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_17.6MB
+  - VN_Hai BàTrưng_GLTEC_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_12.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_18.8MB
+  - 59.153.217.57_OpenAI_Claude_3.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.9MB
+  - 59.153.216.133_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - IE_Dublin_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB1
+  - 103.81.84.57_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_9.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB2
+  - 59.153.218.14_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - 59.153.218.14_OpenAI_Claude_3.1MB2
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_5.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB3
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+  - 103.12.77.48_OpenAI_Claude_3.2MB
+  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - VN_Hanoi_Thien Quang Digital technology joint stock company_OpenAI_Claude_3.2MB
+  - 160.250.65.148_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB4
+  - US_San Jose_Cloudflare, Inc._OpenAI_3.8MB
+  - VN_Trâu Quỳ_MOCLAMESOUL_OpenAI_Claude_2.9MB
+  - 217.142.184.5_OpenAI_Claude_3.1MB
+  - 103.12.77.191_OpenAI_Claude_3.0MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_6.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_16.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_10.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_13.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_2.5MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB3
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -631,35 +1028,48 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_16.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB1
-  - US_Reston_Cloudflare, Inc._Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_5.6MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_12.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_11.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.9MB
+  - US_Los Angeles_Akamai Technologies, Inc._OpenAI_Claude_39.4MB
+  - US_Los Angeles_Zenlayer Inc_OpenAI_Claude_28.7MB
+  - US_San Jose_PEG TECH INC_OpenAI_Claude_14.5MB
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_3.7MB
+  - US_Los Angeles_HostPapa_OpenAI_Claude_8.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_20.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_17.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_12.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_18.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_9.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_5.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB3
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB4
+  - US_San Jose_Cloudflare, Inc._OpenAI_3.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_6.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_16.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_10.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_13.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_2.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB3
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -667,40 +1077,75 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_16.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - 103.81.86.172_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_5.6MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - 103.12.77.48_OpenAI_Claude_2.7MB
-  - 59.153.217.133_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_12.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_11.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.3MB
-  - 59.153.217.57_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.1MB
-  - 59.153.218.14_OpenAI_Claude_2.7MB
-  - 59.153.216.133_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.9MB
+  - DE_Frankfurt am Main_DigitalOcean, LLC_OpenAI_Claude_4.4MB
+  - GB_London_Aeza International LTD_OpenAI_Claude_2.5MB
+  - DE_Frankfurt_GTHost_OpenAI_Claude_3.9MB
+  - CH_Zurich_GTHost_OpenAI_Claude_2.2MB
+  - US_Los Angeles_Akamai Technologies, Inc._OpenAI_Claude_39.4MB
+  - SK_Bratislava_DataCamp Limited_OpenAI_Claude_3.9MB
+  - KR_Gwanak-gu_Korea Telecom_OpenAI_Claude_4.4MB
+  - US_Los Angeles_Zenlayer Inc_OpenAI_Claude_28.7MB
+  - CA_Vancouver_Datacamp Limited_OpenAI_Claude_21.1MB
+  - GB_London_Krystal Hosting Ltd_OpenAI_Claude_4.7MB
+  - US_San Jose_PEG TECH INC_OpenAI_Claude_14.5MB
+  - RU_Moscow_LLC BAXET_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_3.7MB
+  - US_Los Angeles_HostPapa_OpenAI_Claude_8.1MB
+  - 46.235.230.124_OpenAI_Claude_3.7MB
+  - 103.81.86.172_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_20.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_17.6MB
+  - VN_Hai BàTrưng_GLTEC_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_12.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_18.8MB
+  - 59.153.217.57_OpenAI_Claude_3.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.9MB
+  - 59.153.216.133_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - IE_Dublin_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB1
+  - 103.81.84.57_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_9.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB2
+  - 59.153.218.14_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - 59.153.218.14_OpenAI_Claude_3.1MB2
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_5.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB3
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+  - 103.12.77.48_OpenAI_Claude_3.2MB
+  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - VN_Hanoi_Thien Quang Digital technology joint stock company_OpenAI_Claude_3.2MB
+  - 160.250.65.148_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB4
+  - US_San Jose_Cloudflare, Inc._OpenAI_3.8MB
+  - VN_Trâu Quỳ_MOCLAMESOUL_OpenAI_Claude_2.9MB
+  - 217.142.184.5_OpenAI_Claude_3.1MB
+  - 103.12.77.191_OpenAI_Claude_3.0MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_6.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_16.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_10.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_13.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_2.5MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB3
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
@@ -708,41 +1153,74 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_16.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - 103.81.86.172_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB1
-  - US_Reston_Cloudflare, Inc._Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_5.6MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - 103.12.77.48_OpenAI_Claude_2.7MB
-  - 59.153.217.133_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_12.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_11.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.3MB
-  - 59.153.217.57_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.1MB
-  - 59.153.218.14_OpenAI_Claude_2.7MB
-  - 59.153.216.133_OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.9MB
+  - DE_Frankfurt am Main_DigitalOcean, LLC_OpenAI_Claude_4.4MB
+  - GB_London_Aeza International LTD_OpenAI_Claude_2.5MB
+  - DE_Frankfurt_GTHost_OpenAI_Claude_3.9MB
+  - CH_Zurich_GTHost_OpenAI_Claude_2.2MB
+  - US_Los Angeles_Akamai Technologies, Inc._OpenAI_Claude_39.4MB
+  - SK_Bratislava_DataCamp Limited_OpenAI_Claude_3.9MB
+  - KR_Gwanak-gu_Korea Telecom_OpenAI_Claude_4.4MB
+  - US_Los Angeles_Zenlayer Inc_OpenAI_Claude_28.7MB
+  - CA_Vancouver_Datacamp Limited_OpenAI_Claude_21.1MB
+  - GB_London_Krystal Hosting Ltd_OpenAI_Claude_4.7MB
+  - US_San Jose_PEG TECH INC_OpenAI_Claude_14.5MB
+  - RU_Moscow_LLC BAXET_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_3.7MB
+  - US_Los Angeles_HostPapa_OpenAI_Claude_8.1MB
+  - 46.235.230.124_OpenAI_Claude_3.7MB
+  - 103.81.86.172_OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_20.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_17.6MB
+  - VN_Hai BàTrưng_GLTEC_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_12.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_18.8MB
+  - 59.153.217.57_OpenAI_Claude_3.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.9MB
+  - 59.153.216.133_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_19.8MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - IE_Dublin_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB1
+  - 103.81.84.57_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_9.6MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB2
+  - 59.153.218.14_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - 59.153.218.14_OpenAI_Claude_3.1MB2
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_5.5MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB3
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.4MB2
+  - 103.12.77.48_OpenAI_Claude_3.2MB
+  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_21.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - VN_Hanoi_Thien Quang Digital technology joint stock company_OpenAI_Claude_3.2MB
+  - 160.250.65.148_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.9MB4
+  - VN_Trâu Quỳ_MOCLAMESOUL_OpenAI_Claude_2.9MB
+  - 217.142.184.5_OpenAI_Claude_3.1MB
+  - 103.12.77.191_OpenAI_Claude_3.0MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.2MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_6.1MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_16.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_3.0MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_10.0MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB1
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_13.4MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_San Jose_Cloudflare Warp_OpenAI_Claude_2.5MB
+  - VN_Cầu Diễn_WEB 360 TECHNOLOGY JOINT STOCK COMPANY_OpenAI_Claude_3.1MB2
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_4.3MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_San Jose_Cloudflare, Inc._OpenAI_Claude_2.2MB3
   filter: (?i)Claude
 rules:
 - RULE-SET,ads,REJECT
