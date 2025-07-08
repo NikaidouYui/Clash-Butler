@@ -95,14 +95,61 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     }
     .boxed();
 
-    let futures = vec![cf_future, ipify_future, openai_future, httpbin_future];
-    match select_ok(futures).await {
-        Ok(((ip, from), _)) => {
-            info!("成功获取 IP: {} (来源: {})", ip, from);
-            Ok((ip, from))
-        },
-        Err(_) => Err("获取不到 IP 地址，可能节点已失效，已过滤".into()),
+    // 添加更多IP检测服务
+    let ifconfig_future: IpBoxFuture = async move {
+        match get_ip_by_ifconfig(proxy_url, debug_mode).await {
+            Ok(ip) => {
+                if debug_mode {
+                    info!("ifconfig 返回 IP: {}", ip);
+                }
+                Ok((ip, "ifconfig"))
+            },
+            Err(e) => {
+                if debug_mode {
+                    error!("从 ifconfig 获取 IP 失败, {e}");
+                }
+                Err(e)
+            }
+        }
     }
+    .boxed();
+
+    let futures = vec![cf_future, ipify_future, openai_future, httpbin_future, ifconfig_future];
+    
+    // 收集所有成功的结果进行比较
+    let mut all_results = Vec::new();
+    for future in futures {
+        if let Ok(result) = future.await {
+            all_results.push(result);
+        }
+    }
+    
+    if all_results.is_empty() {
+        return Err("获取不到 IP 地址，可能节点已失效，已过滤".into());
+    }
+    
+    // 如果有多个结果，检查是否一致
+    if all_results.len() > 1 {
+        let first_ip = all_results[0].0;
+        let mut all_same = true;
+        for (ip, source) in &all_results {
+            if *ip != first_ip {
+                all_same = false;
+                info!("IP检测结果不一致: {} 来源 {} vs {} 来源 {}",
+                      ip, source, first_ip, all_results[0].1);
+            }
+        }
+        
+        if !all_same {
+            info!("多个IP检测服务返回不同结果，使用第一个成功的结果");
+        } else {
+            info!("多个IP检测服务返回一致结果: {}", first_ip);
+        }
+    }
+    
+    let (ip, from) = all_results[0];
+    info!("最终确定 IP: {} (来源: {})", ip, from);
+    Ok((ip, from))
 }
 
 // clash 规则走的是国内，没走代理所以寄
@@ -168,6 +215,39 @@ async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, 
             Err(e) => {
                 if debug_mode {
                     error!("httpbin {} 代理失败: {}", proxy_type, e);
+                }
+                continue;
+            }
+        }
+    }
+    
+    Err("所有代理类型都失败".into())
+}
+
+async fn get_ip_by_ifconfig(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("ifconfig 尝试使用 {} 代理", proxy_type);
+        }
+        
+        match client
+            .get("https://ifconfig.me/ip")
+            .send()
+            .await
+        {
+            Ok(response) => {
+                let body = response.text().await?;
+                let ip_str = body.trim();
+                if let Ok(ip) = IpAddr::from_str(ip_str) {
+                    info!("ifconfig 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
+                    return Ok(ip);
+                }
+            }
+            Err(e) => {
+                if debug_mode {
+                    error!("ifconfig {} 代理失败: {}", proxy_type, e);
                 }
                 continue;
             }
