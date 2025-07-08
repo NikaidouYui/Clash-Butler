@@ -114,9 +114,9 @@ fn build_client(proxy_url: &str) -> Result<Client> {
         .context("Failed to build HTTP client")
 }
 
-pub async fn claude_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
+// 使用已测试的代理客户端检测Claude
+pub async fn claude_is_ok_with_clients(clients: &Vec<(Client, &'static str)>, debug_mode: bool) -> Result<()> {
     let url = "https://claude.ai/login";
-    let clients = build_clients(proxy_url, debug_mode)?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -161,9 +161,9 @@ pub async fn claude_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
     Err(anyhow!("所有代理类型都失败"))
 }
 
-pub async fn openai_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
+// 使用已测试的代理客户端检测OpenAI
+pub async fn openai_is_ok_with_clients(clients: &Vec<(Client, &'static str)>, debug_mode: bool) -> Result<()> {
     let url = "https://auth.openai.com/favicon.ico";
-    let clients = build_clients(proxy_url, debug_mode)?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -198,6 +198,17 @@ pub async fn openai_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
     }
     
     Err(anyhow!("所有代理类型都失败"))
+}
+
+// 保留原有函数以保持向后兼容
+pub async fn claude_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
+    let clients = build_clients(proxy_url, debug_mode)?;
+    claude_is_ok_with_clients(&clients, debug_mode).await
+}
+
+pub async fn openai_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
+    let clients = build_clients(proxy_url, debug_mode)?;
+    openai_is_ok_with_clients(&clients, debug_mode).await
 }
 
 #[allow(dead_code)]

@@ -3,8 +3,6 @@ use std::net::{IpAddr, Ipv4Addr};
 use std::str::FromStr;
 use std::time::Duration;
 
-use futures_util::future::BoxFuture;
-use futures_util::FutureExt;
 use reqwest::Client;
 use serde_json::Value;
 use tokio::time::sleep;
@@ -19,9 +17,13 @@ const CF_CN_TRACE_URL: &str = "https://cf-ns.com/cdn-cgi/trace";
 // IP 查询超时时间
 const TIMEOUT: Duration = Duration::from_secs(15);
 
-type IpBoxFuture<'a> = BoxFuture<'a, Result<(IpAddr, &'a str), Box<dyn std::error::Error>>>;
-
 pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str), Box<dyn std::error::Error>> {
+    let result = get_ip_with_clients(proxy_url, debug_mode).await?;
+    Ok((result.0, result.1))
+}
+
+// 新函数：返回IP地址、来源和已测试的代理客户端
+pub async fn get_ip_with_clients(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str, Vec<(Client, &'static str)>), Box<dyn std::error::Error>> {
     if debug_mode {
         info!("开始获取 IP，代理地址: {}", proxy_url);
     }
@@ -168,7 +170,7 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     }
     
     info!("最终确定 IP: {} (来源: {})", ip, from);
-    Ok((ip, from))
+    Ok((ip, from, working_clients))
 }
 
 // 获取直连IP（不使用代理）

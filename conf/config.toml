@@ -38,5 +38,5 @@ timeout = 2000
 # 带宽测速配置
 [speed_test]
 enabled = true
-url = "https://speed.cloudflare.com/__down?bytes=10485760"
-timeout = 10000
+url = "https://speed.cloudflare.com/__down?bytes=10485760"  # 测速文件URL（10MB）
+timeout = 15000  # 增加超时时间到15秒

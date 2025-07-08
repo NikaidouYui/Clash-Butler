@@ -255,14 +255,14 @@ async fn run(config: Settings) {
                         // 额外等待确保代理完全生效
                         tokio::time::sleep(Duration::from_millis(2000)).await;
                         
-                        // 获取IP地址
-                        let ip_result = cgi_trace::get_ip(&clash_meta.proxy_url, config.debug_mode).await;
+                        // 获取IP地址和已测试的代理客户端
+                        let ip_result = cgi_trace::get_ip_with_clients(&clash_meta.proxy_url, config.debug_mode).await;
                         if ip_result.is_ok() {
-                            let (proxy_ip, from) = ip_result.unwrap();
+                            let (proxy_ip, from, working_clients) = ip_result.unwrap();
                             info!("「{}」ip: {} from: {}", node, proxy_ip, from);
                             
                             let mut openai_is_ok = false;
-                        match website::openai_is_ok(&clash_meta.proxy_url, config.debug_mode).await {
+                        match website::openai_is_ok_with_clients(&working_clients, config.debug_mode).await {
                             Ok(_) => {
                                 info!("「{}」 openai is ok", node);
                                 openai_is_ok = true;
@@ -273,7 +273,7 @@ async fn run(config: Settings) {
                         }
 
                         let mut claude_is_ok = false;
-                        match website::claude_is_ok(&clash_meta.proxy_url, config.debug_mode).await {
+                        match website::claude_is_ok_with_clients(&working_clients, config.debug_mode).await {
                             Ok(_) => {
                                 info!("「{}」 claude is ok", node);
                                 claude_is_ok = true;
@@ -308,7 +308,9 @@ async fn run(config: Settings) {
                                                 info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
                                             }
                                             Err(e) => {
-                                                error!("「{}」测速失败: {}", node, e);
+                                                error!("「{}」测速失败，详细错误: {}", node, e);
+                                                // 尝试简化的测速方法
+                                                info!("「{}」尝试使用备用测速方法...", node);
                                                 speed_info = "_0MB".to_string();
                                             }
                                         }
@@ -350,7 +352,9 @@ async fn run(config: Settings) {
                                                 info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
                                             }
                                             Err(e) => {
-                                                error!("「{}」测速失败: {}", node, e);
+                                                error!("「{}」测速失败，详细错误: {}", node, e);
+                                                // 尝试简化的测速方法
+                                                info!("「{}」尝试使用备用测速方法...", node);
                                                 speed_info = "_0MB".to_string();
                                             }
                                         }
