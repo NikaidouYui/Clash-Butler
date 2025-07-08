@@ -46,6 +46,7 @@
 **完整处理配置 (`clash.yaml`)**：
 - 🔍 经过 OpenAI/Claude 可用性测试
 - 🏷️ 节点按地理位置和 ISP 重命名
+- 🚀 **新增带宽测速功能**：节点名称包含实际速度信息（如 `HK_1.5MB`）
 - 🎯 节点质量更高，但数量可能较少
 - 📊 包含详细的节点信息标注
 
@@ -68,6 +69,41 @@
 
 > [!TIP]
 > 详细配置说明请查看：[**GITHUB_ACTIONS_SETUP.md**](GITHUB_ACTIONS_SETUP.md)
+
+## 🚀 新功能：带宽测速
+
+现在支持对节点进行实际带宽测速，并将速度信息添加到节点名称中！
+
+### 配置说明
+
+在 [`conf/config.toml`](conf/config.toml) 中配置测速参数：
+
+```toml
+# 带宽测速配置
+[speed_test]
+enabled = true                                              # 是否启用测速功能
+url = "https://speed.cloudflare.com/__down?bytes=10485760"  # 测速文件URL（10MB）
+timeout = 10000                                             # 测速超时时间（毫秒）
+```
+
+### 功能特点
+
+- 🎯 **智能测速**：在IP详情获取完成后自动进行带宽测速
+- 📊 **速度标注**：节点名称自动包含实际速度（如 `HK_Hong Kong_1.5MB_OpenAI`）
+- 🔧 **灵活配置**：可自定义测速文件大小和超时时间
+- 📈 **多单位显示**：自动选择合适的单位（KB/MB/GB）
+
+### 节点命名格式
+
+启用测速后，节点名称格式为：
+```
+${COUNTRYCODE}_${CITY}_${ISP}_${SPEED}_${SERVICES}
+```
+
+示例：
+- `HK_Hong Kong_HKT_2.5MB_OpenAI_Claude`
+- `US_Los Angeles_Cloudflare_15.2MB_OpenAI`
+- `JP_Tokyo_NTT_850KB_Claude`
 
 ### 本地构建
 

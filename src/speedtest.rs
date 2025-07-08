@@ -14,6 +14,30 @@ pub struct SpeedTestConfig {
     pub timeout: u16,
 }
 
+/// 对指定代理进行带宽测速
+pub async fn test_proxy_speed(
+    url: &str,
+    timeout: Duration,
+    proxy_url: &str,
+) -> Result<f64, Box<dyn std::error::Error>> {
+    match test_download(url, timeout, Some(proxy_url)).await {
+        Ok((_, bandwidth, _)) => Ok(bandwidth),
+        Err(e) => Err(Box::new(e)),
+    }
+}
+
+/// 格式化速度显示
+pub fn format_speed(bandwidth_kbps: f64) -> String {
+    let mbps = bandwidth_kbps / 1024.0;
+    if mbps >= 1000.0 {
+        format!("_{:.1}GB", mbps / 1024.0)
+    } else if mbps >= 1.0 {
+        format!("_{:.1}MB", mbps)
+    } else {
+        format!("_{:.0}KB", bandwidth_kbps)
+    }
+}
+
 #[allow(dead_code)]
 async fn test_download(
     url: &str,
@@ -55,7 +79,7 @@ mod test {
 
     #[tokio::test]
     async fn test_download() {
-        let url = "https://speed.cloudflare.com/__down?bytes=1024"; // 100MB download
+        let url = "https://speed.cloudflare.com/__down?bytes=1024"; // 1KB download for testing
         match crate::speedtest::test_download(
             url,
             Duration::from_secs(10),
@@ -66,6 +90,16 @@ mod test {
             Ok(result) => println!("{:?}", result),
             Err(e) => eprintln!("{:?}", e),
         }
+    }
+
+    #[test]
+    fn test_format_speed() {
+        // 测试不同速度的格式化
+        assert_eq!(format_speed(500.0), "_500KB");
+        assert_eq!(format_speed(1024.0), "_1.0MB");
+        assert_eq!(format_speed(2048.0), "_2.0MB");
+        assert_eq!(format_speed(1024.0 * 1024.0), "_1.0GB");
+        assert_eq!(format_speed(1536.0), "_1.5MB");
     }
 }
 

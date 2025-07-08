@@ -292,6 +292,28 @@ async fn run(config: Settings) {
                             match ip_detail_result {
                                 Ok(ip_detail) => {
                                     info!("{:?}", ip_detail);
+                                    
+                                    // 进行带宽测速
+                                    let mut speed_info = String::new();
+                                    if config.speed_test.enabled {
+                                        info!("「{}」开始进行带宽测速...", node);
+                                        match speedtest::test_proxy_speed(
+                                            &config.speed_test.url,
+                                            Duration::from_millis(config.speed_test.timeout as u64),
+                                            &clash_meta.proxy_url,
+                                        ).await {
+                                            Ok(bandwidth) => {
+                                                speed_info = speedtest::format_speed(bandwidth);
+                                                let speed_mbps = bandwidth / 1024.0; // 转换为 MB/s
+                                                info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
+                                            }
+                                            Err(e) => {
+                                                error!("「{}」测速失败: {}", node, e);
+                                                speed_info = "_0MB".to_string();
+                                            }
+                                        }
+                                    }
+                                    
                                     if config.rename_node {
                                         let mut new_name = config
                                             .rename_pattern
@@ -305,11 +327,35 @@ async fn run(config: Settings) {
                                         if claude_is_ok {
                                             new_name += "_Claude";
                                         }
+                                        // 添加速度信息到节点名称
+                                        new_name += &speed_info;
                                         node_rename_map.insert(node.clone(), new_name);
                                     }
                                 }
                                 Err(e) => {
                                     error!("获取节点 {} 的 IP 信息失败, {}", node, e);
+                                    
+                                    // 即使获取IP信息失败，如果启用了测速也要进行测速
+                                    let mut speed_info = String::new();
+                                    if config.speed_test.enabled {
+                                        info!("「{}」开始进行带宽测速...", node);
+                                        match speedtest::test_proxy_speed(
+                                            &config.speed_test.url,
+                                            Duration::from_millis(config.speed_test.timeout as u64),
+                                            &clash_meta.proxy_url,
+                                        ).await {
+                                            Ok(bandwidth) => {
+                                                speed_info = speedtest::format_speed(bandwidth);
+                                                let speed_mbps = bandwidth / 1024.0; // 转换为 MB/s
+                                                info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
+                                            }
+                                            Err(e) => {
+                                                error!("「{}」测速失败: {}", node, e);
+                                                speed_info = "_0MB".to_string();
+                                            }
+                                        }
+                                    }
+                                    
                                     // 即使获取IP信息失败，只要有服务可用就保留节点
                                     let mut new_name = proxy_ip.to_string();
                                     if openai_is_ok {
@@ -318,6 +364,8 @@ async fn run(config: Settings) {
                                     if claude_is_ok {
                                         new_name += "_Claude";
                                     }
+                                    // 添加速度信息到节点名称
+                                    new_name += &speed_info;
                                     node_rename_map.insert(node.clone(), new_name);
                                 }
                             }
