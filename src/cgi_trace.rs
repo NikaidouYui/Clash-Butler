@@ -8,187 +8,100 @@ use serde_json::Value;
 use tokio::time::sleep;
 use tracing::{error, info};
 
+// 保留用于测试的常量
+#[allow(dead_code)]
 const OPENAI_TRACE_URL: &str = "https://chat.openai.com/cdn-cgi/trace";
+#[allow(dead_code)]
 const CF_TRACE_URL: &str = "https://1.0.0.1/cdn-cgi/trace";
-
-#[allow(unused)]
+#[allow(dead_code)]
 const CF_CN_TRACE_URL: &str = "https://cf-ns.com/cdn-cgi/trace";
 
 // IP 查询超时时间
 const TIMEOUT: Duration = Duration::from_secs(15);
 
+#[allow(dead_code)]
 pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str), Box<dyn std::error::Error>> {
-    let result = get_ip_with_clients(proxy_url, debug_mode).await?;
-    Ok((result.0, result.1))
+    get_ip_simple(proxy_url, debug_mode).await
 }
 
-// 新函数：返回IP地址、来源和已测试的代理客户端
+// 简化的IP获取函数，直接使用代理请求 ip-api.com
+#[allow(dead_code)]
+pub async fn get_ip_simple(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str), Box<dyn std::error::Error>> {
+    if debug_mode {
+        info!("开始获取 IP，代理地址: {}", proxy_url);
+    }
+
+    // 创建代理客户端
+    let client = Client::builder()
+        .timeout(TIMEOUT)
+        .proxy(reqwest::Proxy::all(proxy_url)?)
+        .build()?;
+
+    // 直接请求 ip-api.com 获取IP信息
+    match client.get("http://ip-api.com/json").send().await {
+        Ok(response) => {
+            let body = response.text().await?;
+            let value: serde_json::Value = serde_json::from_str(&body)?;
+            
+            if let Some(ip_str) = value.get("query").and_then(|v| v.as_str()) {
+                if let Ok(ip) = IpAddr::from_str(ip_str) {
+                    if debug_mode {
+                        info!("✅ 成功从 ip-api.com 获取 IP: {}", ip);
+                    }
+                    return Ok((ip, "ip-api"));
+                }
+            }
+            
+            Err("无法从 ip-api.com 响应中解析IP地址".into())
+        }
+        Err(e) => {
+            error!("从 ip-api.com 获取 IP 失败: {}", e);
+            Err(format!("从 ip-api.com 获取 IP 失败: {}", e).into())
+        }
+    }
+}
+
+// 简化版本：返回IP地址、来源和已测试的代理客户端
 pub async fn get_ip_with_clients(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str, Vec<(Client, &'static str)>), Box<dyn std::error::Error>> {
     if debug_mode {
         info!("开始获取 IP，代理地址: {}", proxy_url);
     }
 
-    // 首先获取直连IP作为对比基准
-    let direct_ip = get_direct_ip(debug_mode).await;
-    if let Ok(direct_ip) = direct_ip {
-        info!("直连IP: {}", direct_ip);
-    } else {
-        error!("获取直连IP失败: {:?}", direct_ip);
-    }
+    // 创建代理客户端
+    let client = Client::builder()
+        .timeout(TIMEOUT)
+        .proxy(reqwest::Proxy::all(proxy_url)?)
+        .build()?;
 
-    // 一次性创建并测试代理客户端，避免重复测试
-    let working_clients = create_proxy_clients(proxy_url, debug_mode).await?;
-    
-    // 顺序尝试各个IP检测服务，使用已测试的代理客户端
-    let services = vec![
-        ("cf", "Cloudflare"),
-        ("ipify", "ipify"),
-        ("openai", "OpenAI"),
-        ("httpbin", "httpbin"),
-        ("ifconfig", "ifconfig"),
-    ];
-    
-    let mut all_results = Vec::new();
-    
-    for (service_key, service_name) in services {
-        let result = match service_key {
-            "cf" => {
-                match get_trace_info_with_working_clients(&working_clients, CF_TRACE_URL, debug_mode).await {
-                    Ok(trace) => {
-                        if debug_mode {
-                            info!("{} 返回 IP: {}", service_name, trace.ip);
-                        }
-                        Some((trace.ip, "cf"))
-                    },
-                    Err(e) => {
-                        error!("从 {} 获取 IP 失败, {}", service_name, e);
-                        None
+    // 直接请求 ip-api.com 获取IP信息
+    match client.get("http://ip-api.com/json").send().await {
+        Ok(response) => {
+            let body = response.text().await?;
+            let value: serde_json::Value = serde_json::from_str(&body)?;
+            
+            if let Some(ip_str) = value.get("query").and_then(|v| v.as_str()) {
+                if let Ok(ip) = IpAddr::from_str(ip_str) {
+                    if debug_mode {
+                        info!("✅ 成功从 ip-api.com 获取 IP: {}", ip);
                     }
-                }
-            },
-            "ipify" => {
-                match get_ip_by_working_clients(&working_clients, "ipify", debug_mode).await {
-                    Ok(ip) => {
-                        if debug_mode {
-                            info!("{} 返回 IP: {}", service_name, ip);
-                        }
-                        Some((ip, "ipify"))
-                    },
-                    Err(e) => {
-                        error!("从 {} 获取 IP 失败, {}", service_name, e);
-                        None
-                    }
-                }
-            },
-            "openai" => {
-                match get_trace_info_with_working_clients(&working_clients, OPENAI_TRACE_URL, debug_mode).await {
-                    Ok(trace) => {
-                        if debug_mode {
-                            info!("{} 返回 IP: {}", service_name, trace.ip);
-                        }
-                        Some((trace.ip, "openai"))
-                    },
-                    Err(e) => {
-                        error!("从 {} 获取 IP 失败, {}", service_name, e);
-                        None
-                    }
-                }
-            },
-            "httpbin" => {
-                match get_ip_by_working_clients(&working_clients, "httpbin", debug_mode).await {
-                    Ok(ip) => {
-                        if debug_mode {
-                            info!("{} 返回 IP: {}", service_name, ip);
-                        }
-                        Some((ip, "httpbin"))
-                    },
-                    Err(e) => {
-                        if debug_mode {
-                            error!("从 {} 获取 IP 失败, {}", service_name, e);
-                        }
-                        None
-                    }
-                }
-            },
-            "ifconfig" => {
-                match get_ip_by_working_clients(&working_clients, "ifconfig", debug_mode).await {
-                    Ok(ip) => {
-                        if debug_mode {
-                            info!("{} 返回 IP: {}", service_name, ip);
-                        }
-                        Some((ip, "ifconfig"))
-                    },
-                    Err(e) => {
-                        if debug_mode {
-                            error!("从 {} 获取 IP 失败, {}", service_name, e);
-                        }
-                        None
-                    }
-                }
-            },
-            _ => None
-        };
-        
-        if let Some(result) = result {
-            all_results.push(result);
-        }
-    }
-    
-    if all_results.is_empty() {
-        return Err("获取不到 IP 地址，可能节点已失效，已过滤".into());
-    }
-    
-    // 如果有多个结果，检查是否一致
-    if all_results.len() > 1 {
-        let first_ip = all_results[0].0;
-        let mut all_same = true;
-        for (ip, source) in &all_results {
-            if *ip != first_ip {
-                all_same = false;
-                info!("IP检测结果不一致: {} 来源 {} vs {} 来源 {}",
-                      ip, source, first_ip, all_results[0].1);
-            }
-        }
-        
-        if !all_same {
-            info!("多个IP检测服务返回不同结果，使用第一个成功的结果");
-        } else {
-            info!("多个IP检测服务返回一致结果: {}", first_ip);
-        }
-    }
-    
-    let (ip, from) = all_results[0];
-    
-    // 验证代理是否真正生效 - 改进IPv4/IPv6混合判断逻辑
-    if let Ok(direct_ip) = direct_ip {
-        // 检查是否有任何一个检测结果与直连IP不同
-        let has_different_ip = all_results.iter().any(|(result_ip, _)| *result_ip != direct_ip);
-        
-        if has_different_ip {
-            info!("✅ 代理验证成功！检测到与直连IP {} 不同的代理IP", direct_ip);
-            // 显示所有检测结果的详细信息
-            for (result_ip, source) in &all_results {
-                if *result_ip != direct_ip {
-                    info!("  ✅ {} 检测到代理IP: {} (与直连不同)", source, result_ip);
-                } else {
-                    info!("  ⚠️ {} 检测到IP: {} (与直连相同)", source, result_ip);
+                    
+                    // 创建一个简单的客户端列表以保持兼容性
+                    let working_clients = vec![(client, "ALL")];
+                    return Ok((ip, "ip-api", working_clients));
                 }
             }
-        } else {
-            // 所有检测结果都与直连IP相同
-            error!("⚠️ 代理验证失败！所有检测服务返回的IP都与直连IP {} 相同，代理可能未生效", direct_ip);
-            for (result_ip, source) in &all_results {
-                error!("  ❌ {} 返回IP: {}", source, result_ip);
-            }
-            return Err("代理未生效，所有检测服务返回的IP都与直连相同".into());
+            
+            Err("无法从 ip-api.com 响应中解析IP地址".into())
+        }
+        Err(e) => {
+            error!("从 ip-api.com 获取 IP 失败: {}", e);
+            Err(format!("从 ip-api.com 获取 IP 失败: {}", e).into())
         }
     }
-    
-    info!("最终确定 IP: {} (来源: {})", ip, from);
-    Ok((ip, from, working_clients))
 }
 
 // 获取直连IP（不使用代理）
+#[allow(dead_code)]
 async fn get_direct_ip(debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     if debug_mode {
         info!("开始获取直连IP（不使用代理）");
@@ -304,6 +217,7 @@ async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box
 }
 
 // 使用已测试的代理客户端获取IP，避免重复测试
+#[allow(dead_code)]
 async fn get_ip_by_working_clients(clients: &Vec<(Client, &'static str)>, service: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -372,21 +286,25 @@ async fn get_ip_by_working_clients(clients: &Vec<(Client, &'static str)>, servic
     Err("所有代理类型都失败".into())
 }
 
+#[allow(dead_code)]
 async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     get_ip_by_working_clients(&clients, "httpbin", debug_mode).await
 }
 
+#[allow(dead_code)]
 async fn get_ip_by_ifconfig(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     get_ip_by_working_clients(&clients, "ifconfig", debug_mode).await
 }
 
+#[allow(dead_code)]
 async fn get_ip_by_ipify(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     get_ip_by_working_clients(&clients, "ipify", debug_mode).await
 }
 
+#[allow(dead_code)]
 fn parse_trace_info(text: String) -> TraceInfo {
     let mut map = HashMap::new();
     for line in text.lines() {
@@ -622,6 +540,7 @@ fn recreate_proxy_client(proxy_type: &str, proxy_url: &str) -> Result<Client, Bo
 }
 
 // 使用已测试的代理客户端获取trace信息
+#[allow(dead_code)]
 async fn get_trace_info_with_working_clients(
     clients: &Vec<(Client, &'static str)>,
     trace_url: &str,
@@ -662,6 +581,7 @@ async fn get_trace_info_with_working_clients(
     Err("所有代理类型都失败".into())
 }
 
+#[allow(dead_code)]
 async fn get_trace_info_with_proxy(
     proxy_url: &str,
     trace_url: &str,

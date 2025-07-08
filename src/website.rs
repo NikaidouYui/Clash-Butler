@@ -10,6 +10,7 @@ use reqwest::StatusCode;
 const USER_AGENT: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36";
 const TIMEOUT: Duration = Duration::from_secs(10);
 
+#[allow(dead_code)]
 fn build_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client, &'static str)>> {
     let mut clients = Vec::new();
     
@@ -201,11 +202,13 @@ pub async fn openai_is_ok_with_clients(clients: &Vec<(Client, &'static str)>, de
 }
 
 // 保留原有函数以保持向后兼容
+#[allow(dead_code)]
 pub async fn claude_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
     let clients = build_clients(proxy_url, debug_mode)?;
     claude_is_ok_with_clients(&clients, debug_mode).await
 }
 
+#[allow(dead_code)]
 pub async fn openai_is_ok(proxy_url: &str, debug_mode: bool) -> Result<()> {
     let clients = build_clients(proxy_url, debug_mode)?;
     openai_is_ok_with_clients(&clients, debug_mode).await
