@@ -27,6 +27,14 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
         info!("开始获取 IP，代理地址: {}", proxy_url);
     }
 
+    // 首先获取直连IP作为对比基准
+    let direct_ip = get_direct_ip(debug_mode).await;
+    if let Ok(direct_ip) = direct_ip {
+        info!("直连IP: {}", direct_ip);
+    } else {
+        error!("获取直连IP失败: {:?}", direct_ip);
+    }
+
     // 添加多个不同的IP检测服务以交叉验证
     let cf_future: IpBoxFuture = async move {
         match get_trace_info_with_proxy(proxy_url, CF_TRACE_URL, debug_mode).await {
@@ -148,14 +156,106 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     }
     
     let (ip, from) = all_results[0];
+    
+    // 验证代理是否真正生效
+    if let Ok(direct_ip) = direct_ip {
+        if ip == direct_ip {
+            error!("⚠️ 代理验证失败！代理IP {} 与直连IP {} 相同，代理可能未生效", ip, direct_ip);
+            return Err("代理未生效，IP地址与直连相同".into());
+        } else {
+            info!("✅ 代理验证成功！代理IP {} 与直连IP {} 不同", ip, direct_ip);
+        }
+    }
+    
     info!("最终确定 IP: {} (来源: {})", ip, from);
     Ok((ip, from))
+}
+
+// 获取直连IP（不使用代理）
+async fn get_direct_ip(debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    if debug_mode {
+        info!("开始获取直连IP（不使用代理）");
+    }
+    
+    let client = Client::builder()
+        .timeout(TIMEOUT)
+        .build()?;
+    
+    // 尝试多个服务获取直连IP
+    let services = vec![
+        ("https://1.0.0.1/cdn-cgi/trace", "cf"),
+        ("https://api4.ipify.org/?format=json", "ipify"),
+        ("https://ifconfig.me/ip", "ifconfig"),
+    ];
+    
+    for (url, service) in services {
+        if debug_mode {
+            info!("尝试从 {} 获取直连IP", service);
+        }
+        
+        match service {
+            "cf" => {
+                match client.get(url).send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        let trace = parse_trace_info(body);
+                        info!("直连IP获取成功 ({}): {}", service, trace.ip);
+                        return Ok(trace.ip);
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("从 {} 获取直连IP失败: {}", service, e);
+                        }
+                    }
+                }
+            }
+            "ipify" => {
+                match client.get(url).send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        let value: Value = serde_json::from_str(&body)?;
+                        if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
+                            if let Ok(ip) = IpAddr::from_str(ip_str) {
+                                info!("直连IP获取成功 ({}): {}", service, ip);
+                                return Ok(ip);
+                            }
+                        }
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("从 {} 获取直连IP失败: {}", service, e);
+                        }
+                    }
+                }
+            }
+            "ifconfig" => {
+                match client.get(url).send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        let ip_str = body.trim();
+                        if let Ok(ip) = IpAddr::from_str(ip_str) {
+                            info!("直连IP获取成功 ({}): {}", service, ip);
+                            return Ok(ip);
+                        }
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("从 {} 获取直连IP失败: {}", service, e);
+                        }
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+    
+    Err("无法获取直连IP".into())
 }
 
 // clash 规则走的是国内，没走代理所以寄
 #[allow(dead_code)]
 async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -187,7 +287,7 @@ async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box
 }
 
 async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -225,7 +325,7 @@ async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, 
 }
 
 async fn get_ip_by_ifconfig(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -259,7 +359,7 @@ async fn get_ip_by_ifconfig(proxy_url: &str, debug_mode: bool) -> Result<IpAddr,
 
 async fn get_ip_by_ipify(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     // 尝试多种代理配置
-    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
@@ -324,7 +424,7 @@ fn parse_trace_info(text: String) -> TraceInfo {
 }
 
 // 创建多种代理客户端配置
-fn create_proxy_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client, &'static str)>, Box<dyn std::error::Error>> {
+async fn create_proxy_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client, &'static str)>, Box<dyn std::error::Error>> {
     let mut clients = Vec::new();
     
     if debug_mode {
@@ -398,7 +498,79 @@ fn create_proxy_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client
         info!("总共创建了 {} 个代理客户端", clients.len());
     }
     
+    // 测试代理连接是否真正工作
+    test_proxy_connection(&clients, debug_mode).await?;
+    
     Ok(clients)
+}
+
+// 测试代理连接是否真正工作
+async fn test_proxy_connection(clients: &Vec<(Client, &'static str)>, debug_mode: bool) -> Result<(), Box<dyn std::error::Error>> {
+    if debug_mode {
+        info!("开始测试代理连接是否真正工作...");
+    }
+    
+    // 首先获取直连IP作为基准
+    let direct_client = Client::builder().timeout(TIMEOUT).build()?;
+    let direct_ip = match direct_client.get("https://ifconfig.me/ip").send().await {
+        Ok(response) => {
+            let body = response.text().await?;
+            let ip_str = body.trim();
+            match IpAddr::from_str(ip_str) {
+                Ok(ip) => {
+                    if debug_mode {
+                        info!("获取到直连IP: {}", ip);
+                    }
+                    Some(ip)
+                }
+                Err(_) => None
+            }
+        }
+        Err(_) => None
+    };
+    
+    // 测试每个代理客户端
+    let mut any_proxy_working = false;
+    for (client, proxy_type) in clients {
+        if debug_mode {
+            info!("测试 {} 代理连接...", proxy_type);
+        }
+        
+        match client.get("https://ifconfig.me/ip").send().await {
+            Ok(response) => {
+                let body = response.text().await?;
+                let ip_str = body.trim();
+                if let Ok(proxy_ip) = IpAddr::from_str(ip_str) {
+                    if let Some(direct_ip) = direct_ip {
+                        if proxy_ip == direct_ip {
+                            error!("⚠️ {} 代理连接测试失败：返回IP {} 与直连IP相同", proxy_type, proxy_ip);
+                        } else {
+                            info!("✅ {} 代理连接测试成功：代理IP {} 与直连IP {} 不同", proxy_type, proxy_ip, direct_ip);
+                            any_proxy_working = true;
+                        }
+                    } else {
+                        info!("✅ {} 代理连接测试成功：获取到代理IP {}", proxy_type, proxy_ip);
+                        any_proxy_working = true;
+                    }
+                } else {
+                    error!("❌ {} 代理连接测试失败：无法解析IP地址 '{}'", proxy_type, ip_str);
+                }
+            }
+            Err(e) => {
+                error!("❌ {} 代理连接测试失败：{}", proxy_type, e);
+            }
+        }
+    }
+    
+    if !any_proxy_working {
+        return Err("所有代理连接测试都失败，代理可能未正常工作".into());
+    }
+    
+    if debug_mode {
+        info!("代理连接测试完成");
+    }
+    
+    Ok(())
 }
 
 async fn get_trace_info_with_proxy(
@@ -406,7 +578,7 @@ async fn get_trace_info_with_proxy(
     trace_url: &str,
     debug_mode: bool,
 ) -> Result<TraceInfo, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode)?;
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
     for (client, proxy_type) in clients {
         if debug_mode {
