@@ -285,8 +285,6 @@ async fn run(config: Settings) {
 
                         // 只要有一个服务可用就保留节点（放宽过滤条件）
                         if openai_is_ok || claude_is_ok {
-                            processed_nodes.push(node.clone());
-                            
                             let ip_detail_result =
                                 ip::get_ip_detail(&proxy_ip, &clash_meta.proxy_url).await;
                             match ip_detail_result {
@@ -295,6 +293,8 @@ async fn run(config: Settings) {
                                     
                                     // 进行带宽测速
                                     let mut speed_info = String::new();
+                                    let mut should_keep_node = true;
+                                    
                                     if config.speed_test.enabled {
                                         info!("「{}」开始进行带宽测速...", node);
                                         match speedtest::test_proxy_speed(
@@ -309,20 +309,21 @@ async fn run(config: Settings) {
                                                 
                                                 // 检查速度是否达到最小阈值
                                                 if speed_mbps < config.speed_test.min_speed_mbps {
-                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，已过滤",
+                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，将被过滤",
                                                            node, speed_mbps, config.speed_test.min_speed_mbps);
-                                                    continue; // 跳过此节点，不添加到processed_nodes
+                                                    should_keep_node = false; // 标记为不保留，但仍然添加速度信息到名称
                                                 }
                                             }
                                             Err(e) => {
                                                 error!("「{}」测速失败，详细错误: {}", node, e);
-                                                // 测速失败的节点也被过滤
-                                                error!("「{}」测速失败，已过滤", node);
-                                                continue; // 跳过此节点
+                                                speed_info = "_0MB".to_string(); // 测速失败显示为0MB
+                                                error!("「{}」测速失败，将被过滤", node);
+                                                should_keep_node = false; // 标记为不保留
                                             }
                                         }
                                     }
                                     
+                                    // 无论是否通过速度阈值，都要生成节点名称（包含速度信息）
                                     if config.rename_node {
                                         let mut new_name = config
                                             .rename_pattern
@@ -340,12 +341,19 @@ async fn run(config: Settings) {
                                         new_name += &speed_info;
                                         node_rename_map.insert(node.clone(), new_name);
                                     }
+                                    
+                                    // 只有通过速度阈值的节点才添加到processed_nodes
+                                    if should_keep_node {
+                                        processed_nodes.push(node.clone());
+                                    }
                                 }
                                 Err(e) => {
                                     error!("获取节点 {} 的 IP 信息失败, {}", node, e);
                                     
                                     // 即使获取IP信息失败，如果启用了测速也要进行测速
                                     let mut speed_info = String::new();
+                                    let mut should_keep_node = true;
+                                    
                                     if config.speed_test.enabled {
                                         info!("「{}」开始进行带宽测速...", node);
                                         match speedtest::test_proxy_speed(
@@ -360,21 +368,21 @@ async fn run(config: Settings) {
                                                 
                                                 // 检查速度是否达到最小阈值
                                                 if speed_mbps < config.speed_test.min_speed_mbps {
-                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，已过滤",
+                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，将被过滤",
                                                            node, speed_mbps, config.speed_test.min_speed_mbps);
-                                                    continue; // 跳过此节点，不添加到processed_nodes
+                                                    should_keep_node = false; // 标记为不保留，但仍然添加速度信息到名称
                                                 }
                                             }
                                             Err(e) => {
                                                 error!("「{}」测速失败，详细错误: {}", node, e);
-                                                // 测速失败的节点也被过滤
-                                                error!("「{}」测速失败，已过滤", node);
-                                                continue; // 跳过此节点
+                                                speed_info = "_0MB".to_string(); // 测速失败显示为0MB
+                                                error!("「{}」测速失败，将被过滤", node);
+                                                should_keep_node = false; // 标记为不保留
                                             }
                                         }
                                     }
                                     
-                                    // 即使获取IP信息失败，只要有服务可用就保留节点
+                                    // 无论是否通过速度阈值，都要生成节点名称（包含速度信息）
                                     let mut new_name = proxy_ip.to_string();
                                     if openai_is_ok {
                                         new_name += "_OpenAI";
@@ -385,6 +393,11 @@ async fn run(config: Settings) {
                                     // 添加速度信息到节点名称
                                     new_name += &speed_info;
                                     node_rename_map.insert(node.clone(), new_name);
+                                    
+                                    // 只有通过速度阈值的节点才添加到processed_nodes
+                                    if should_keep_node {
+                                        processed_nodes.push(node.clone());
+                                    }
                                 }
                             }
                         } else {
