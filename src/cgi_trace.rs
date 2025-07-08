@@ -3,7 +3,6 @@ use std::net::{IpAddr, Ipv4Addr};
 use std::str::FromStr;
 use std::time::Duration;
 
-use futures_util::future::select_ok;
 use futures_util::future::BoxFuture;
 use futures_util::FutureExt;
 use reqwest::Client;
@@ -38,99 +37,97 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     // 一次性创建并测试代理客户端，避免重复测试
     let working_clients = create_proxy_clients(proxy_url, debug_mode).await?;
     
-    // 使用已测试的代理客户端进行IP检测
-    let cf_future: IpBoxFuture = async move {
-        match get_trace_info_with_working_clients(&working_clients, CF_TRACE_URL, debug_mode).await {
-            Ok(trace) => {
-                if debug_mode {
-                    info!("Cloudflare 返回 IP: {}", trace.ip);
-                }
-                Ok((trace.ip, "cf"))
-            },
-            Err(e) => {
-                error!("从 Cloudflare 获取 IP 失败, {e}");
-                Err(e)
-            }
-        }
-    }
-    .boxed();
-
-    let ipify_future: IpBoxFuture = async move {
-        match get_ip_by_working_clients(&working_clients, "ipify", debug_mode).await {
-            Ok(ip) => {
-                if debug_mode {
-                    info!("ipify 返回 IP: {}", ip);
-                }
-                Ok((ip, "ipify"))
-            },
-            Err(e) => {
-                error!("从 ipify 获取 IP 失败, {e}");
-                Err(e)
-            }
-        }
-    }
-    .boxed();
-
-    let openai_future: IpBoxFuture = async move {
-        match get_trace_info_with_working_clients(&working_clients, OPENAI_TRACE_URL, debug_mode).await {
-            Ok(trace) => {
-                if debug_mode {
-                    info!("OpenAI 返回 IP: {}", trace.ip);
-                }
-                Ok((trace.ip, "openai"))
-            },
-            Err(e) => {
-                error!("从 OpenAI 获取 IP 失败, {e}");
-                Err(e)
-            }
-        }
-    }
-    .boxed();
-
-    // 添加新的IP检测服务
-    let httpbin_future: IpBoxFuture = async move {
-        match get_ip_by_working_clients(&working_clients, "httpbin", debug_mode).await {
-            Ok(ip) => {
-                if debug_mode {
-                    info!("httpbin 返回 IP: {}", ip);
-                }
-                Ok((ip, "httpbin"))
-            },
-            Err(e) => {
-                if debug_mode {
-                    error!("从 httpbin 获取 IP 失败, {e}");
-                }
-                Err(e)
-            }
-        }
-    }
-    .boxed();
-
-    // 添加更多IP检测服务
-    let ifconfig_future: IpBoxFuture = async move {
-        match get_ip_by_working_clients(&working_clients, "ifconfig", debug_mode).await {
-            Ok(ip) => {
-                if debug_mode {
-                    info!("ifconfig 返回 IP: {}", ip);
-                }
-                Ok((ip, "ifconfig"))
-            },
-            Err(e) => {
-                if debug_mode {
-                    error!("从 ifconfig 获取 IP 失败, {e}");
-                }
-                Err(e)
-            }
-        }
-    }
-    .boxed();
-
-    let futures = vec![cf_future, ipify_future, openai_future, httpbin_future, ifconfig_future];
+    // 顺序尝试各个IP检测服务，使用已测试的代理客户端
+    let services = vec![
+        ("cf", "Cloudflare"),
+        ("ipify", "ipify"),
+        ("openai", "OpenAI"),
+        ("httpbin", "httpbin"),
+        ("ifconfig", "ifconfig"),
+    ];
     
-    // 收集所有成功的结果进行比较
     let mut all_results = Vec::new();
-    for future in futures {
-        if let Ok(result) = future.await {
+    
+    for (service_key, service_name) in services {
+        let result = match service_key {
+            "cf" => {
+                match get_trace_info_with_working_clients(&working_clients, CF_TRACE_URL, debug_mode).await {
+                    Ok(trace) => {
+                        if debug_mode {
+                            info!("{} 返回 IP: {}", service_name, trace.ip);
+                        }
+                        Some((trace.ip, "cf"))
+                    },
+                    Err(e) => {
+                        error!("从 {} 获取 IP 失败, {}", service_name, e);
+                        None
+                    }
+                }
+            },
+            "ipify" => {
+                match get_ip_by_working_clients(&working_clients, "ipify", debug_mode).await {
+                    Ok(ip) => {
+                        if debug_mode {
+                            info!("{} 返回 IP: {}", service_name, ip);
+                        }
+                        Some((ip, "ipify"))
+                    },
+                    Err(e) => {
+                        error!("从 {} 获取 IP 失败, {}", service_name, e);
+                        None
+                    }
+                }
+            },
+            "openai" => {
+                match get_trace_info_with_working_clients(&working_clients, OPENAI_TRACE_URL, debug_mode).await {
+                    Ok(trace) => {
+                        if debug_mode {
+                            info!("{} 返回 IP: {}", service_name, trace.ip);
+                        }
+                        Some((trace.ip, "openai"))
+                    },
+                    Err(e) => {
+                        error!("从 {} 获取 IP 失败, {}", service_name, e);
+                        None
+                    }
+                }
+            },
+            "httpbin" => {
+                match get_ip_by_working_clients(&working_clients, "httpbin", debug_mode).await {
+                    Ok(ip) => {
+                        if debug_mode {
+                            info!("{} 返回 IP: {}", service_name, ip);
+                        }
+                        Some((ip, "httpbin"))
+                    },
+                    Err(e) => {
+                        if debug_mode {
+                            error!("从 {} 获取 IP 失败, {}", service_name, e);
+                        }
+                        None
+                    }
+                }
+            },
+            "ifconfig" => {
+                match get_ip_by_working_clients(&working_clients, "ifconfig", debug_mode).await {
+                    Ok(ip) => {
+                        if debug_mode {
+                            info!("{} 返回 IP: {}", service_name, ip);
+                        }
+                        Some((ip, "ifconfig"))
+                    },
+                    Err(e) => {
+                        if debug_mode {
+                            error!("从 {} 获取 IP 失败, {}", service_name, e);
+                        }
+                        None
+                    }
+                }
+            },
+            _ => None
+        };
+        
+        if let Some(result) = result {
             all_results.push(result);
         }
     }
