@@ -498,14 +498,14 @@ async fn create_proxy_clients(proxy_url: &str, debug_mode: bool) -> Result<Vec<(
         info!("总共创建了 {} 个代理客户端", clients.len());
     }
     
-    // 测试代理连接是否真正工作
-    test_proxy_connection(&clients, debug_mode).await?;
+    // 测试代理连接并重新排序，优先使用工作的代理
+    let working_clients = test_and_reorder_proxy_clients(&clients, proxy_url, debug_mode).await?;
     
-    Ok(clients)
+    Ok(working_clients)
 }
 
-// 测试代理连接是否真正工作
-async fn test_proxy_connection(clients: &Vec<(Client, &'static str)>, debug_mode: bool) -> Result<(), Box<dyn std::error::Error>> {
+// 测试代理连接并重新排序，优先使用工作的代理
+async fn test_and_reorder_proxy_clients(clients: &Vec<(Client, &'static str)>, proxy_url: &str, debug_mode: bool) -> Result<Vec<(Client, &'static str)>, Box<dyn std::error::Error>> {
     if debug_mode {
         info!("开始测试代理连接是否真正工作...");
     }
@@ -529,13 +529,16 @@ async fn test_proxy_connection(clients: &Vec<(Client, &'static str)>, debug_mode
         Err(_) => None
     };
     
-    // 测试每个代理客户端
-    let mut any_proxy_working = false;
+    // 测试每个代理客户端，记录工作状态
+    let mut working_clients = Vec::new();
+    let mut failed_clients = Vec::new();
+    
     for (client, proxy_type) in clients {
         if debug_mode {
             info!("测试 {} 代理连接...", proxy_type);
         }
         
+        let mut is_working = false;
         match client.get("https://ifconfig.me/ip").send().await {
             Ok(response) => {
                 let body = response.text().await?;
@@ -546,11 +549,11 @@ async fn test_proxy_connection(clients: &Vec<(Client, &'static str)>, debug_mode
                             error!("⚠️ {} 代理连接测试失败：返回IP {} 与直连IP相同", proxy_type, proxy_ip);
                         } else {
                             info!("✅ {} 代理连接测试成功：代理IP {} 与直连IP {} 不同", proxy_type, proxy_ip, direct_ip);
-                            any_proxy_working = true;
+                            is_working = true;
                         }
                     } else {
                         info!("✅ {} 代理连接测试成功：获取到代理IP {}", proxy_type, proxy_ip);
-                        any_proxy_working = true;
+                        is_working = true;
                     }
                 } else {
                     error!("❌ {} 代理连接测试失败：无法解析IP地址 '{}'", proxy_type, ip_str);
@@ -560,17 +563,69 @@ async fn test_proxy_connection(clients: &Vec<(Client, &'static str)>, debug_mode
                 error!("❌ {} 代理连接测试失败：{}", proxy_type, e);
             }
         }
+        
+        // 由于不能移动Client，我们重新创建相同配置的客户端
+        if let Ok(new_client) = recreate_proxy_client(proxy_type, proxy_url) {
+            if is_working {
+                working_clients.push((new_client, *proxy_type));
+            } else {
+                failed_clients.push((new_client, *proxy_type));
+            }
+        }
     }
     
-    if !any_proxy_working {
-        return Err("所有代理连接测试都失败，代理可能未正常工作".into());
+    // 优先返回工作的客户端，然后是失败的客户端（作为备用）
+    working_clients.extend(failed_clients);
+    
+    if working_clients.is_empty() {
+        return Err("无法重新创建任何代理客户端".into());
     }
     
     if debug_mode {
-        info!("代理连接测试完成");
+        info!("代理连接测试完成，重新排序后共 {} 个代理客户端", working_clients.len());
     }
     
-    Ok(())
+    Ok(working_clients)
+}
+
+// 重新创建代理客户端
+fn recreate_proxy_client(proxy_type: &str, proxy_url: &str) -> Result<Client, Box<dyn std::error::Error>> {
+    match proxy_type {
+        "HTTP" => {
+            let http_proxy = reqwest::Proxy::http(proxy_url)?;
+            let client = Client::builder()
+                .timeout(TIMEOUT)
+                .proxy(http_proxy)
+                .build()?;
+            Ok(client)
+        }
+        "HTTPS" => {
+            let https_proxy = reqwest::Proxy::https(proxy_url)?;
+            let client = Client::builder()
+                .timeout(TIMEOUT)
+                .proxy(https_proxy)
+                .build()?;
+            Ok(client)
+        }
+        "ALL" => {
+            let all_proxy = reqwest::Proxy::all(proxy_url)?;
+            let client = Client::builder()
+                .timeout(TIMEOUT)
+                .proxy(all_proxy)
+                .build()?;
+            Ok(client)
+        }
+        "SOCKS5" => {
+            let socks_url = proxy_url.replace("http://", "socks5://");
+            let socks_proxy = reqwest::Proxy::all(&socks_url)?;
+            let client = Client::builder()
+                .timeout(TIMEOUT)
+                .proxy(socks_proxy)
+                .build()?;
+            Ok(client)
+        }
+        _ => Err("未知的代理类型".into())
+    }
 }
 
 async fn get_trace_info_with_proxy(
