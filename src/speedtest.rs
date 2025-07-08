@@ -12,6 +12,7 @@ pub struct SpeedTestConfig {
     pub enabled: bool,
     pub url: String,
     pub timeout: u16,
+    pub min_speed_mbps: f64,
 }
 
 /// 对指定代理进行带宽测速

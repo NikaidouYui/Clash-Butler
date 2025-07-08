@@ -306,12 +306,19 @@ async fn run(config: Settings) {
                                                 speed_info = speedtest::format_speed(bandwidth);
                                                 let speed_mbps = bandwidth / 1024.0; // 转换为 MB/s
                                                 info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
+                                                
+                                                // 检查速度是否达到最小阈值
+                                                if speed_mbps < config.speed_test.min_speed_mbps {
+                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，已过滤",
+                                                           node, speed_mbps, config.speed_test.min_speed_mbps);
+                                                    continue; // 跳过此节点，不添加到processed_nodes
+                                                }
                                             }
                                             Err(e) => {
                                                 error!("「{}」测速失败，详细错误: {}", node, e);
-                                                // 尝试简化的测速方法
-                                                info!("「{}」尝试使用备用测速方法...", node);
-                                                speed_info = "_0MB".to_string();
+                                                // 测速失败的节点也被过滤
+                                                error!("「{}」测速失败，已过滤", node);
+                                                continue; // 跳过此节点
                                             }
                                         }
                                     }
@@ -350,12 +357,19 @@ async fn run(config: Settings) {
                                                 speed_info = speedtest::format_speed(bandwidth);
                                                 let speed_mbps = bandwidth / 1024.0; // 转换为 MB/s
                                                 info!("「{}」测速完成: {:.1} MB/s", node, speed_mbps);
+                                                
+                                                // 检查速度是否达到最小阈值
+                                                if speed_mbps < config.speed_test.min_speed_mbps {
+                                                    error!("「{}」速度 {:.1} MB/s 低于最小阈值 {:.1} MB/s，已过滤",
+                                                           node, speed_mbps, config.speed_test.min_speed_mbps);
+                                                    continue; // 跳过此节点，不添加到processed_nodes
+                                                }
                                             }
                                             Err(e) => {
                                                 error!("「{}」测速失败，详细错误: {}", node, e);
-                                                // 尝试简化的测速方法
-                                                info!("「{}」尝试使用备用测速方法...", node);
-                                                speed_info = "_0MB".to_string();
+                                                // 测速失败的节点也被过滤
+                                                error!("「{}」测速失败，已过滤", node);
+                                                continue; // 跳过此节点
                                             }
                                         }
                                     }
