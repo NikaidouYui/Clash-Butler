@@ -159,13 +159,28 @@ pub async fn get_ip_with_clients(proxy_url: &str, debug_mode: bool) -> Result<(I
     
     let (ip, from) = all_results[0];
     
-    // 验证代理是否真正生效
+    // 验证代理是否真正生效 - 改进IPv4/IPv6混合判断逻辑
     if let Ok(direct_ip) = direct_ip {
-        if ip == direct_ip {
-            error!("⚠️ 代理验证失败！代理IP {} 与直连IP {} 相同，代理可能未生效", ip, direct_ip);
-            return Err("代理未生效，IP地址与直连相同".into());
+        // 检查是否有任何一个检测结果与直连IP不同
+        let has_different_ip = all_results.iter().any(|(result_ip, _)| *result_ip != direct_ip);
+        
+        if has_different_ip {
+            info!("✅ 代理验证成功！检测到与直连IP {} 不同的代理IP", direct_ip);
+            // 显示所有检测结果的详细信息
+            for (result_ip, source) in &all_results {
+                if *result_ip != direct_ip {
+                    info!("  ✅ {} 检测到代理IP: {} (与直连不同)", source, result_ip);
+                } else {
+                    info!("  ⚠️ {} 检测到IP: {} (与直连相同)", source, result_ip);
+                }
+            }
         } else {
-            info!("✅ 代理验证成功！代理IP {} 与直连IP {} 不同", ip, direct_ip);
+            // 所有检测结果都与直连IP相同
+            error!("⚠️ 代理验证失败！所有检测服务返回的IP都与直连IP {} 相同，代理可能未生效", direct_ip);
+            for (result_ip, source) in &all_results {
+                error!("  ❌ {} 返回IP: {}", source, result_ip);
+            }
+            return Err("代理未生效，所有检测服务返回的IP都与直连相同".into());
         }
     }
     
