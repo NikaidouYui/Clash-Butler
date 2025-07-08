@@ -35,9 +35,12 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
         error!("获取直连IP失败: {:?}", direct_ip);
     }
 
-    // 添加多个不同的IP检测服务以交叉验证
+    // 一次性创建并测试代理客户端，避免重复测试
+    let working_clients = create_proxy_clients(proxy_url, debug_mode).await?;
+    
+    // 使用已测试的代理客户端进行IP检测
     let cf_future: IpBoxFuture = async move {
-        match get_trace_info_with_proxy(proxy_url, CF_TRACE_URL, debug_mode).await {
+        match get_trace_info_with_working_clients(&working_clients, CF_TRACE_URL, debug_mode).await {
             Ok(trace) => {
                 if debug_mode {
                     info!("Cloudflare 返回 IP: {}", trace.ip);
@@ -53,7 +56,7 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     .boxed();
 
     let ipify_future: IpBoxFuture = async move {
-        match get_ip_by_ipify(proxy_url, debug_mode).await {
+        match get_ip_by_working_clients(&working_clients, "ipify", debug_mode).await {
             Ok(ip) => {
                 if debug_mode {
                     info!("ipify 返回 IP: {}", ip);
@@ -69,7 +72,7 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
     .boxed();
 
     let openai_future: IpBoxFuture = async move {
-        match get_trace_info_with_proxy(proxy_url, OPENAI_TRACE_URL, debug_mode).await {
+        match get_trace_info_with_working_clients(&working_clients, OPENAI_TRACE_URL, debug_mode).await {
             Ok(trace) => {
                 if debug_mode {
                     info!("OpenAI 返回 IP: {}", trace.ip);
@@ -86,7 +89,7 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
 
     // 添加新的IP检测服务
     let httpbin_future: IpBoxFuture = async move {
-        match get_ip_by_httpbin(proxy_url, debug_mode).await {
+        match get_ip_by_working_clients(&working_clients, "httpbin", debug_mode).await {
             Ok(ip) => {
                 if debug_mode {
                     info!("httpbin 返回 IP: {}", ip);
@@ -105,7 +108,7 @@ pub async fn get_ip(proxy_url: &str, debug_mode: bool) -> Result<(IpAddr, &str),
 
     // 添加更多IP检测服务
     let ifconfig_future: IpBoxFuture = async move {
-        match get_ip_by_ifconfig(proxy_url, debug_mode).await {
+        match get_ip_by_working_clients(&working_clients, "ifconfig", debug_mode).await {
             Ok(ip) => {
                 if debug_mode {
                     info!("ifconfig 返回 IP: {}", ip);
@@ -286,112 +289,88 @@ async fn get_ip_by_ipip(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box
     Err("所有代理类型都失败".into())
 }
 
-async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
-    
+// 使用已测试的代理客户端获取IP，避免重复测试
+async fn get_ip_by_working_clients(clients: &Vec<(Client, &'static str)>, service: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     for (client, proxy_type) in clients {
         if debug_mode {
-            info!("httpbin 尝试使用 {} 代理", proxy_type);
+            info!("{} 尝试使用 {} 代理", service, proxy_type);
         }
         
-        match client
-            .get("https://httpbin.org/ip")
-            .send()
-            .await
-        {
-            Ok(response) => {
-                let body = response.text().await?;
-                let value: Value = serde_json::from_str(&body)?;
-                
-                if let Some(ip_str) = value.get("origin").and_then(|v| v.as_str()) {
-                    // httpbin 可能返回多个IP，取第一个
-                    let ip_str = ip_str.split(',').next().unwrap_or(ip_str).trim();
-                    if let Ok(ip) = IpAddr::from_str(ip_str) {
-                        info!("httpbin 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
-                        return Ok(ip);
+        let result = match service {
+            "ipify" => {
+                match client.get("https://api4.ipify.org/?format=json").send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        let value: Value = serde_json::from_str(&body)?;
+                        value.get("ip").and_then(|v| v.as_str()).map(|s| s.to_string())
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("{} {} 代理失败: {}", service, proxy_type, e);
+                        }
+                        continue;
                     }
                 }
             }
-            Err(e) => {
-                if debug_mode {
-                    error!("httpbin {} 代理失败: {}", proxy_type, e);
+            "httpbin" => {
+                match client.get("https://httpbin.org/ip").send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        let value: Value = serde_json::from_str(&body)?;
+                        value.get("origin").and_then(|v| v.as_str()).map(|s| {
+                            // httpbin 可能返回多个IP，取第一个
+                            s.split(',').next().unwrap_or(s).trim().to_string()
+                        })
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("{} {} 代理失败: {}", service, proxy_type, e);
+                        }
+                        continue;
+                    }
                 }
-                continue;
+            }
+            "ifconfig" => {
+                match client.get("https://ifconfig.me/ip").send().await {
+                    Ok(response) => {
+                        let body = response.text().await?;
+                        Some(body.trim().to_string())
+                    }
+                    Err(e) => {
+                        if debug_mode {
+                            error!("{} {} 代理失败: {}", service, proxy_type, e);
+                        }
+                        continue;
+                    }
+                }
+            }
+            _ => None
+        };
+        
+        if let Some(ip_str) = result {
+            if let Ok(ip) = IpAddr::from_str(&ip_str) {
+                info!("{} 成功使用 {} 代理获取 IP: {}", service, proxy_type, ip);
+                return Ok(ip);
             }
         }
     }
     
     Err("所有代理类型都失败".into())
+}
+
+async fn get_ip_by_httpbin(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
+    get_ip_by_working_clients(&clients, "httpbin", debug_mode).await
 }
 
 async fn get_ip_by_ifconfig(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
     let clients = create_proxy_clients(proxy_url, debug_mode).await?;
-    
-    for (client, proxy_type) in clients {
-        if debug_mode {
-            info!("ifconfig 尝试使用 {} 代理", proxy_type);
-        }
-        
-        match client
-            .get("https://ifconfig.me/ip")
-            .send()
-            .await
-        {
-            Ok(response) => {
-                let body = response.text().await?;
-                let ip_str = body.trim();
-                if let Ok(ip) = IpAddr::from_str(ip_str) {
-                    info!("ifconfig 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
-                    return Ok(ip);
-                }
-            }
-            Err(e) => {
-                if debug_mode {
-                    error!("ifconfig {} 代理失败: {}", proxy_type, e);
-                }
-                continue;
-            }
-        }
-    }
-    
-    Err("所有代理类型都失败".into())
+    get_ip_by_working_clients(&clients, "ifconfig", debug_mode).await
 }
 
 async fn get_ip_by_ipify(proxy_url: &str, debug_mode: bool) -> Result<IpAddr, Box<dyn std::error::Error>> {
-    // 尝试多种代理配置
     let clients = create_proxy_clients(proxy_url, debug_mode).await?;
-    
-    for (client, proxy_type) in clients {
-        if debug_mode {
-            info!("ipify 尝试使用 {} 代理", proxy_type);
-        }
-        
-        match client
-            .get("https://api4.ipify.org/?format=json")
-            .send()
-            .await
-        {
-            Ok(response) => {
-                let body = response.text().await?;
-                let value: Value = serde_json::from_str(&body)?;
-                
-                if let Some(ip_str) = value.get("ip").and_then(|v| v.as_str()) {
-                    if let Ok(ip) = IpAddr::from_str(ip_str) {
-                        info!("ipify 成功使用 {} 代理获取 IP: {}", proxy_type, ip);
-                        return Ok(ip);
-                    }
-                }
-            }
-            Err(e) => {
-                if debug_mode {
-                    error!("ipify {} 代理失败: {}", proxy_type, e);
-                }
-                continue;
-            }
-        }
-    }
-    
-    Err("所有代理类型都失败".into())
+    get_ip_by_working_clients(&clients, "ipify", debug_mode).await
 }
 
 fn parse_trace_info(text: String) -> TraceInfo {
@@ -628,13 +607,12 @@ fn recreate_proxy_client(proxy_type: &str, proxy_url: &str) -> Result<Client, Bo
     }
 }
 
-async fn get_trace_info_with_proxy(
-    proxy_url: &str,
+// 使用已测试的代理客户端获取trace信息
+async fn get_trace_info_with_working_clients(
+    clients: &Vec<(Client, &'static str)>,
     trace_url: &str,
     debug_mode: bool,
 ) -> Result<TraceInfo, Box<dyn std::error::Error>> {
-    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
-    
     for (client, proxy_type) in clients {
         if debug_mode {
             info!("trace 尝试使用 {} 代理访问 {}", proxy_type, trace_url);
@@ -668,6 +646,15 @@ async fn get_trace_info_with_proxy(
     }
     
     Err("所有代理类型都失败".into())
+}
+
+async fn get_trace_info_with_proxy(
+    proxy_url: &str,
+    trace_url: &str,
+    debug_mode: bool,
+) -> Result<TraceInfo, Box<dyn std::error::Error>> {
+    let clients = create_proxy_clients(proxy_url, debug_mode).await?;
+    get_trace_info_with_working_clients(&clients, trace_url, debug_mode).await
 }
 
 #[derive(Debug)]
