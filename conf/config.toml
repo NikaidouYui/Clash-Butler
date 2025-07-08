@@ -12,7 +12,7 @@ debug_mode = true
 #"https://clash.nikaidouyui.top/?name=%E9%A6%99%E6%B8%AF"
 #"https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml"
 subs = [
-"https://clash.nikaidouyui.top",
+"https://clash.nikaidouyui.top?limit=8",
 "https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml",
 "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
 ]
