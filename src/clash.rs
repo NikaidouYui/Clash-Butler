@@ -13,7 +13,7 @@ use serde::Serialize;
 use serde_json::json;
 use serde_json::Value;
 use tokio::time::sleep;
-use tracing::info;
+use tracing::{info, error};
 
 pub struct ClashMeta {
     pub external_port: u64,
