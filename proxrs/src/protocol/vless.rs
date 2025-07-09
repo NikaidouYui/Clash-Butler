@@ -119,23 +119,42 @@ impl ProxyAdapter for Vless {
         let uuid = String::from(parts[0]);
 
         let addr = parts[1];
-        let (server, port) = if addr.starts_with('[') {
+        
+        // 先处理可能存在的URL参数
+        let addr_without_params = if let Some(question_pos) = addr.find('?') {
+            &addr[..question_pos]
+        } else {
+            addr
+        };
+        
+        let (server, port_str) = if addr_without_params.starts_with('[') {
             // IPv6 format: [2001:bc8:1d90:d4e::]:9999
-            let (ip, port) = addr.rsplit_once(':').unwrap_or((addr, ""));
+            let (ip, port) = addr_without_params.rsplit_once(':').unwrap_or((addr_without_params, ""));
             (ip.trim_matches('[').trim_matches(']'), port)
         } else {
             // IPv4 format: 146.56.43.3:443
-            addr.split_once(':').unwrap_or((addr, ""))
+            addr_without_params.split_once(':').unwrap_or((addr_without_params, ""))
+        };
+
+        // 处理端口解析，提供默认值
+        let port = if port_str.is_empty() {
+            443 // 默认端口
+        } else {
+            port_str.parse::<u16>().map_err(|e| {
+                UnsupportedLinkError {
+                    message: format!("无效的端口号 '{}': {}", port_str, e)
+                }
+            })?
         };
 
         if name.is_empty() {
-            name = server.to_owned() + port.to_string().as_str();
+            name = server.to_owned() + &port.to_string();
         }
 
         Ok(Vless {
             name,
             server: server.to_owned(),
-            port: port.parse::<u16>().unwrap(),
+            port,
             uuid,
             flow,
             udp: Some(true),
@@ -254,6 +273,18 @@ mod test {
         let link = "vless://fa3129d0-5d5c-4bdf-99d7-708b25e92241@[2603:c022:8013:f300:2859:298e:1387:7c28]:35803?encryption=none&security=reality&sni=sega.com&fp=firefox&pbk=euJOlEl0IAbuX8rsStBPM_DVHBtWF0e5uinEhHCzYxw&sid=32ae7737&spx=%2F&type=tcp&headerType=none#yx9mzoya".to_string();
         let vless = Vless::from_link(link).unwrap();
         assert_eq!(vless.server, "2603:c022:8013:f300:2859:298e:1387:7c28");
+    }
+
+    #[test]
+    fn test_parse_vless_with_params_in_port() {
+        // 测试端口后面直接跟参数的情况
+        let link = "vless://test-uuid@example.com:8443?allowInsecure=0&sni=bitget1.asdasd.click&type=ws&host=bitget1.asdasd.click&path=/test#test-node".to_string();
+        let vless = Vless::from_link(link).unwrap();
+        assert_eq!(vless.server, "example.com");
+        assert_eq!(vless.port, 8443);
+        assert_eq!(vless.uuid, "test-uuid");
+        assert_eq!(vless.network, Some("ws".to_string()));
+        assert_eq!(vless.servername, Some("bitget1.asdasd.click".to_string()));
     }
 
     // vless://b3524347-d27b-4d4a-8371-6cf837dea4d2@us1.helloco.xyz:60001?mode=multi&

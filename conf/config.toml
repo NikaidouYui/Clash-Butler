@@ -14,10 +14,8 @@ debug_mode = true
 #"https://clash.nikaidouyui.top?limit=8",
 subs = [
 "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt",
-"https://raw.githubusercontent.com/aiboboxx/clashfree/refs/heads/main/clash.yml",
 "https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2",
-"https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml",
-"https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
+"https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml"
 ]
 
 # 是否重命名节点，打开后会使用 geoip 等方式进行代理真实 IP 和地理地址查询
@@ -25,10 +23,11 @@ rename_node = true
 rename_pattern = "${COUNTRYCODE}_${CITY}_${ISP}"
 
 # 是否需要加上代理池的节点一起筛选
-need_add_pool = false
+need_add_pool = true
 # 代理节点池
 pools = [
-    "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml"
+    "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml",
+    "https://raw.githubusercontent.com/aiboboxx/clashfree/refs/heads/main/clash.yml",
 ]
 
 # 测试分组大小

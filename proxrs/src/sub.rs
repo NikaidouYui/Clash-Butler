@@ -41,10 +41,26 @@ impl SubManager {
         let mut proxies: Vec<Proxy> = Vec::new();
         if url.starts_with("http") {
             if let Ok(file_path) = Self::get_content_from_sub_url(&url).await {
-                proxies = Self::parse_content(file_path).unwrap();
+                match Self::parse_content(file_path) {
+                    Ok(parsed_proxies) => {
+                        proxies = parsed_proxies;
+                        println!("成功从URL解析 {} 个代理节点", proxies.len());
+                    }
+                    Err(e) => {
+                        println!("从URL解析代理失败: {}", e);
+                    }
+                }
             }
         } else if Path::new(&url).is_file() {
-            proxies = Self::parse_from_path(&url).unwrap();
+            match Self::parse_from_path(&url) {
+                Ok(parsed_proxies) => {
+                    proxies = parsed_proxies;
+                    println!("成功从文件解析 {} 个代理节点", proxies.len());
+                }
+                Err(e) => {
+                    println!("从文件解析代理失败: {}", e);
+                }
+            }
         } else if let Ok(p) = Self::parse_content(url.to_string()) {
             proxies.extend(p);
         }
@@ -244,7 +260,7 @@ impl SubManager {
             
         for line in lines {
             let trimmed_line = line.trim();
-            if !trimmed_line.is_empty() {
+            if !trimmed_line.is_empty() && Self::is_proxy_link(trimmed_line) {
                 match Proxy::from_link(trimmed_line.to_string()) {
                     Ok(proxy) => {
                         println!("成功解析代理: {}", proxy.get_name());
@@ -254,6 +270,8 @@ impl SubManager {
                         println!("解析代理失败 [{}]: {}", trimmed_line, e);
                     }
                 }
+            } else if !trimmed_line.is_empty() {
+                println!("跳过非代理内容: {}", trimmed_line);
             }
         }
         
@@ -269,8 +287,13 @@ impl SubManager {
             .map(|link| link.trim())
             .collect::<Vec<&str>>();
         for link in links {
-            if let Ok(proxy) = Proxy::from_link(link.trim().to_string()) {
-                conf_proxies.push(proxy)
+            let trimmed_link = link.trim();
+            if Self::is_proxy_link(trimmed_link) {
+                if let Ok(proxy) = Proxy::from_link(trimmed_link.to_string()) {
+                    conf_proxies.push(proxy)
+                }
+            } else {
+                println!("跳过非代理内容: {}", trimmed_link);
             }
         }
         Ok(conf_proxies)
@@ -347,6 +370,58 @@ impl SubManager {
     fn contains_base64_chars(s: &str) -> bool {
         let base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
         s.chars().all(|c| base64_chars.contains(c) || c.is_whitespace())
+    }
+    
+    /// 检查字符串是否为有效的代理链接，排除Clash规则
+    fn is_proxy_link(line: &str) -> bool {
+        let trimmed = line.trim();
+        
+        // 排除空行
+        if trimmed.is_empty() {
+            return false;
+        }
+        
+        // 排除Clash规则（以 - 开头的规则）
+        if trimmed.starts_with("- ") || trimmed.starts_with("-\t") {
+            return false;
+        }
+        
+        // 排除YAML配置项
+        if trimmed.contains(":") && (
+            trimmed.starts_with("rules:") ||
+            trimmed.starts_with("proxies:") ||
+            trimmed.starts_with("proxy-groups:") ||
+            trimmed.starts_with("dns:") ||
+            trimmed.starts_with("tun:") ||
+            trimmed.starts_with("mixed-port:") ||
+            trimmed.starts_with("redir-port:") ||
+            trimmed.starts_with("port:") ||
+            trimmed.starts_with("socks-port:") ||
+            trimmed.starts_with("allow-lan:") ||
+            trimmed.starts_with("mode:") ||
+            trimmed.starts_with("log-level:") ||
+            trimmed.starts_with("external-controller:")
+        ) {
+            return false;
+        }
+        
+        // 排除注释行
+        if trimmed.starts_with("#") || trimmed.starts_with("//") {
+            return false;
+        }
+        
+        // 检查是否为支持的代理协议
+        if trimmed.starts_with("ss://") ||
+           trimmed.starts_with("ssr://") ||
+           trimmed.starts_with("vmess://") ||
+           trimmed.starts_with("vless://") ||
+           trimmed.starts_with("trojan://") ||
+           trimmed.starts_with("hysteria2://") ||
+           trimmed.starts_with("hysteria://") {
+            return true;
+        }
+        
+        false
     }
     
     /// 尝试其他格式解析（当主要格式失败时）
@@ -729,6 +804,64 @@ ss://YWVzLTI1Ni1nY206UUlHVVo3VkRQWk9BU0M5SEAxMjAuMjQxLjQ1LjUwOjE3MDAy#US-02"#;
         // 测试 Base64 格式检测
         let base64_content = "c3M6Ly9ZV1Z6TFRFeU9DMW5ZMjA2WkRsak5UYzNNekk0Wm1Jek5EbG1aUT09QDEyMC4yMzIuNzMuNjg6NDA2NzYjJUYwJTlGJTg3JUFEJUYwJTlGJTg3JUIwSEs=";
         assert_eq!(SubManager::detect_subscription_type(base64_content), SubscriptionType::Base64);
+    }
+
+    #[test]
+    fn test_is_proxy_link() {
+        // 测试有效的代理链接
+        assert!(SubManager::is_proxy_link("ss://YWVzLTEyOC1nY206ZDljNTc3MzI4ZmIzNDlmZQ==@120.232.73.68:40676#HK"));
+        assert!(SubManager::is_proxy_link("vless://uuid@server:port?params#name"));
+        assert!(SubManager::is_proxy_link("trojan://password@server:port#name"));
+        
+        // 测试Clash规则（应该被过滤）
+        assert!(!SubManager::is_proxy_link("- DOMAIN-SUFFIX,readingtimes.com.tw,🔰 节点选择"));
+        assert!(!SubManager::is_proxy_link("- DOMAIN,example.com,PROXY"));
+        assert!(!SubManager::is_proxy_link("- IP-CIDR,192.168.1.0/24,DIRECT"));
+        
+        // 测试YAML配置项（应该被过滤）
+        assert!(!SubManager::is_proxy_link("rules:"));
+        assert!(!SubManager::is_proxy_link("proxies:"));
+        assert!(!SubManager::is_proxy_link("proxy-groups:"));
+        assert!(!SubManager::is_proxy_link("port: 7890"));
+        
+        // 测试注释（应该被过滤）
+        assert!(!SubManager::is_proxy_link("# This is a comment"));
+        assert!(!SubManager::is_proxy_link("// This is also a comment"));
+        
+        // 测试空行（应该被过滤）
+        assert!(!SubManager::is_proxy_link(""));
+        assert!(!SubManager::is_proxy_link("   "));
+    }
+
+    #[test]
+    fn test_parse_content_with_rules_filtering() {
+        // 测试包含Clash规则的混合内容
+        let mixed_content = r#"ss://YWVzLTEyOC1nY206ZDljNTc3MzI4ZmIzNDlmZQ==@120.232.73.68:40676#HK
+- DOMAIN-SUFFIX,readingtimes.com.tw,🔰 节点选择
+- DOMAIN-SUFFIX,readmoo.com,🔰 节点选择
+ss://YWVzLTI1Ni1nY206UUlHVVo3VkRQWk9BU0M5SEAxMjAuMjQxLjQ1LjUwOjE3MDAx#US
+- DOMAIN-SUFFIX,redbubble.com,🔰 节点选择
+rules:
+  - DOMAIN-SUFFIX,example.com,DIRECT
+proxies:"#;
+
+        let result = SubManager::parse_content(mixed_content.to_string());
+        
+        match result {
+            Ok(proxies) => {
+                println!("成功解析 {} 个代理节点", proxies.len());
+                // 应该只解析出2个有效的代理节点，规则被过滤掉
+                assert_eq!(proxies.len(), 2, "应该解析出2个代理节点，规则应被过滤");
+                
+                // 验证解析出的节点名称
+                let names: Vec<String> = proxies.iter().map(|p| p.get_name().to_string()).collect();
+                assert!(names.contains(&"HK".to_string()) || names.iter().any(|n| n.contains("HK")));
+                assert!(names.contains(&"US".to_string()) || names.iter().any(|n| n.contains("US")));
+            }
+            Err(e) => {
+                panic!("解析失败: {}", e);
+            }
+        }
     }
 
     #[test]
