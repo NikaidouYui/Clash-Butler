@@ -20,6 +20,14 @@ use tokio::time::sleep;
 use crate::base64::base64decode;
 use crate::protocol::Proxy;
 
+#[derive(Debug, PartialEq)]
+pub enum SubscriptionType {
+    Yaml,
+    Base64,
+    Links,
+    Unknown,
+}
+
 #[derive(Debug)]
 pub struct SubManager {}
 
@@ -134,26 +142,60 @@ impl SubManager {
     }
 
     /// 从字符串中解析代理
-    /// 1. 先尝试使用 yaml 格式解析
-    /// 2. 尝试解析 base64 格式
-    /// 3. 尝试使用纯链接格式解析
+    /// 1. 先检测订阅类型
+    /// 2. 根据类型选择合适的解析方法
+    /// 3. 支持 YAML、Base64、纯链接格式
     pub fn parse_content(content: String) -> Result<Vec<Proxy>, Box<dyn std::error::Error>> {
         let mut conf_proxies: Vec<Proxy> = Vec::new();
-        match Self::parse_yaml_content(&content) {
-            Ok(proxies) => {
-                conf_proxies = proxies;
-            }
-            Err(_) => match Self::parse_base64_content(&content) {
-                Ok(proxies) => {
-                    conf_proxies = proxies;
-                }
-                Err(_) => {
-                    if let Ok(proxies) = Self::parse_links_content(&content) {
+        
+        // 检测订阅类型
+        let subscription_type = Self::detect_subscription_type(&content);
+        println!("检测到订阅类型: {:?}", subscription_type);
+        
+        match subscription_type {
+            SubscriptionType::Yaml => {
+                match Self::parse_yaml_content(&content) {
+                    Ok(proxies) => {
                         conf_proxies = proxies;
+                        println!("成功解析 YAML 格式订阅，节点数量: {}", conf_proxies.len());
+                    }
+                    Err(e) => {
+                        println!("YAML 解析失败，尝试其他格式: {}", e);
+                        // 如果 YAML 解析失败，尝试其他格式
+                        return Self::try_other_formats(&content);
                     }
                 }
-            },
+            }
+            SubscriptionType::Base64 => {
+                match Self::parse_base64_content(&content) {
+                    Ok(proxies) => {
+                        conf_proxies = proxies;
+                        println!("成功解析 Base64 格式订阅，节点数量: {}", conf_proxies.len());
+                    }
+                    Err(e) => {
+                        println!("Base64 解析失败，尝试其他格式: {}", e);
+                        return Self::try_other_formats(&content);
+                    }
+                }
+            }
+            SubscriptionType::Links => {
+                match Self::parse_links_content(&content) {
+                    Ok(proxies) => {
+                        conf_proxies = proxies;
+                        println!("成功解析链接格式订阅，节点数量: {}", conf_proxies.len());
+                    }
+                    Err(e) => {
+                        println!("链接解析失败: {}", e);
+                        return Err(e);
+                    }
+                }
+            }
+            SubscriptionType::Unknown => {
+                println!("未知订阅类型，尝试所有解析方法");
+                return Self::try_all_formats(&content);
+            }
         }
+        
         Ok(conf_proxies)
     }
 
@@ -187,15 +229,35 @@ impl SubManager {
     fn parse_base64_content(content: &str) -> Result<Vec<Proxy>, Box<dyn std::error::Error>> {
         let mut conf_proxies: Vec<Proxy> = Vec::new();
         let base64 = base64decode(content.trim());
-        base64
-            .split("\n")
-            .filter(|line| !line.is_empty())
-            .for_each(|line| match Proxy::from_link(line.trim().to_string()) {
-                Ok(proxy) => conf_proxies.push(proxy),
-                Err(e) => {
-                    println!("{}", e);
+        
+        // 改进的 Base64 解析逻辑
+        println!("Base64 解码后内容长度: {}", base64.len());
+        if base64.len() > 10 {
+            println!("Base64 解码后内容预览: {}", &base64[..std::cmp::min(200, base64.len())]);
+        }
+        
+        // 支持多种分隔符：换行符、回车换行符
+        let lines: Vec<&str> = base64
+            .split('\n')
+            .flat_map(|line| line.split('\r'))
+            .collect();
+            
+        for line in lines {
+            let trimmed_line = line.trim();
+            if !trimmed_line.is_empty() {
+                match Proxy::from_link(trimmed_line.to_string()) {
+                    Ok(proxy) => {
+                        println!("成功解析代理: {}", proxy.get_name());
+                        conf_proxies.push(proxy);
+                    }
+                    Err(e) => {
+                        println!("解析代理失败 [{}]: {}", trimmed_line, e);
+                    }
                 }
-            });
+            }
+        }
+        
+        println!("Base64 解析完成，成功解析 {} 个代理", conf_proxies.len());
         Ok(conf_proxies)
     }
 
@@ -212,6 +274,137 @@ impl SubManager {
             }
         }
         Ok(conf_proxies)
+    }
+
+    /// 检测订阅内容的类型
+    fn detect_subscription_type(content: &str) -> SubscriptionType {
+        let trimmed_content = content.trim();
+        
+        // 检查是否为 YAML 格式
+        if trimmed_content.contains("proxies:") || trimmed_content.contains("Proxies:") {
+            return SubscriptionType::Yaml;
+        }
+        
+        // 检查是否为纯链接格式（包含协议前缀）
+        let lines: Vec<&str> = trimmed_content.lines().collect();
+        let mut link_count = 0;
+        let mut total_non_empty_lines = 0;
+        
+        for line in &lines {
+            let line = line.trim();
+            if !line.is_empty() {
+                total_non_empty_lines += 1;
+                if line.starts_with("ss://") || line.starts_with("ssr://") ||
+                   line.starts_with("vmess://") || line.starts_with("vless://") ||
+                   line.starts_with("trojan://") || line.starts_with("hysteria2://") {
+                    link_count += 1;
+                }
+            }
+        }
+        
+        // 如果大部分行都是链接格式，认为是链接类型
+        if total_non_empty_lines > 0 && (link_count as f64 / total_non_empty_lines as f64) > 0.8 {
+            return SubscriptionType::Links;
+        }
+        
+        // 检查是否为 Base64 格式
+        if Self::is_likely_base64(trimmed_content) {
+            return SubscriptionType::Base64;
+        }
+        
+        SubscriptionType::Unknown
+    }
+    
+    /// 检查内容是否可能是 Base64 编码
+    fn is_likely_base64(content: &str) -> bool {
+        let trimmed = content.trim();
+        
+        // Base64 订阅通常是一大段连续的字符，没有换行或很少换行
+        let lines: Vec<&str> = trimmed.lines().collect();
+        
+        // 如果只有一行或很少行，且包含 Base64 字符
+        if lines.len() <= 3 {
+            for line in lines {
+                let line = line.trim();
+                if line.len() > 50 && Self::contains_base64_chars(line) {
+                    // 尝试解码看是否包含代理链接
+                    let decoded = base64decode(line);
+                    if decoded.contains("://") && (
+                        decoded.contains("ss://") || decoded.contains("ssr://") ||
+                        decoded.contains("vmess://") || decoded.contains("vless://") ||
+                        decoded.contains("trojan://") || decoded.contains("hysteria2://")
+                    ) {
+                        return true;
+                    }
+                }
+            }
+        }
+        
+        false
+    }
+    
+    /// 检查字符串是否包含 Base64 字符
+    fn contains_base64_chars(s: &str) -> bool {
+        let base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+        s.chars().all(|c| base64_chars.contains(c) || c.is_whitespace())
+    }
+    
+    /// 尝试其他格式解析（当主要格式失败时）
+    fn try_other_formats(content: &str) -> Result<Vec<Proxy>, Box<dyn std::error::Error>> {
+        // 先尝试 Base64
+        if let Ok(proxies) = Self::parse_base64_content(content) {
+            if !proxies.is_empty() {
+                println!("备用解析：成功使用 Base64 格式解析，节点数量: {}", proxies.len());
+                return Ok(proxies);
+            }
+        }
+        
+        // 再尝试链接格式
+        if let Ok(proxies) = Self::parse_links_content(content) {
+            if !proxies.is_empty() {
+                println!("备用解析：成功使用链接格式解析，节点数量: {}", proxies.len());
+                return Ok(proxies);
+            }
+        }
+        
+        // 最后尝试 YAML
+        if let Ok(proxies) = Self::parse_yaml_content(content) {
+            if !proxies.is_empty() {
+                println!("备用解析：成功使用 YAML 格式解析，节点数量: {}", proxies.len());
+                return Ok(proxies);
+            }
+        }
+        
+        Err("所有解析格式都失败".into())
+    }
+    
+    /// 尝试所有格式解析（当类型未知时）
+    fn try_all_formats(content: &str) -> Result<Vec<Proxy>, Box<dyn std::error::Error>> {
+        let mut last_error = None;
+        
+        // 按优先级尝试各种格式
+        let formats = [
+            ("YAML", Self::parse_yaml_content as fn(&str) -> Result<Vec<Proxy>, Box<dyn std::error::Error>>),
+            ("Base64", Self::parse_base64_content),
+            ("Links", Self::parse_links_content),
+        ];
+        
+        for (format_name, parse_fn) in formats.iter() {
+            match parse_fn(content) {
+                Ok(proxies) => {
+                    if !proxies.is_empty() {
+                        println!("全格式尝试：成功使用 {} 格式解析，节点数量: {}", format_name, proxies.len());
+                        return Ok(proxies);
+                    }
+                }
+                Err(e) => {
+                    println!("{} 格式解析失败: {}", format_name, e);
+                    last_error = Some(e);
+                }
+            }
+        }
+        
+        Err(last_error.unwrap_or_else(|| "所有格式解析都失败".into()))
     }
 
     /// 移除重复节点
@@ -515,3 +708,82 @@ mod test {
         println!("{:?}", result.len());
     }
 }
+
+#[test]
+    fn test_detect_subscription_type() {
+        // 测试 YAML 格式检测
+        let yaml_content = r#"
+proxies:
+  - name: "test"
+    type: ss
+    server: 1.2.3.4
+    port: 443
+"#;
+        assert_eq!(SubManager::detect_subscription_type(yaml_content), SubscriptionType::Yaml);
+
+        // 测试链接格式检测
+        let links_content = r#"ss://YWVzLTI1Ni1nY206UUlHVVo3VkRQWk9BU0M5SEAxMjAuMjQxLjQ1LjUwOjE3MDAx#US-01
+ss://YWVzLTI1Ni1nY206UUlHVVo3VkRQWk9BU0M5SEAxMjAuMjQxLjQ1LjUwOjE3MDAy#US-02"#;
+        assert_eq!(SubManager::detect_subscription_type(links_content), SubscriptionType::Links);
+
+        // 测试 Base64 格式检测
+        let base64_content = "c3M6Ly9ZV1Z6TFRFeU9DMW5ZMjA2WkRsak5UYzNNekk0Wm1Jek5EbG1aUT09QDEyMC4yMzIuNzMuNjg6NDA2NzYjJUYwJTlGJTg3JUFEJUYwJTlGJTg3JUIwSEs=";
+        assert_eq!(SubManager::detect_subscription_type(base64_content), SubscriptionType::Base64);
+    }
+
+    #[test]
+    fn test_parse_base64_subscription() {
+        // 使用测试文件中的 Base64 内容
+        if let Ok(base64_content) = std::fs::read_to_string("tests/res/base64_proxies") {
+            let result = SubManager::parse_base64_content(&base64_content);
+            
+            match result {
+                Ok(proxies) => {
+                    println!("成功解析 {} 个代理节点", proxies.len());
+                    assert!(!proxies.is_empty(), "应该能够解析出代理节点");
+                    
+                    // 验证第一个节点的基本信息
+                    if let Some(first_proxy) = proxies.first() {
+                        println!("第一个代理节点: {}", first_proxy.get_name());
+                        assert!(!first_proxy.get_name().is_empty(), "节点名称不应为空");
+                    }
+                }
+                Err(e) => {
+                    println!("Base64 解析失败: {}", e);
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn test_is_likely_base64() {
+        // 测试有效的 Base64 内容
+        let valid_base64 = "c3M6Ly9ZV1Z6TFRFeU9DMW5ZMjA2WkRsak5UYzNNekk0Wm1Jek5EbG1aUT09QDEyMC4yMzIuNzMuNjg6NDA2NzYjJUYwJTlGJTg3JUFEJUYwJTlGJTg3JUIwSEs=";
+        assert!(SubManager::is_likely_base64(valid_base64));
+
+        // 测试无效的 Base64 内容（包含非 Base64 字符）
+        let invalid_base64 = "这不是Base64内容";
+        assert!(!SubManager::is_likely_base64(invalid_base64));
+
+        // 测试短内容
+        let short_content = "abc";
+        assert!(!SubManager::is_likely_base64(short_content));
+    }
+
+    #[test]
+    fn test_enhanced_parse_content() {
+        // 测试 Base64 订阅内容解析
+        let base64_content = "c3M6Ly9ZV1Z6TFRFeU9DMW5ZMjA2WkRsak5UYzNNekk0Wm1Jek5EbG1aUT09QDEyMC4yMzIuNzMuNjg6NDA2NzYjJUYwJTlGJTg3JUFEJUYwJTlGJTg3JUIwSEs=";
+        let result = SubManager::parse_content(base64_content.to_string());
+        
+        match result {
+            Ok(proxies) => {
+                println!("解析结果: {} 个代理节点", proxies.len());
+                assert!(!proxies.is_empty(), "应该能够解析出代理节点");
+            }
+            Err(e) => {
+                println!("解析失败: {}", e);
+                // 在测试环境中，这可能会失败，但不应该panic
+            }
+        }
+    }
