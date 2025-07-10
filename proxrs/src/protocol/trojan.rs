@@ -97,7 +97,21 @@ impl ProxyAdapter for Trojan {
 
         let parts: Vec<&str> = parts[1].split(":").collect();
         let server = String::from(parts[0]);
-        let port = parts[1].parse::<u16>().unwrap();
+        let port = match parts.get(1) {
+            Some(port_str) => match port_str.parse::<u16>() {
+                Ok(port) => port,
+                Err(_) => {
+                    return Err(UnsupportedLinkError {
+                        message: format!("Invalid port in trojan link: {}", link),
+                    })
+                }
+            },
+            None => {
+                return Err(UnsupportedLinkError {
+                    message: format!("Port not found in trojan link: {}", link),
+                })
+            }
+        };
 
         Ok(Trojan {
             name,

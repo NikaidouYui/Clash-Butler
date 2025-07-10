@@ -5,6 +5,7 @@ use std::path::Path;
 use std::time::Duration;
 
 use clap::Parser;
+use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use proxrs::protocol::Proxy;
 use proxrs::sub::SubManager;
 use tracing::error;
@@ -74,8 +75,16 @@ async fn run(config: Settings) {
     if config.need_add_pool {
         urls.extend(config.pools)
     }
+    let m = MultiProgress::new();
+    let sub_progress = m.add(ProgressBar::new_spinner());
+    sub_progress.set_style(
+        ProgressStyle::default_spinner()
+            .template("{spinner:.blue} {msg}")
+            .unwrap(),
+    );
+    sub_progress.set_message("正在获取订阅...");
     let test_proxies = SubManager::get_proxies_from_urls(&urls).await;
-    info!("待测速节点个数：{}", &test_proxies.len());
+    sub_progress.finish_with_message(format!("获取订阅完成，共 {} 个节点", test_proxies.len()));
     if test_proxies.is_empty() {
         error!("当前无可用的待测试订阅连接，请修改配置文件添加订阅链接或确保当前网络通顺");
         return;
@@ -106,9 +115,19 @@ async fn run(config: Settings) {
     let external_port = 9091;
     let mixed_port = 7999;
     let mut useful_proxies = Vec::new();
+    let conn_m = MultiProgress::new();
+    let conn_progress = conn_m.add(ProgressBar::new(proxies_group.len() as u64));
+    conn_progress.set_style(
+        ProgressStyle::default_bar()
+            .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({percent}%) {msg}")
+            .unwrap()
+            .progress_chars("#>-"),
+    );
+    conn_progress.set_message("测试节点连通性");
+
     for (index, proxies) in proxies_group.iter().enumerate() {
         if group_size > 1 {
-            info!("正在测试第 {} 组", index + 1)
+            conn_progress.set_message(format!("正在测试第 {}/{} 组", index + 1, group_size));
         }
 
         SubManager::save_proxies_into_clash_file(
@@ -193,7 +212,9 @@ async fn run(config: Settings) {
             info!("useful_proxies len: {}", useful_proxies.len());
         }
         clash_meta.stop().unwrap();
+        conn_progress.inc(1);
     }
+    conn_progress.finish_with_message("连通性测试完成");
 
     if useful_proxies.is_empty() {
         error!("当前无可用节点，请尝试更换订阅节点或重试");
@@ -244,9 +265,18 @@ async fn run(config: Settings) {
             let nodes_to_process = nodes.clone();
             let mut processed_nodes = Vec::new();
             
+            let process_m = MultiProgress::new();
+            let process_progress = process_m.add(ProgressBar::new(nodes_to_process.len() as u64));
+            process_progress.set_style(
+                ProgressStyle::default_bar()
+                    .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({percent}%) {msg}")
+                    .unwrap()
+                    .progress_chars("#>-"),
+            );
+            process_progress.set_message("处理节点(重命名/流媒体/测速)");
+
             for node in &nodes_to_process {
-                info!("正在处理节点: {}", node);
-                
+                process_progress.set_message(format!("正在处理: {}", node));
                 // 设置代理节点（已包含验证逻辑）
                 match clash_meta.set_group_proxy(TEST_PROXY_GROUP_NAME, node).await {
                     Ok(true) => {
@@ -414,7 +444,9 @@ async fn run(config: Settings) {
                     error!("「{}」设置代理时发生错误: {}", node, e);
                 }
             }
+                process_progress.inc(1);
             }
+            process_progress.finish_with_message("节点处理完成");
             
             // 更新节点列表为处理后的节点
             *nodes = processed_nodes;
