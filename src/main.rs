@@ -139,7 +139,7 @@ async fn run(config: Settings) {
         let mut clash_meta = ClashMeta::new(external_port, mixed_port);
         if let Err(e) = clash_meta.start().await {
             error!("原神启动失败，第一次启动可能会下载 geo 相关的文件，重新启动即可，打开 logs/clash.log，查看具体错误原因，{}", e);
-            clash_meta.stop().unwrap();
+            clash_meta.stop().await.unwrap();
             continue;
         }
 
@@ -152,7 +152,7 @@ async fn run(config: Settings) {
             }
             Err(e) => {
                 error!("获取节点数失败，请检查 clash 日志文件和 subs/test/config.yaml 生成的节点是否正确, {}", e);
-                clash_meta.stop().unwrap();
+                clash_meta.stop().await.unwrap();
                 continue;
             }
         }
@@ -211,7 +211,7 @@ async fn run(config: Settings) {
             useful_proxies.extend(cur_useful_proxies);
             info!("useful_proxies len: {}", useful_proxies.len());
         }
-        clash_meta.stop().unwrap();
+        clash_meta.stop().await.unwrap();
         conn_progress.inc(1);
     }
     conn_progress.finish_with_message("连通性测试完成");
@@ -244,7 +244,7 @@ async fn run(config: Settings) {
 
         if let Err(e) = clash_meta.start().await {
             error!("原神启动失败，第一次启动可能会下载 geo 相关的文件，重新启动即可，打开 logs/clash.log，查看具体错误原因，{}", e);
-            clash_meta.stop().unwrap();
+            clash_meta.stop().await.unwrap();
             return;
         }
         info!("当前节点个数为：{}", useful_proxies.len());
@@ -257,7 +257,7 @@ async fn run(config: Settings) {
         if config.rename_node {
             if nodes.is_empty() {
                 error!("当前无可用节点，请尝试更换订阅节点或重试");
-                clash_meta.stop().unwrap();
+                clash_meta.stop().await.unwrap();
                 return;
             }
             
@@ -477,7 +477,7 @@ async fn run(config: Settings) {
         );
         info!("完整处理配置文件地址：{}", release_yaml_path.to_string_lossy());
         info!("完整处理节点数量：{}", release_proxies.len());
-        clash_meta.stop().unwrap();
+        clash_meta.stop().await.unwrap();
     } else {
         info!("快速模式已启用，跳过完整处理流程");
     }

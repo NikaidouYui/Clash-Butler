@@ -1,10 +1,8 @@
 #![allow(dead_code)]
 
 use std::collections::HashMap;
-use std::fs::File;
-use std::process::Child;
-use std::process::Command;
 use std::process::Stdio;
+use tokio::process::{Child, Command};
 use std::time::Duration;
 
 use reqwest::Client;
@@ -12,8 +10,10 @@ use serde::Deserialize;
 use serde::Serialize;
 use serde_json::json;
 use serde_json::Value;
+use tokio::fs::File;
+use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
 use tokio::time::sleep;
-use tracing::{info, error};
+use tracing::{error, info};
 
 pub struct ClashMeta {
     pub external_port: u64,
@@ -34,21 +34,36 @@ impl ClashMeta {
             external_url: format!("http://127.0.0.1:{}", external_port),
             proxy_url: format!("http://127.0.0.1:{}", mixed_port),
             process: None,
-            core_path: "clash-meta/mihomo".to_string(),
+            core_path: if cfg!(target_os = "windows") {
+                "clash-meta/mihomo.exe".to_string()
+            } else {
+                "clash-meta/mihomo".to_string()
+            },
             test_path: "subs/test".to_string(),
             log_path: "logs/clash.log".to_string(),
         }
     }
 
     pub async fn start(&mut self) -> Result<(), Box<dyn std::error::Error>> {
-        let log_file = File::create(&self.log_path)?;
+        let mut log_file = File::create(&self.log_path).await?;
 
-        let clash_process = Command::new(&self.core_path)
+        let mut clash_process = Command::new(&self.core_path)
             .arg("-d")
             .arg(&self.test_path)
-            .stdout(Stdio::from(log_file.try_clone().unwrap()))
-            .stdout(Stdio::from(log_file))
+            .stdout(Stdio::piped())
             .spawn()?;
+        let stdout = clash_process.stdout.take().unwrap();
+
+        tokio::spawn(async move {
+            let mut reader = BufReader::new(stdout);
+            let mut line = String::new();
+            while reader.read_line(&mut line).await.unwrap() > 0 {
+                if !line.contains("跳过非代理内容") {
+                    log_file.write_all(line.as_bytes()).await.unwrap();
+                }
+                line.clear();
+            }
+        });
 
         sleep(Duration::from_secs(2)).await;
 
@@ -76,10 +91,10 @@ impl ClashMeta {
         Ok(())
     }
 
-    pub fn stop(mut self) -> std::io::Result<()> {
+    pub async fn stop(mut self) -> std::io::Result<()> {
         if let Some(mut process) = self.process.take() {
-            process.kill()?;
-            process.wait()?;
+            process.kill().await?;
+            process.wait().await?;
         }
         Ok(())
     }
