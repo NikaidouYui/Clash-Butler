@@ -71,490 +71,65 @@ dns:
   - https://doh.pub/dns-query
   - https://dns.alidns.com/dns-query
 proxies:
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
-  network: ws
-  port: 80
-  server: 185.174.138.6
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
-  network: ws
-  port: 8880
-  server: 45.131.6.68
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB1
-  network: ws
-  port: 80
-  server: 45.12.30.136
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.6MB
+- alterId: 0
+  cipher: auto
+  name: US_Buffalo_HostPapa_OpenAI_Claude_2.1MB
   network: ws
   port: 443
-  server: 104.21.35.171
-  servername: MaIncrafT.dPdnS.OrG
+  server: sSsdCVfBGNjkI.931.PP.Ua
   skip-cert-verify: false
   tls: true
-  type: vless
-  udp: true
-  uuid: 252df5e8-0428-4345-b236-a6dae7b3457d
+  type: vmess
+  uuid: a4e8ec0a-75d0-4fc5-837a-4973ed3a9d3e
   ws-opts:
     headers:
-      Host: MaIncrafT.dPdnS.OrG
-    path: /HcFmPxmQkiv44jMu?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
-  network: ws
-  port: 2087
-  server: 172.67.171.131
-  servername: invINCIBLE.FAfa20.SHOp
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
-  ws-opts:
-    headers:
-      Host: invINCIBLE.FAfa20.SHOp
-    path: /FnxOCItzWpgMrgmD/NzguNDYuNTYuNDI=?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB1
-  network: ws
-  port: 80
-  server: 45.8.211.229
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  network: ws
-  port: 2053
-  server: 172.67.171.131
-  servername: inVINCIble.fAFA20.Shop
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
-  ws-opts:
-    headers:
-      Host: inVINCIble.fAFA20.Shop
-    path: /yRVRnY2jDtjg67UV/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB1
-  network: ws
-  port: 8880
-  server: 5.10.214.180
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB2
-  network: ws
-  port: 8880
-  server: 45.131.210.20
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.4MB
-  network: ws
-  port: 80
-  server: 45.80.111.134
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.6MB
-  network: ws
-  port: 8880
-  server: 45.131.211.224
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_9.2MB
-  network: ws
-  port: 8880
-  server: 45.8.211.219
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB2
-  network: ws
-  port: 2095
-  server: 45.80.111.119
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /Telegram:TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB1
-  network: ws
-  port: 8880
-  server: 45.159.218.20
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /
-- name: 103.12.77.48_OpenAI_Claude_2.8MB
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 103.12.77.48
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Elk Grove Village_HostPapa_OpenAI_Claude_2.7MB
+      Host: sssdcvfbgnjki.931.pp.ua
+    path: /14Fziqw1hYgCXNutkS5H
+- alterId: 0
+  cipher: auto
+  name: US_Buffalo_HostPapa_OpenAI_Claude_2.4MB
   network: ws
   port: 443
-  server: 104.21.76.21
-  servername: wWwde.00890604.xyz
+  server: ssXxZaSw.999824.xyZ
+  servername: ssxxzasw.999824.xyz
   skip-cert-verify: false
   tls: true
-  type: vless
-  udp: true
-  uuid: 13e26f64-2e0c-4461-92cd-d83294cc18f0
+  type: vmess
+  uuid: 512d9674-db12-44ca-a1b5-654244549b65
   ws-opts:
     headers:
-      Host: wWwde.00890604.xyz
-    path: /WfxcqrR5ycVpIit2OdWk0KwirdY
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB1
-  network: ws
-  port: 8880
-  server: 5.10.215.208
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_13.8MB
-  network: ws
-  port: 8880
-  server: 45.131.7.174
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@ShadowProxy66/?ed=2560
-- name: US_Buffalo_HostPapa_OpenAI_Claude_6.2MB
+      Host: ssXxZaSw.999824.xyZ
+    path: /uiAxvH6OkVk0VCfa7dX3JIrYk7zm
+- alterId: 0
+  cipher: auto
+  name: US_New York_Massivegrid LTD_OpenAI_Claude_3.1MB
   network: ws
   port: 443
-  server: 104.21.9.71
-  servername: ddDDdDDdDDF.777198.XyZ
+  server: klo.986986.shop
+  servername: klo.986986.shop
   skip-cert-verify: false
   tls: true
-  type: vless
-  udp: true
-  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
+  type: vmess
+  uuid: b75c9731-408d-4aa6-8ae9-3857205113a1
   ws-opts:
     headers:
-      Host: ddDDdDDdDDF.777198.XyZ
-    path: /OjdW89Bpg4ykd4O
-- name: 59.153.218.14_OpenAI_Claude_2.2MB
-  network: tcp
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 59.153.218.14
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  tls: true
-  type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB2
-  network: ws
-  port: 443
-  server: 104.26.13.31
-  servername: FinLAnd-A3r.pAgES.dEv
-  tls: true
-  type: vless
-  udp: true
-  uuid: 3130e111-a06c-4388-aeda-4b43f6e8e51f
-  ws-opts:
-    headers:
-      Host: finland-a3r.pages.dev
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
-    path: /Tel-@V2ray_Alpha/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.2MB
-  network: ws
-  port: 8880
-  server: 195.85.23.200
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@vpnAndroid2/?ed=2560
-- name: 103.81.86.172_OpenAI_Claude_2.3MB
-  network: tcp
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 103.81.86.172
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  tls: true
-  type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: 59.153.216.133_OpenAI_Claude_2.7MB
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 59.153.216.133
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: 45.88.183.54_OpenAI_Claude_3.2MB
-  network: ws
-  port: 443
-  server: 45.88.183.54
-  servername: zula.ir
-  skip-cert-verify: true
-  tls: true
-  type: vless
-  udp: true
-  uuid: 2201fa52-f394-5da9-80ab-7de702c379e4
-  ws-opts:
-    headers:
-      Host: zula.ir
-    path: /vless
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  network: ws
-  port: 8880
-  server: 5.10.244.65
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
-  network: ws
-  port: 8880
-  server: 45.142.120.145
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- flow: xtls-rprx-vision
-  name: US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  network: tcp
-  port: 7885
-  reality-opts:
-    public-key: cauu7I7nFMqzwMDdULVRJam0T04U4knX8koK0OG5dC8
-    short-id: 40cb281a
-  server: 45.150.165.121
-  servername: www.yahoo.com
-  tls: true
-  type: vless
-  uuid: 82f6a148-5c4a-48f9-931a-e3b26777ffa2
-- name: US_Buffalo_HostPapa_OpenAI_Claude_2.7MB1
-  network: ws
-  port: 443
-  server: rrrfgt6.890604.filegear-sg.me
-  servername: rrRFgt6.890604.fiLeGEAR-Sg.ME
-  tls: true
-  type: vless
-  udp: true
-  uuid: 07a3df8f-2a2c-42f8-ad92-65889d90f3bf
-  ws-opts:
-    headers:
-      Host: rrrfgt6.890604.filegear-sg.me
-    path: /5UW2C42lpZ7Dj4VDwVOkZfoq
-- name: US_Buffalo_HostPapa_OpenAI_Claude_2.6MB
-  network: ws
-  port: 443
-  server: 104.21.90.226
-  servername: eEedFR5.7777155.Xyz
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: e4cbe8b8-37db-4aaa-8469-b84f34c51ebc
-  ws-opts:
-    headers:
-      Host: eEedFR5.7777155.Xyz
-    path: /6OWLjRc26b0nHYr5hYXD
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_13.9MB
-  network: ws
-  port: 2096
-  server: www.gov.ua
-  servername: nptian.xiaotianvpn.sbs
-  tls: true
-  type: vless
-  uuid: 0343e230-5132-4e98-844e-b42ad1a6a273
-  ws-opts:
-    headers:
-      Host: nptian.xiaotianvpn.sbs
-    path: /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
+      Host: klo.986986.shop
+    path: /nvjx6j7kbDQIQMZvbeVA9
+- alterId: 0
+  cipher: auto
+  name: US_Elk Grove Village_HostPapa_OpenAI_Claude_9.6MB
   network: ws
   port: 80
-  server: 45.159.218.154
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: '/Telegram:'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
-  network: ws
-  port: 80
-  server: 45.8.211.139
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /Channel
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB2
-  network: ws
-  port: 2087
-  server: 104.21.95.229
-  servername: invINCIBLE.FAfa20.SHOp
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
-  ws-opts:
-    headers:
-      Host: invINCIBLE.FAfa20.SHOp
-    path: /FnxOCItzWpgMrgmD/NzguNDYuNTYuNDI=?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_19.5MB
-  network: ws
-  port: 80
-  server: 45.131.7.64
-  servername: reedfree8mahsang2.redorg.ir
+  server: 104.21.84.242
   skip-cert-verify: false
   tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  type: vmess
+  uuid: 03e92910-34b1-4245-ac63-04a865f43cd5
   ws-opts:
     headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66/?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  network: ws
-  port: 80
-  server: 66.81.247.217
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram:@ShadowProxy66/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_29.9MB
+      Host: eeefr5t6.4444916.xyz
+    path: /NjLXrucxVIcvpHPhIJoo2wcE6Q
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB1
   network: ws
   port: 8880
   server: 45.131.208.208
@@ -568,182 +143,75 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  network: ws
-  port: 8880
-  server: 45.12.30.145
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /Telegram@vpnAndroid2/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.7MB
-  network: ws
-  port: 8880
-  server: 103.169.142.80
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: '/Channel id: @ShadowProxy66?ed=2560'
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_9.3MB
-  network: ws
-  port: 8080
-  server: 141.101.121.108
-  tls: false
-  type: vless
-  udp: true
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  ws-opts:
-    headers:
-      Host: 1750293123492.china.baidu.bilibili.china.aeko.cn
-    path: /?ed=2048
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.4MB
   network: ws
   port: 80
-  server: 66.81.247.82
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
+  server: 45.131.210.76
+  servername: redfree8.pooriashop.ir
   tls: false
   type: vless
-  udp: true
   uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
   ws-opts:
     headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /Channel
-- name: US_New York_Coaxial Cable LLC_OpenAI_Claude_20.2MB
+      Host: redfree8.pooriashop.ir
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI_Claude_6.0MB1
   network: ws
   port: 443
-  server: www.racknerd.com
-  servername: legend-us.lzjnb.shop
-  skip-cert-verify: true
+  server: 104.21.94.69
+  servername: FfFfffFFFf.000890604.Xyz
+  skip-cert-verify: false
   tls: true
   type: vless
   udp: true
-  uuid: 6337837a-2b47-4e0d-a695-75c5a4a8ad51
+  uuid: bce0c7cb-08d1-46a7-b77b-7bff8b46252f
   ws-opts:
     headers:
-      Host: legend-us.lzjnb.shop
-    path: /t.me/lzjjjjjjjjjjj
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  network: ws
-  port: 8880
-  server: 5.10.245.76
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Buffalo_HostPapa_OpenAI_Claude_2.7MB2
+      Host: FfFfffFFFf.000890604.Xyz
+    path: /Ryxyg63Pk7cFSnZBROjL3Q5vTymr
+- name: US_Buffalo_HostPapa_OpenAI_Claude_9.2MB1
   network: ws
   port: 443
-  server: 172.67.161.129
-  servername: eeEEEeR.666470.xYZ
+  server: 104.21.9.71
+  servername: ddDDdDDdDDF.777198.XyZ
   skip-cert-verify: false
   tls: true
   type: vless
   udp: true
-  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
+  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
   ws-opts:
     headers:
-      Host: eeEEEeR.666470.xYZ
-    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+      Host: ddDDdDDdDDF.777198.XyZ
+    path: /OjdW89Bpg4ykd4O
+- name: US_Buffalo_HostPapa_OpenAI_Claude_9.2MB2
   network: ws
-  port: 8880
-  server: 5.10.214.81
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      host: reedfree8mahsang2.redorg.ir
-    path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.2MB
-  network: ws
-  port: 8880
-  server: 185.174.138.0
-  servername: reedfree8mahsang2.redorg.ir
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_15.1MB
-  network: ws
-  port: 2053
-  server: 188.114.97.183
-  servername: nOCTYq.pAGES.DEV
+  port: 443
+  server: 172.67.130.204
+  servername: ddDDdDDdDDF.777198.XyZ
   skip-cert-verify: false
   tls: true
   type: vless
   udp: true
-  uuid: eb568786-bb3f-4f02-a25c-7183e800a0ba
+  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
   ws-opts:
     headers:
-      Host: nOCTYq.pAGES.DEV
-    path: /bPJ4mgkJbA7CnY7q?ed=2560
-- name: 160.250.65.124_OpenAI_Claude_2.5MB
+      Host: ddDDdDDdDDF.777198.XyZ
+    path: /OjdW89Bpg4ykd4O
+- name: 103.81.86.172_OpenAI_Claude_2.7MB
   network: tcp
   port: 34045
   reality-opts:
     public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
     short-id: e8ab71d0
-  server: 160.250.65.124
+  server: 103.81.86.172
   servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
   tls: true
   type: vless
-  udp: true
   uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB1
   network: ws
-  port: 443
-  server: www.gov.se
-  servername: nptian.xiaotianvpn.sbs
-  tls: true
-  type: vless
-  uuid: 0343e230-5132-4e98-844e-b42ad1a6a273
-  ws-opts:
-    headers:
-      Host: nptian.xiaotianvpn.sbs
-    path: /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB3
-  network: ws
-  port: 8880
-  server: 195.245.221.187
-  tls: false
-  type: vless
-  udp: true
-  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
-  ws-opts:
-    headers:
-      Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB3
-  network: ws
-  port: 8880
-  server: 45.12.30.74
+  port: 80
+  server: 45.80.111.134
   servername: reedfree8mahsang2.redorg.ir
   skip-cert-verify: false
   tls: false
@@ -753,8 +221,50 @@ proxies:
   ws-opts:
     headers:
       Host: reedfree8mahsang2.redorg.ir
-    path: /@ShadowProxy66?ed=2560
-- name: US_Buffalo_HostPapa_OpenAI_Claude_2.2MB
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.7MB
+  network: ws
+  port: 443
+  server: 172.67.178.14
+  servername: MaIncrafT.dPdnS.OrG
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 252df5e8-0428-4345-b236-a6dae7b3457d
+  ws-opts:
+    headers:
+      Host: MaIncrafT.dPdnS.OrG
+    path: /HcFmPxmQkiv44jMu?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.7MB
+  network: ws
+  port: 443
+  server: 104.26.13.31
+  servername: FinLAnd-A3r.pAgES.dEv
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3130e111-a06c-4388-aeda-4b43f6e8e51f
+  ws-opts:
+    headers:
+      Host: finland-a3r.pages.dev
+      User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
+    path: /Tel-@V2ray_Alpha/?ed=2560
+- fingerprint: ''
+  name: DE_Frankfurt am Main_Amazon Technologies Inc._OpenAI_Claude_5.7MB
+  network: ws
+  port: 22224
+  server: 3.124.76.127
+  servername: trojan.burgerip.co.uk
+  tls: true
+  type: vless
+  udp: false
+  uuid: 05519058-d2ac-4f28-9e4a-2b2a1386749e
+  ws-opts:
+    headers:
+      host: trojan.burgerip.co.uk
+    path: /telegram-channel-vlessconfig
+- name: US_Buffalo_HostPapa_OpenAI_Claude_3.5MB
   network: ws
   port: 443
   server: 172.67.206.152
@@ -768,18 +278,201 @@ proxies:
     headers:
       Host: EDfrT.frEEvPNatm2025.DPdNS.oRG
     path: /O9jlBCbIm3xr1D40NK
-- name: 160.250.65.148_OpenAI_Claude_2.6MB
-  network: tcp
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 160.250.65.148
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+- fingerprint: ''
+  name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  network: ws
+  port: 443
+  server: www.speedtest.net
+  servername: my.digikala.dynv6.net
   tls: true
   type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  udp: false
+  uuid: 6bcb4f37-bba7-4ae0-afac-d43195c72c12
+  ws-opts:
+    headers:
+      host: my.digikala.dynv6.net
+    path: /--------ff_kikor-----?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.1MB
+  network: ws
+  port: 8880
+  server: 45.131.6.68
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.2MB
+  network: ws
+  port: 2087
+  server: 172.66.47.31
+  servername: nEwMTPROxI.PAGes.DEv
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2cec2733-389a-46a7-9053-218594a6336d
+  ws-opts:
+    headers:
+      Host: nEwMTPROxI.PAGes.DEv
+    path: /
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.7MB
+  network: ws
+  port: 8880
+  server: 45.159.218.20
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB1
+  network: ws
+  port: 2087
+  server: 172.67.175.148
+  servername: InvInciBLe.FAFa20.sHop
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: InvInciBLe.FAFa20.sHop
+    path: /hoOUCl9QWMZ9zBtD/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI_Claude_4.3MB
+  network: ws
+  port: 443
+  server: 104.21.66.157
+  servername: eeEEEeR.666470.xYZ
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
+  ws-opts:
+    headers:
+      Host: eeEEEeR.666470.xYZ
+    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_13.3MB
+  network: ws
+  port: 443
+  server: www.gov.se
+  servername: nptian.xiaotianvpn.sbs
+  tls: true
+  type: vless
+  uuid: 0343e230-5132-4e98-844e-b42ad1a6a273
+  ws-opts:
+    headers:
+      Host: nptian.xiaotianvpn.sbs
+    path: /?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+  network: ws
+  port: 8443
+  server: 188.114.96.153
+  servername: noctyQ.pAGES.DEV
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: eb568786-bb3f-4f02-a25c-7183e800a0ba
+  ws-opts:
+    headers:
+      Host: noctyQ.pAGES.DEV
+    path: /
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.8MB
+  network: ws
+  port: 2053
+  server: 188.114.97.183
+  servername: nOCTYq.pAGES.DEV
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: eb568786-bb3f-4f02-a25c-7183e800a0ba
+  ws-opts:
+    headers:
+      Host: nOCTYq.pAGES.DEV
+    path: /bPJ4mgkJbA7CnY7q?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.1MB
+  network: ws
+  port: 2053
+  server: 104.21.16.1
+  servername: 6Ny8J3m9BCe4gTsPtivSObeOkZvyI8CM.paGeS.DEV
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 35bdc608-822d-42eb-ad20-4bb23e9c052b
+  ws-opts:
+    headers:
+      Host: 6Ny8J3m9BCe4gTsPtivSObeOkZvyI8CM.paGeS.DEV
+    path: /1BvBMhk9nOFvi0vn?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.5MB
+  network: ws
+  port: 8880
+  server: 5.10.215.208
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /TelegramU0001F1E8U0001F1F3
+- name: US_Buffalo_HostPapa_OpenAI_Claude_4.7MB
+  network: ws
+  port: 443
+  server: 104.21.13.36
+  servername: XcdvfGBnHU7.0890604.XyZ
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: a7c9c017-db10-4d15-b01b-0634db498b57
+  ws-opts:
+    headers:
+      Host: XcdvfGBnHU7.0890604.XyZ
+    path: /xZjr7v1DqrYyamxeTh7sLJtI1
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB2
+  network: ws
+  port: 80
+  server: 66.81.247.82
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /Channel
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  network: ws
+  port: 2095
+  server: 45.80.111.119
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /Telegram:TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1+TM-@AZARBAYJAB1
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.3MB
   network: ws
   port: 8880
   server: 45.131.208.108
@@ -793,20 +486,547 @@ proxies:
     headers:
       Host: reedfree8mahsang2.redorg.ir
     path: /Telegram@ShadowProxy66/?ed=2560
-- client-fingerprint: chrome
-  name: FR_Paris_Online S.A.S._OpenAI_Claude_6.7MB
-  password: dongtaiwang.com
-  port: 50066
-  server: 51.159.226.1
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  network: ws
+  port: 8880
+  server: 185.174.138.0
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB1
+  network: ws
+  port: 80
+  server: 45.131.7.64
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB2
+  network: ws
+  port: 8880
+  server: 195.245.221.187
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  network: ws
+  port: 8880
+  server: 45.131.208.9
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: US_Elk Grove Village_HostPapa_OpenAI_Claude_8.1MB
+  network: ws
+  port: 443
+  server: sxxcer4.000890604.xyz
+  servername: sxXCer4.000890604.xYz
+  tls: true
+  type: vless
+  udp: true
+  uuid: 13e26f64-2e0c-4461-92cd-d83294cc18f0
+  ws-opts:
+    headers:
+      Host: sxXCer4.000890604.xYz
+    path: /WfxcqrR5ycVpIit2OdWk0KwirdY
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.3MB
+  network: ws
+  port: 443
+  server: 104.16.3.5
+  servername: gulf-d96.pages.dev
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 963816bd-b6e7-4648-abff-8af25bc07d87
+  ws-opts:
+    headers:
+      Host: gulf-d96.pages.dev
+    path: /ecY3gziM8W6ud5yj?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  network: ws
+  port: 2087
+  server: 172.67.171.131
+  servername: invINCIBLE.FAfa20.SHOp
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: invINCIBLE.FAfa20.SHOp
+    path: /FnxOCItzWpgMrgmD/NzguNDYuNTYuNDI=?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB2
+  network: ws
+  port: 8880
+  server: 45.131.7.174
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@ShadowProxy66/?ed=2560
+- name: 160.250.65.124_OpenAI_Claude_2.5MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.124
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB1
+  network: ws
+  port: 2053
+  server: 172.67.171.131
+  servername: inVINCIble.fAFA20.Shop
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: inVINCIble.fAFA20.Shop
+    path: /yRVRnY2jDtjg67UV/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=?ed=2560
+- name: EE_Tallin_Baykov Ilya Sergeevich_OpenAI_Claude_5.2MB
+  network: ws
+  port: 443
+  server: 185.255.178.188
+  servername: zula.ir
   skip-cert-verify: true
-  sni: www.bing.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2a265422-84e6-5585-b36c-1e2d9437d0db
+  ws-opts:
+    headers:
+      Host: zula.ir
+    path: /vless
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.1MB
+  network: ws
+  port: 80
+  server: 185.174.138.6
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.2MB
+  network: ws
+  port: 80
+  server: 45.8.211.139
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /Channel
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.5MB
+  network: ws
+  port: 8880
+  server: 188.42.89.100
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB1
+  network: ws
+  port: 8443
+  server: 104.21.39.214
+  servername: InVinCIble.faFA20.sHop
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: InVinCIble.faFA20.sHop
+    path: /hjj7ZLPwtn7oT2JS/NzguNDYuNTYuNDI=?ed=2560
+- name: 59.153.218.14_OpenAI_Claude_2.9MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 59.153.218.14
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB3
+  network: ws
+  port: 8443
+  server: 172.67.148.229
+  servername: InVinCIble.faFA20.sHop
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: InVinCIble.faFA20.sHop
+    path: /hjj7ZLPwtn7oT2JS/NzguNDYuNTYuNDI=?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.6MB
+  network: ws
+  port: 2087
+  server: 104.21.95.229
+  servername: invINCIBLE.FAfa20.SHOp
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 376734bc-4db8-4317-b451-af0262cb01c7
+  ws-opts:
+    headers:
+      Host: invINCIBLE.FAfa20.SHOp
+    path: /FnxOCItzWpgMrgmD/NzguNDYuNTYuNDI=?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.9MB
+  network: ws
+  port: 2087
+  server: 172.66.44.225
+  servername: nEwMTPROxI.PAGes.DEv
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2cec2733-389a-46a7-9053-218594a6336d
+  ws-opts:
+    headers:
+      Host: nEwMTPROxI.PAGes.DEv
+    path: /
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  network: ws
+  port: 8880
+  server: 45.12.30.145
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /Telegram@vpnAndroid2/?ed=2560
+- fingerprint: ''
+  name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  network: ws
+  port: 2083
+  server: 172.67.145.189
+  servername: FrEEdoM.pAnOtOSU.sTORe
+  tls: true
+  type: vless
+  udp: false
+  uuid: ec7a6b6d-94b6-45df-9d62-491f53a508be
+  ws-opts:
+    headers:
+      host: FrEEdoM.pAnOtOSU.sTORe
+    path: /6fqYRq6DD1shcFIO/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=?ed=2560
+- name: 103.12.77.48_OpenAI_Claude_2.9MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 103.12.77.48
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.4MB
+  network: ws
+  port: 8880
+  server: 5.10.214.180
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      host: reedfree8mahsang2.redorg.ir
+    path: /TelegramU0001F1E8U0001F1F3
+- name: US_Buffalo_HostPapa_OpenAI_Claude_6.0MB2
+  network: ws
+  port: 443
+  server: rrrfgt6.890604.filegear-sg.me
+  servername: rrRFgt6.890604.fiLeGEAR-Sg.ME
+  tls: true
+  type: vless
+  udp: true
+  uuid: 07a3df8f-2a2c-42f8-ad92-65889d90f3bf
+  ws-opts:
+    headers:
+      Host: rrrfgt6.890604.filegear-sg.me
+    path: /5UW2C42lpZ7Dj4VDwVOkZfoq
+- name: US_Elk Grove Village_HostPapa_OpenAI_Claude_22.8MB
+  network: ws
+  port: 443
+  server: 444444444444r.333756.xyz
+  servername: 444444444444R.333756.xyz
+  tls: true
+  type: vless
+  udp: true
+  uuid: 03e92910-34b1-4245-ac63-04a865f43cd5
+  ws-opts:
+    headers:
+      Host: 444444444444r.333756.xyz
+    path: /f7vKDX2UecxmlPhIJoo2wcE6Q
+- name: US_Buffalo_HostPapa_OpenAI_Claude_3.6MB
+  network: ws
+  port: 443
+  server: 172.67.161.129
+  servername: eeEEEeR.666470.xYZ
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
+  ws-opts:
+    headers:
+      Host: eeEEEeR.666470.xYZ
+    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  network: ws
+  port: 80
+  server: 45.12.30.136
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: '/Channel id: @ShadowProxy66/?ed=2560'
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB2
+  network: ws
+  port: 8880
+  server: 45.142.120.145
+  servername: reedfree8mahsang2.redorg.ir
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI_Claude_5.8MB
+  network: ws
+  port: 443
+  server: 104.21.90.226
+  servername: eEedFR5.7777155.Xyz
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: e4cbe8b8-37db-4aaa-8469-b84f34c51ebc
+  ws-opts:
+    headers:
+      Host: eEedFR5.7777155.Xyz
+    path: /6OWLjRc26b0nHYr5hYXD
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.7MB
+  network: ws
+  port: 80
+  server: 45.131.4.157
+  servername: redfree8.pooriashop.ir
+  tls: false
+  type: vless
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: redfree8.pooriashop.ir
+    path: /Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: 160.250.65.148_OpenAI_Claude_2.9MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.148
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB2
+  network: ws
+  port: 2096
+  server: 172.66.47.31
+  servername: NEwMTproxi.pAgES.DeV
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2cec2733-389a-46a7-9053-218594a6336d
+  ws-opts:
+    headers:
+      Host: newmtproxi.pages.dev
+    path: /uOJjESKbBQzLuf8t?ed=2560
+- fingerprint: ''
+  name: US_Elk Grove Village_HostPapa_OpenAI_Claude_7.4MB
+  network: ws
+  port: 443
+  server: 104.21.76.21
+  servername: wWwde.00890604.xyz
+  tls: true
+  type: vless
+  udp: false
+  uuid: 13e26f64-2e0c-4461-92cd-d83294cc18f0
+  ws-opts:
+    headers:
+      host: wWwde.00890604.xyz
+    path: /WfxcqrR5ycVpIit2OdWk0KwirdY
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.7MB
+  network: ws
+  port: 8880
+  server: 45.131.211.224
+  tls: false
+  type: vless
+  udp: true
+  uuid: 53fa8faf-ba4b-4322-9c69-a3e5b1555049
+  ws-opts:
+    headers:
+      Host: reedfree8mahsang2.redorg.ir
+    path: /@ShadowProxy66?ed=2560
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB3
+  network: ws
+  port: 443
+  server: 172.66.45.24
+  servername: reAl-madrID9248.pagEs.dEv
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: f744c2dc-1359-494c-9808-d81ce7665d58
+  ws-opts:
+    headers:
+      Host: reAl-madrID9248.pagEs.dEv
+    path: /LQlBRp7bKt33t0q2?ed=2560
+- name: 59.153.216.133_OpenAI_Claude_3.0MB
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 59.153.216.133
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  network: ws
+  port: 2053
+  server: 172.66.44.174
+  servername: edC32e3B.bpb-PaNel-EN-87s.PAGes.dEv
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 80764883-7f6b-4c46-8ecd-887cdf541c07
+  ws-opts:
+    headers:
+      Host: edC32e3B.bpb-PaNel-EN-87s.PAGes.dEv
+    path: /oqlixwai6lzpnumq
+- fingerprint: ''
+  name: US_Secaucus_Massivegrid LTD_OpenAI_Claude_6.0MB
+  network: ws
+  port: 443
+  server: 104.21.89.221
+  servername: KKkkKKKkkkkKLO.999824.xYz
+  tls: true
+  type: vless
+  udp: false
+  uuid: c7f423b7-ced8-43da-a9ae-e906cb4a222c
+  ws-opts:
+    headers:
+      host: KKkkKKKkkkkKLO.999824.xYz
+    path: /wU3lZaUTRQTqot0LE
+- fingerprint: ''
+  name: NL_Amsterdam_OVH SAS_OpenAI_Claude_6.0MB
+  network: ws
+  port: 2096
+  server: 185.251.82.170
+  servername: arm1.dollardoon.com
+  tls: true
+  type: vless
+  udp: false
+  uuid: bc1d1cb5-747b-4e5f-8af8-0e27731406ab
+  ws-opts:
+    headers:
+      host: arm1.dollardoon.com
+    path: /@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7@V2RAYFAST_7?ed=2048
+- client-fingerprint: chrome
+  name: DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_5.6MB
+  obfs: salamander
+  obfs_password: mkv_SEfr-salamdash
+  password: user10.thisismeSUperkl19201
+  port: 443
+  server: shade.zone1.center
+  skip-cert-verify: false
   type: hysteria2
 - client-fingerprint: chrome
-  name: US_Las Vegas_FranTech Solutions_OpenAI_Claude_8.0MB
-  password: 65a43b6e-19c5-4fab-b960-d110a07d66a4
-  port: 3234
-  server: 209.141.47.127
+  name: DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_4.5MB
+  obfs: salamander
+  obfs_password: The_Sefr-salamdash
+  password: user12.myserverSEFR097
+  port: 443
+  server: knock.zone1.center
+  skip-cert-verify: false
+  type: hysteria2
+- name: NL_Amsterdam_Online SAS NL_OpenAI_Claude_6.0MB
+  password: dongtaiwang.com
+  port: 10011
+  server: 163.172.217.10
   skip-cert-verify: true
+  sni: www.bing.com
   type: hysteria2
 proxy-groups:
 - name: PROXY
@@ -823,62 +1043,78 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB1
-  - 103.12.77.48_OpenAI_Claude_2.8MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.2MB
-  - 59.153.218.14_OpenAI_Claude_2.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.2MB
-  - 103.81.86.172_OpenAI_Claude_2.3MB
-  - 59.153.216.133_OpenAI_Claude_2.7MB
-  - 45.88.183.54_OpenAI_Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB1
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_29.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB2
-  - US_New York_Coaxial Cable LLC_OpenAI_Claude_20.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.4MB
+  - US_New York_Massivegrid LTD_OpenAI_Claude_3.1MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_9.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB2
+  - 103.81.86.172_OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.7MB
+  - DE_Frankfurt am Main_Amazon Technologies Inc._OpenAI_Claude_5.7MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_13.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.5MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_8.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB2
   - 160.250.65.124_OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB3
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.2MB
-  - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.9MB
-  - FR_Paris_Online S.A.S._OpenAI_Claude_6.7MB
-  - US_Las Vegas_FranTech Solutions_OpenAI_Claude_8.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB1
+  - EE_Tallin_Baykov Ilya Sergeevich_OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB1
+  - 59.153.218.14_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB3
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  - 103.12.77.48_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_22.8MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_5.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.7MB
+  - 160.250.65.148_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_7.4MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB3
+  - 59.153.216.133_OpenAI_Claude_3.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - US_Secaucus_Massivegrid LTD_OpenAI_Claude_6.0MB
+  - NL_Amsterdam_OVH SAS_OpenAI_Claude_6.0MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_5.6MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_4.5MB
+  - NL_Amsterdam_Online SAS NL_OpenAI_Claude_6.0MB
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -927,54 +1163,66 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB1
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB1
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_29.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB2
-  - US_New York_Coaxial Cable LLC_OpenAI_Claude_20.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB3
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.9MB
-  - US_Las Vegas_FranTech Solutions_OpenAI_Claude_8.0MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.4MB
+  - US_New York_Massivegrid LTD_OpenAI_Claude_3.1MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_9.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.7MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_13.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.5MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_8.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB3
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_22.8MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_5.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_7.4MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB3
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - US_Secaucus_Massivegrid LTD_OpenAI_Claude_6.0MB
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -982,62 +1230,78 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB1
-  - 103.12.77.48_OpenAI_Claude_2.8MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.2MB
-  - 59.153.218.14_OpenAI_Claude_2.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.2MB
-  - 103.81.86.172_OpenAI_Claude_2.3MB
-  - 59.153.216.133_OpenAI_Claude_2.7MB
-  - 45.88.183.54_OpenAI_Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB1
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_29.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB2
-  - US_New York_Coaxial Cable LLC_OpenAI_Claude_20.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.4MB
+  - US_New York_Massivegrid LTD_OpenAI_Claude_3.1MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_9.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB2
+  - 103.81.86.172_OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.7MB
+  - DE_Frankfurt am Main_Amazon Technologies Inc._OpenAI_Claude_5.7MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_13.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.5MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_8.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB2
   - 160.250.65.124_OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB3
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.2MB
-  - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.9MB
-  - FR_Paris_Online S.A.S._OpenAI_Claude_6.7MB
-  - US_Las Vegas_FranTech Solutions_OpenAI_Claude_8.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB1
+  - EE_Tallin_Baykov Ilya Sergeevich_OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB1
+  - 59.153.218.14_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB3
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  - 103.12.77.48_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_22.8MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_5.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.7MB
+  - 160.250.65.148_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_7.4MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB3
+  - 59.153.216.133_OpenAI_Claude_3.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - US_Secaucus_Massivegrid LTD_OpenAI_Claude_6.0MB
+  - NL_Amsterdam_OVH SAS_OpenAI_Claude_6.0MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_5.6MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_4.5MB
+  - NL_Amsterdam_Online SAS NL_OpenAI_Claude_6.0MB
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
@@ -1045,62 +1309,78 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.6MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.9MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB1
-  - 103.12.77.48_OpenAI_Claude_2.8MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_2.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.8MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.2MB
-  - 59.153.218.14_OpenAI_Claude_2.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.8MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.2MB
-  - 103.81.86.172_OpenAI_Claude_2.3MB
-  - 59.153.216.133_OpenAI_Claude_2.7MB
-  - 45.88.183.54_OpenAI_Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
-  - US_Seattle_Spartan Host Ltd_OpenAI_Claude_2.1MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB1
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_13.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.0MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_29.9MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.4MB2
-  - US_New York_Coaxial Cable LLC_OpenAI_Claude_20.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.7MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.1MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_2.4MB
+  - US_New York_Massivegrid LTD_OpenAI_Claude_3.1MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_9.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_9.2MB2
+  - 103.81.86.172_OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.7MB
+  - DE_Frankfurt am Main_Amazon Technologies Inc._OpenAI_Claude_5.7MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB1
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_13.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.4MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.5MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_8.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_8.3MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB1
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.9MB2
   - 160.250.65.124_OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB3
-  - US_Buffalo_HostPapa_OpenAI_Claude_2.2MB
-  - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.9MB
-  - FR_Paris_Online S.A.S._OpenAI_Claude_6.7MB
-  - US_Las Vegas_FranTech Solutions_OpenAI_Claude_8.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB1
+  - EE_Tallin_Baykov Ilya Sergeevich_OpenAI_Claude_5.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.1MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.2MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB1
+  - 59.153.218.14_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.6MB3
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_7.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_11.5MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.9MB
+  - 103.12.77.48_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_6.0MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_22.8MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.6MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.2MB2
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.0MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_5.8MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_9.7MB
+  - 160.250.65.148_OpenAI_Claude_2.9MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_4.5MB2
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_7.4MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_3.7MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_5.3MB3
+  - 59.153.216.133_OpenAI_Claude_3.0MB
+  - US_Wheaton_Cloudflare, Inc._OpenAI_Claude_2.2MB2
+  - US_Secaucus_Massivegrid LTD_OpenAI_Claude_6.0MB
+  - NL_Amsterdam_OVH SAS_OpenAI_Claude_6.0MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_5.6MB
+  - DE_Frankfurt Am Main_Hetzner Online AG_OpenAI_Claude_4.5MB
+  - NL_Amsterdam_Online SAS NL_OpenAI_Claude_6.0MB
   filter: (?i)Claude
 rules:
 - RULE-SET,ads,REJECT
