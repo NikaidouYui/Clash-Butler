@@ -73,140 +73,47 @@ dns:
 proxies:
 - alterId: 0
   cipher: auto
-  name: US_Buffalo_HostPapa_OpenAI_Claude_8.2MB
-  network: ws
-  port: 80
-  server: bBbbbbbBb.222769.XYZ
-  tls: false
-  type: vmess
-  uuid: 2e65577e-8fdb-4bb1-a495-96f3122099a7
-  ws-opts:
-    headers:
-      Host: bbbbbbbbb.222769.xyz
-    path: /f6taOMcOSZb9TPR
-- alterId: 0
-  cipher: auto
-  name: US_Secaucus_Massivegrid LTD_OpenAI_3.6MB
-  network: ws
-  port: 80
-  server: 172.67.149.239
-  skip-cert-verify: true
-  tls: false
-  type: vmess
-  udp: true
-  uuid: 3d9741da-c0e4-47cc-a5e0-f1af3d337dae
-  ws-opts:
-    headers:
-      Host: vvvvvvvvvvvvvvb.4444926.xyz
-    path: /U2Z0FoBkgtZqfwAwY2SNm
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.1MB
-  network: ws
-  port: 8443
-  server: 188.114.96.153
-  servername: noctyQ.pAGES.DEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: eb568786-bb3f-4f02-a25c-7183e800a0ba
-  ws-opts:
-    headers:
-      Host: noctyQ.pAGES.DEV
-    path: /
-- name: US_Reston_Cloudflare, Inc._Claude_3.2MB
-  network: ws
-  port: 8880
-  server: 91.193.58.43
-  tls: false
-  type: vless
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      Host: us.laoyoutiao.link
-    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
-  network: ws
-  port: 2053
-  server: 45.80.111.165
-  servername: 019309B7.XyZ0.PaGeS.dEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 54f6e78c-b497-4db7-ba48-38c4cf81d5ef
-  ws-opts:
-    headers:
-      Host: 019309B7.XyZ0.PaGeS.dEV
-    path: /Telegram@Selinc/?ed=2560
-- name: 103.12.77.78_OpenAI_Claude_2.1MB
-  network: tcp
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 103.12.77.78
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  tls: true
-  type: vless
-  udp: true
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
-  network: ws
-  port: 8880
-  server: 108.162.192.63
-  servername: sg.laoyoutiao.link
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      Host: sg.laoyoutiao.link
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  network: ws
-  port: 2053
-  server: 147.185.161.46
-  servername: 019309B7.XyZ0.PaGeS.dEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 54f6e78c-b497-4db7-ba48-38c4cf81d5ef
-  ws-opts:
-    headers:
-      Host: 019309B7.XyZ0.PaGeS.dEV
-    path: /Telegram@V2ray_Alpha/?ed=2560
-- name: US_Reston_Cloudflare, Inc._Claude_5.9MB
-  network: ws
-  port: 8880
-  server: 91.193.58.225
-  servername: us.laoyoutiao.link
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      host: us.laoyoutiao.link
-    path: /
-- name: US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
+  name: US_Buffalo_HostPapa_OpenAI_Claude_3.0MB
   network: ws
   port: 443
-  server: 104.21.66.157
-  servername: eeEEEeR.666470.xYZ
+  server: ssssssssssssfffffffgh.2032.pp.ua
   skip-cert-verify: false
   tls: true
-  type: vless
-  udp: true
-  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
+  type: vmess
+  uuid: 4174b95d-115e-4d39-add6-1f8db95bb860
   ws-opts:
     headers:
-      Host: eeEEEeR.666470.xYZ
-    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
+      Host: ssssssssssssfffffffgh.2032.pp.ua
+    path: /6We3U9Df1WGxgFnoFPw1
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.9MB
+  network: ws
+  port: 8880
+  server: 198.62.62.175
+  servername: vngsupply.ip-ddns.com
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
+  ws-opts:
+    headers:
+      host: vngsupply.ip-ddns.com
+    path: /J5aLQOY1R9ONWYCM
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
+  network: ws
+  port: 8880
+  server: 45.85.119.151
+  servername: vngsupply.ip-ddns.com
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
+  ws-opts:
+    headers:
+      host: vngsupply.ip-ddns.com
+    path: /J5aLQOY1R9ONWYCM
+- name: US_Reston_Cloudflare, Inc._OpenAI_7.7MB
   network: ws
   port: 443
   server: 172.64.68.58
@@ -220,23 +127,10 @@ proxies:
     headers:
       Host: hai.gdz.buzz
     path: /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  network: ws
-  port: 2053
-  server: 188.114.99.16
-  servername: 019309B7.XyZ0.PaGeS.dEV
-  tls: true
-  type: vless
-  udp: true
-  uuid: 54f6e78c-b497-4db7-ba48-38c4cf81d5ef
-  ws-opts:
-    headers:
-      Host: 019309b7.xyz0.pages.dev
-    path: /YzeJFTQqvmhtzTlE?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.7MB
   network: ws
   port: 8880
-  server: 141.101.114.63
+  server: 104.31.16.63
   servername: sg.laoyoutiao.link
   skip-cert-verify: false
   tls: false
@@ -247,87 +141,7 @@ proxies:
     headers:
       Host: sg.laoyoutiao.link
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  network: ws
-  port: 8880
-  server: 104.16.69.162
-  tls: false
-  type: vless
-  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
-  ws-opts:
-    headers:
-      Host: vngsupply.ip-ddns.com
-    path: /fgvtHUpS6R8Rv8s5?ed=2560
-- name: US_Buffalo_HostPapa_OpenAI_Claude_6.3MB
-  network: ws
-  port: 443
-  server: 172.67.161.129
-  servername: eeEEEeR.666470.xYZ
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
-  ws-opts:
-    headers:
-      Host: eeEEEeR.666470.xYZ
-    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  network: ws
-  port: 443
-  server: 104.17.4.197
-  servername: F1.paRsa.fiLegEar-Sg.Me
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 8df60790-c903-4661-b85d-64c0009378e5
-  ws-opts:
-    headers:
-      Host: f1.parsa.filegear-sg.me
-    path: /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_8.4MB
-  network: ws
-  port: 8880
-  server: 114.129.43.251
-  servername: Telegram-channel-WangCai2
-  tls: false
-  type: vless
-  udp: true
-  uuid: 0132166f-e702-48ed-a9e7-b07af768faf8
-  ws-opts:
-    headers:
-      Host: cf.d3z.net
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.2MB
-  network: ws
-  port: 2053
-  server: 45.131.6.124
-  servername: 019309B7.XyZ0.PaGeS.dEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 54f6e78c-b497-4db7-ba48-38c4cf81d5ef
-  ws-opts:
-    headers:
-      Host: 019309B7.XyZ0.PaGeS.dEV
-    path: /Telegram@V2ray_Alpha/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  network: ws
-  port: 8880
-  server: 104.16.86.73
-  servername: vngsupply.ip-ddns.com
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  udp: true
-  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
-  ws-opts:
-    headers:
-      Host: vngsupply.ip-ddns.com
-    path: /
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_9.6MB
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_7.5MB
   network: ws
   port: 443
   server: 188.42.89.145
@@ -341,97 +155,99 @@ proxies:
     headers:
       host: rAyAn-12.LeIlA.DpDnS.OrG
     path: /@Rayan_Configfp=chromefp=chrome
-- name: US_Los Angeles_HostPapa_OpenAI_Claude_8.2MB
+- name: US_Reston_Cloudflare, Inc._OpenAI_4.3MB
+  network: ws
+  port: 80
+  server: 141.193.213.254
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare+@WangCai2+/?ed=2560
+- name: US_Buffalo_HostPapa_OpenAI_Claude_7.9MB
   network: ws
   port: 443
-  server: 222222r.11890604.xyz
-  servername: 222222r.11890604.xyz
+  server: 172.67.161.129
+  servername: eeEEEeR.666470.xYZ
+  skip-cert-verify: false
   tls: true
   type: vless
   udp: true
-  uuid: f898ffcb-6417-4373-9640-0b66091e8206
+  uuid: 662e38ba-8427-4955-94aa-76f5347a0ce8
   ws-opts:
     headers:
-      Host: 222222r.11890604.xyz
-    path: /33CYL4twIwItuzXyJ5XNeH1R1
-- name: 160.250.65.148_OpenAI_Claude_2.6MB
-  network: tcp
-  port: 34045
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 160.250.65.148
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  tls: true
-  type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-- name: US_Elk Grove Village_HostPapa_OpenAI_Claude_4.2MB
-  network: ws
-  port: 443
-  server: 104.21.65.31
-  servername: SssXzAw.444652.XYZ
-  tls: true
-  type: vless
-  uuid: 0f7070cd-c91d-4532-a51f-56da4f0e94be
-  ws-opts:
-    headers:
-      Host: SssXzAw.444652.XYZ
-    path: /nSABZLQbEUSLppj7jCmY
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
+      Host: eeEEEeR.666470.xYZ
+    path: /6DuxYMYmrGrnGKRtF5UvWyyVQu
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.9MB
   network: ws
   port: 8880
-  server: 173.245.58.63
-  servername: sg.laoyoutiao.link
-  skip-cert-verify: false
+  server: 156.238.18.112
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  network: ws
+  port: 8880
+  server: 91.193.58.43
+  servername: us.laoyoutiao.link
+  skip-cert-verify: true
   tls: false
   type: vless
   udp: true
   uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
   ws-opts:
     headers:
-      Host: sg.laoyoutiao.link
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_27.7MB
-  network: ws
-  port: 8443
-  server: 172.66.47.61
-  servername: gghdfa.pages.dev
-  tls: true
-  type: vless
-  uuid: a396b860-11b7-4af3-9950-146caf79735e
-  ws-opts:
-    headers:
-      Host: gghdfa.pages.dev
-    path: /8WuhXm4QjK0L68Uf?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.7MB
-  network: ws
-  port: 2053
-  server: 104.21.16.1
-  servername: 6Ny8J3m9BCe4gTsPtivSObeOkZvyI8CM.paGeS.DEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 35bdc608-822d-42eb-ad20-4bb23e9c052b
-  ws-opts:
-    headers:
-      Host: 6Ny8J3m9BCe4gTsPtivSObeOkZvyI8CM.paGeS.DEV
-    path: /1BvBMhk9nOFvi0vn?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.0MB
+      host: us.laoyoutiao.link
+    path: /
+- name: US_Buffalo_HostPapa_OpenAI_Claude_8.9MB
   network: ws
   port: 443
-  server: 104.16.14.1
-  servername: 5nrvx1irwfiyq8nqbaiztizua8t8xg0d.pages.dev
+  server: 172.67.130.204
+  servername: ddDDdDDdDDF.777198.XyZ
   skip-cert-verify: false
   tls: true
   type: vless
   udp: true
-  uuid: 711627d2-1662-4e98-a3d6-086fd4fd4d31
+  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
   ws-opts:
     headers:
-      Host: 5nrvx1irwfiyq8nqbaiztizua8t8xg0d.pages.dev
-    path: /iqySBCJZh3v7AmTx?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_15.8MB
+      Host: ddDDdDDdDDF.777198.XyZ
+    path: /OjdW89Bpg4ykd4O
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_19.7MB
+  network: ws
+  port: 8880
+  server: 91.193.58.248
+  servername: sk.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: sk.laoyoutiao.link
+    path: /TelegramU0001F1E8U0001F1F3
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_10.2MB
+  network: ws
+  port: 8880
+  server: 114.129.43.251
+  servername: cf.d3z.net
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0132166f-e702-48ed-a9e7-b07af768faf8
+  ws-opts:
+    headers:
+      host: cf.d3z.net
+    path: /TelegramU0001F1E8U0001F1F3
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_25.1MB
   network: ws
   port: 8880
   server: 91.193.58.13
@@ -445,102 +261,18 @@ proxies:
     headers:
       host: sk.laoyoutiao.link
     path: /TelegramU0001F1E8U0001F1F3
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_3.5MB
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
   network: ws
   port: 8880
-  server: 162.120.94.251
-  servername: Telegram-channel-WangCai2
-  skip-cert-verify: true
+  server: 104.16.69.162
   tls: false
   type: vless
-  udp: true
-  uuid: 0132166f-e702-48ed-a9e7-b07af768faf8
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
   ws-opts:
     headers:
-      host: cf.d3z.net
-    path: /Telegram
-- name: US_Buffalo_HostPapa_OpenAI_Claude_7.3MB
-  network: ws
-  port: 443
-  server: 104.21.9.71
-  servername: ddDDdDDdDDF.777198.XyZ
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
-  ws-opts:
-    headers:
-      Host: ddDDdDDdDDF.777198.XyZ
-    path: /OjdW89Bpg4ykd4O
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  network: ws
-  port: 8880
-  server: ::ffff:156.238.18.177
-  servername: sg.laoyoutiao.link
-  skip-cert-verify: true
-  tls: false
-  type: vless
-  udp: true
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
-  ws-opts:
-    headers:
-      Host: sg.laoyoutiao.link
-    path: /Telegram@WangCai2/?ed=2048
-- name: US_Reston_Cloudflare, Inc._Claude_2.2MB
-  network: ws
-  port: 443
-  server: 172.66.45.24
-  servername: reAl-madrID9248.pagEs.dEv
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: f744c2dc-1359-494c-9808-d81ce7665d58
-  ws-opts:
-    headers:
-      Host: reAl-madrID9248.pagEs.dEv
-    path: /LQlBRp7bKt33t0q2?ed=2560
-- name: GB_London_Zhejiang Aiyun Network Technology Co Ltd_Claude_3.1MB
-  network: ws
-  port: 80
-  server: 195.85.23.31
-  tls: false
-  type: vless
-  uuid: telegram-id-Arfilter
-  ws-opts:
-    headers:
-      Host: www.speedtest.net.a.4.speedtest2029.com.
-    path: /-Arfilter@Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@Arfilter?ed=80
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  network: ws
-  port: 443
-  server: 104.16.34.128
-  servername: ensHOLP-91s.pageS.DEv
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 267613d7-f53f-4005-b642-d6f1f687b7cf
-  ws-opts:
-    headers:
-      Host: ensHOLP-91s.pageS.DEv
-    path: /dQMN2VQLkaE52qWD?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB3
-  network: ws
-  port: 2053
-  server: 45.12.30.165
-  servername: 019309B7.XyZ0.PaGeS.dEV
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 54f6e78c-b497-4db7-ba48-38c4cf81d5ef
-  ws-opts:
-    headers:
-      Host: 019309B7.XyZ0.PaGeS.dEV
-    path: /Telegram@V2ray_Alpha/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_24.3MB
+      Host: vngsupply.ip-ddns.com
+    path: /fgvtHUpS6R8Rv8s5?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_15.7MB
   network: ws
   port: 443
   server: 45.159.219.96
@@ -554,25 +286,36 @@ proxies:
     headers:
       Host: configmr.pages.dev
     path: /telegram@v2ray_configs_pools/?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
   network: ws
   port: 8880
-  server: 173.245.59.63
-  servername: sg.laoyoutiao.link
-  skip-cert-verify: false
+  server: 45.131.209.36
+  servername: vngsupply.ip-ddns.com
+  skip-cert-verify: true
   tls: false
   type: vless
   udp: true
-  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
   ws-opts:
     headers:
-      Host: sg.laoyoutiao.link
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-- name: US_Reston_Cloudflare, Inc._OpenAI_2.1MB
+      host: vngsupply.ip-ddns.com
+    path: /J5aLQOY1R9ONWYCM
+- name: 160.250.65.148_OpenAI_Claude_2.6MB
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 160.250.65.148
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+  tls: true
+  type: vless
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
   network: ws
   port: 8880
-  server: 199.34.229.63
-  servername: jp.laoyoutiao.link
+  server: ::ffff:156.238.18.177
+  servername: sg.laoyoutiao.link
   skip-cert-verify: true
   tls: false
   type: vless
@@ -580,7 +323,263 @@ proxies:
   uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
   ws-opts:
     headers:
-      host: jp.laoyoutiao.link
+      Host: sg.laoyoutiao.link
+    path: /Telegram@WangCai2/?ed=2048
+- name: US_Reston_Cloudflare, Inc._Claude_6.0MB
+  network: ws
+  port: 8880
+  server: 91.193.58.79
+  servername: us.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: us.laoyoutiao.link
+    path: /
+- name: US_Elk Grove Village_HostPapa_OpenAI_Claude_6.0MB
+  network: ws
+  port: 443
+  server: 104.21.65.31
+  servername: SssXzAw.444652.XYZ
+  tls: true
+  type: vless
+  uuid: 0f7070cd-c91d-4532-a51f-56da4f0e94be
+  ws-opts:
+    headers:
+      Host: SssXzAw.444652.XYZ
+    path: /nSABZLQbEUSLppj7jCmY
+- name: US_Buffalo_ColoCrossing_OpenAI_Claude_3.1MB
+  network: ws
+  port: 443
+  server: sssxxxcft6.444752.xyz
+  servername: sssxxxcft6.444752.xyz
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 512d9674-db12-44ca-a1b5-654244549b65
+  ws-opts:
+    headers:
+      Host: sssxxxcft6.444752.xyz
+    path: /zzMtGpHptl8a7dX3JIrYk7zm
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_18.0MB
+  network: ws
+  port: 8880
+  server: 91.193.58.107
+  servername: sk.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: sk.laoyoutiao.link
+    path: /Telegram🇨🇳 @MxlShare @WangCai2
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
+  network: ws
+  port: 8880
+  server: 193.9.49.63
+  servername: sg.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: sg.laoyoutiao.link
+    path: /TelegramU0001F1E8U0001F1F3
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
+  network: ws
+  port: 8880
+  server: 185.148.104.141
+  servername: VngSuPpLY.IP-DdnS.com
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
+  ws-opts:
+    headers:
+      host: VngSuPpLY.IP-DdnS.com
+    path: /Etb1L6YUdZFZuTOr
+- name: US_Buffalo_HostPapa_OpenAI_Claude_4.1MB
+  network: ws
+  port: 443
+  server: 104.21.9.71
+  servername: ddDDdDDdDDF.777198.XyZ
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: c226ac5d-65e9-4379-95c3-fb542bc242d8
+  ws-opts:
+    headers:
+      Host: ddDDdDDdDDF.777198.XyZ
+    path: /OjdW89Bpg4ykd4O
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+  network: ws
+  port: 443
+  server: 172.66.47.156
+  servername: wwW.oPEnsIGnAL.cOM.naynay09.Dynv6.nET
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
+  ws-opts:
+    headers:
+      host: wwW.oPEnsIGnAL.cOM.naynay09.Dynv6.nET
+    path: /fp=chrome
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
+  network: ws
+  port: 8443
+  server: 172.66.47.61
+  servername: gghdfa.pages.dev
+  tls: true
+  type: vless
+  uuid: a396b860-11b7-4af3-9950-146caf79735e
+  ws-opts:
+    headers:
+      Host: gghdfa.pages.dev
+    path: /8WuhXm4QjK0L68Uf?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
+  network: ws
+  port: 8880
+  server: 159.246.55.251
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0132166f-e702-48ed-a9e7-b07af768faf8
+  ws-opts:
+    headers:
+      host: cf.d3z.net
+    path: /Telegram
+- name: US_Reston_Cloudflare, Inc._Claude_9.2MB
+  network: ws
+  port: 8880
+  server: 91.193.58.225
+  servername: us.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: us.laoyoutiao.link
+    path: /
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
+  network: ws
+  port: 443
+  server: 104.16.3.5
+  servername: gulf-d96.pages.dev
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 963816bd-b6e7-4648-abff-8af25bc07d87
+  ws-opts:
+    headers:
+      Host: gulf-d96.pages.dev
+    path: /ecY3gziM8W6ud5yj?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+  network: ws
+  port: 8880
+  server: 168.100.6.100
+  servername: VngSuPpLY.IP-DdnS.com
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
+  ws-opts:
+    headers:
+      host: VngSuPpLY.IP-DdnS.com
+    path: /1ycR2zb3KeELWRha
+- name: US_Reston_Cloudflare, Inc._Claude_3.2MB
+  network: ws
+  port: 8880
+  server: 91.193.58.192
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare @WangCai2 /?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_13.4MB
+  network: ws
+  port: 8880
+  server: 147.185.161.251
+  servername: Telegram-channel-WangCai2
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0132166f-e702-48ed-a9e7-b07af768faf8
+  ws-opts:
+    headers:
+      Host: cf.d3z.net
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+- name: US_Salt Lake City_Oxide Group Limited_OpenAI_Claude_8.8MB
+  network: ws
+  port: 32391
+  server: 195.58.58.88
+  servername: 45f4d22d.Mareza.pages.dev
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: c84ddb7c-7703-42a3-a22a-3ff9e5513f9a
+  ws-opts:
+    headers:
+      host: 45f4d22d.Mareza.pages.dev
+    path: /
+- name: US_Reston_Cloudflare, Inc._OpenAI_3.0MB
+  network: ws
+  port: 80
+  server: 141.193.213.206
+  tls: false
+  type: vless
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      Host: us.laoyoutiao.link
+    path: Telegram🇨🇳 @MxlShare+@WangCai2+/?ed=2560
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
+  network: ws
+  port: 8880
+  server: 104.16.86.73
+  servername: vngsupply.ip-ddns.com
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  udp: true
+  uuid: e9979910-79d1-4621-a93c-b2a579c44ba7
+  ws-opts:
+    headers:
+      Host: vngsupply.ip-ddns.com
+    path: /
+- name: US_Reston_Cloudflare, Inc._OpenAI_Claude_17.2MB
+  network: ws
+  port: 8880
+  server: 91.193.58.151
+  servername: sk.laoyoutiao.link
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf
+  ws-opts:
+    headers:
+      host: sk.laoyoutiao.link
     path: /TelegramU0001F1E8U0001F1F3
 proxy-groups:
 - name: PROXY
@@ -597,44 +596,44 @@ proxy-groups:
   type: select
   filter: .*
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.2MB
-  - US_Secaucus_Massivegrid LTD_OpenAI_3.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
-  - 103.12.77.78_OpenAI_Claude_2.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._Claude_5.9MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.2MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_7.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.5MB
+  - US_Reston_Cloudflare, Inc._OpenAI_4.3MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_7.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_8.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_10.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_25.1MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.6MB
-  - US_Los Angeles_HostPapa_OpenAI_Claude_8.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
   - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_4.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Reston_Cloudflare, Inc._Claude_6.0MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_6.0MB
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_3.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_18.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._Claude_9.2MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_27.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.5MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_7.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._Claude_2.2MB
-  - GB_London_Zhejiang Aiyun Network Technology Co Ltd_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_24.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_2.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+  - US_Reston_Cloudflare, Inc._Claude_3.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_13.4MB
+  - US_Salt Lake City_Oxide Group Limited_OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.2MB
 - name: Fallback
   type: fallback
   url: http://www.google.com/generate_204
@@ -683,41 +682,43 @@ proxy-groups:
   interval: 600
   tolerance: 2000
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.2MB
-  - US_Secaucus_Massivegrid LTD_OpenAI_3.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._Claude_5.9MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.2MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_7.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.5MB
+  - US_Reston_Cloudflare, Inc._OpenAI_4.3MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_7.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_8.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_10.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_25.1MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.6MB
-  - US_Los Angeles_HostPapa_OpenAI_Claude_8.2MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_4.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Reston_Cloudflare, Inc._Claude_6.0MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_6.0MB
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_3.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_18.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._Claude_9.2MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_27.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.5MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_7.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._Claude_2.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_24.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_2.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+  - US_Reston_Cloudflare, Inc._Claude_3.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_13.4MB
+  - US_Salt Lake City_Oxide Group Limited_OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.2MB
   filter: (?i)美|洛杉矶|芝加哥|西雅图|America|US|United.*?States
 - name: OpenAI
   type: url-test
@@ -725,40 +726,41 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.2MB
-  - US_Secaucus_Massivegrid LTD_OpenAI_3.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
-  - 103.12.77.78_OpenAI_Claude_2.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.2MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_7.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.5MB
+  - US_Reston_Cloudflare, Inc._OpenAI_4.3MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_7.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_8.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_10.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_25.1MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.6MB
-  - US_Los Angeles_HostPapa_OpenAI_Claude_8.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
   - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_4.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_6.0MB
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_3.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_18.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_27.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.5MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_7.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_24.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
-  - US_Reston_Cloudflare, Inc._OpenAI_2.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+  - US_Reston_Cloudflare, Inc._OpenAI_13.4MB
+  - US_Salt Lake City_Oxide Group Limited_OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.2MB
   filter: (?i)OpenAI
 - name: Claude
   type: url-test
@@ -766,42 +768,40 @@ proxy-groups:
   interval: 600
   tolerance: 500
   proxies:
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._Claude_3.2MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
-  - 103.12.77.78_OpenAI_Claude_2.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.5MB
-  - US_Reston_Cloudflare, Inc._Claude_5.9MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_8.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB1
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.6MB2
-  - US_Buffalo_HostPapa_OpenAI_Claude_6.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.4MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.2MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_3.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_7.5MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_7.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.4MB
+  - US_Buffalo_HostPapa_OpenAI_Claude_8.9MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_19.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_10.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_25.1MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_9.6MB
-  - US_Los Angeles_HostPapa_OpenAI_Claude_8.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.7MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.4MB
   - 160.250.65.148_OpenAI_Claude_2.6MB
-  - US_Elk Grove Village_HostPapa_OpenAI_Claude_4.2MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.6MB
+  - US_Reston_Cloudflare, Inc._Claude_6.0MB
+  - US_Elk Grove Village_HostPapa_OpenAI_Claude_6.0MB
+  - US_Buffalo_ColoCrossing_OpenAI_Claude_3.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_18.0MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.4MB2
+  - US_Buffalo_HostPapa_OpenAI_Claude_4.1MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.3MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB1
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._Claude_9.2MB
   - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB2
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_27.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_4.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.0MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_15.8MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_3.5MB
-  - US_Buffalo_HostPapa_OpenAI_Claude_7.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.8MB
-  - US_Reston_Cloudflare, Inc._Claude_2.2MB
-  - GB_London_Zhejiang Aiyun Network Technology Co Ltd_Claude_3.1MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_5.7MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.3MB3
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_24.3MB
-  - US_Reston_Cloudflare, Inc._OpenAI_Claude_2.5MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.1MB2
+  - US_Reston_Cloudflare, Inc._Claude_3.2MB
+  - US_Salt Lake City_Oxide Group Limited_OpenAI_Claude_8.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_6.8MB
+  - US_Reston_Cloudflare, Inc._OpenAI_Claude_17.2MB
   filter: (?i)Claude
 rules:
 - RULE-SET,ads,REJECT
